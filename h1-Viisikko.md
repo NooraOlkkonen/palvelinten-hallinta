@@ -8,6 +8,12 @@ Opettajan määrittämien artikkeleiden lukeminen ja tiivistäminen.
 
 ### Salt-komentojen suorittaminen paikallisesti
 
+-Saltia käytetään yleensä sallitsemaan yhtäaikaisesti suuria määriä tietokoneita.
+
+-Salt-komentoja voi myös suorittaa paikallisesti. Tämä on hyödyllistä harjoittelu- ja testausmielessä.
+
+-Tärkeimmät Salt-toiminnot ovat pkg, file, service, user ja cmd.
+
 ### Verkkosivun luonti Githubin avulla
 
 - Luodaan omaan Github-profiiliin uusi arkisto (create new repository).
