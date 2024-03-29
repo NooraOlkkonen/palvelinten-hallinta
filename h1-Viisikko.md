@@ -36,7 +36,7 @@ Opettajan osoittamien artikkeleiden lukeminen ja tiivistäminen.
 
 - Raportin tulee olla toistettava, täsmällinen ja helppolukuinen.
 
-- Raporttiin tulee muistaa lisätä viittaukset lähteisiin, joita tehtävää tehdessä on käytetty.
+- Raporttiin tulee muistaa lisätä viittaukset lähteisiin, joita on käytetty tehtävää tehdessä.
 
 - Sepittäminen, plagiointi ja kuvien luvaton kopiointi on kiellettyä.
 
