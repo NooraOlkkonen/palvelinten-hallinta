@@ -10,11 +10,11 @@ Opettajan määrittämien artikkeleiden lukeminen ja tiivistäminen.
 
 ### Verkkosivun luonti Githubin avulla
 
-- Luodaan omaan Github-profiiliin uusi arkisto (repository)
+- Luodaan omaan Github-profiiliin uusi arkisto (create new repository)
 
-- Arkiston luonnin yhteydessä määritetään arkiston tiedot ja asetukset: nimi, kuvaus, julkisuus, lisenssi ja lisätään myös README-tiedosto
+- Arkiston luonnin yhteydessä määritetään arkiston tiedot ja asetukset: nimi, lyhyt kuvaus, julkisuus, lisenssi ja lisätään myös README-tiedosto
 
-- Luodaan arkistoon uusi tiedosto ja nimetään se. Oleellista, että nimi on .md -loppuinen, jotta tiedosto muuntuu verkkosivuksi
+- Luodaan arkistoon uusi tiedosto (add file - create new file) ja nimetään se. Oleellista on, että nimi on .md -loppuinen, jotta tiedosto muuntuu verkkosivuksi
 
 - Kirjoitetaan tiedostoon tekstiä MarkDown-merkintäkielellä ja tallennetaan muutokset (commit changes-painike)
 
