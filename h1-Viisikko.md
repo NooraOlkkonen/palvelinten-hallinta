@@ -6,9 +6,9 @@
 
 Opettajan määrittämien artikkeleiden lukeminen ja tiivistäminen.
 
-### Salt-komentojen suorittaminen paikallisesti (Run Salt Command Locally)
+### Salt-komentojen suorittaminen paikallisesti
 
-### Verkkosivun luonti Githubin avulla (Create a Web Page Using Github)
+### Verkkosivun luonti Githubin avulla
 
 - Luodaan omaan Github-profiiliin uusi arkisto (repository)
 
@@ -41,6 +41,10 @@ Opettajan määrittämien artikkeleiden lukeminen ja tiivistäminen.
 
 ## Lähteet
 
+Karvinen 2023: Run Salt Command Locally. Luettavissa: https://terokarvinen.com/2021/salt-run-command-locally/. Luettu: 29.3.2024
+
 Karvinen 2023: Create a Web Page Using Github. Luettavissa: https://terokarvinen.com/2023/create-a-web-page-using-github/. Luettu: 29.3.2024
+
+Karvinen 2006: Raportin kirjoittaminen. Luettavissa: https://terokarvinen.com/2006/06/04/raportin-kirjoittaminen-4/. Luettu 29.3.2024.
 
 
