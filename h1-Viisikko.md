@@ -12,13 +12,12 @@ Opettajan määrittämien artikkeleiden lukeminen ja tiivistäminen.
 
 - Salt-komentoja voi myös suorittaa paikallisesti. Tämä on hyödyllistä esim. harjoittelu- ja testausmielessä.
 
-- Salt-komentojen suorittaminen paikallisesti tapahtuu $ sudo salt-call --local -l info state.single pkg.installed tree
+- Salt-komentojen suorittaminen paikallisesti tapahtuu lisäämällä komentoon parametrin --local.
 
 - Tärkeimmät Salt-toiminnot ovat pkg, file, service, user ja cmd.
 
-- Linux + Windows
+- Linux- ja Windows-käyttöjärjestelmissä toimii samat Salt-toiminnot.
 
-- 
 
 ### Verkkosivun luonti Githubin avulla
 
