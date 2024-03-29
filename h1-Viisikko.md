@@ -8,7 +8,7 @@ Opettajan määrittämien artikkeleiden lukeminen ja tiivistäminen.
 
 ### Salt-komentojen suorittaminen paikallisesti
 
-- Yleensä Saltilla hallitaan yhtäaikaisesti suuria määriä tietokoneita.
+- Yleensä Salt-ohjelmistolla hallitaan yhtäaikaisesti suuria määriä tietokoneita.
 
 - Salt-komentoja voi myös suorittaa paikallisesti. Tämä on hyödyllistä esim. harjoittelu- ja testausmielessä.
 
@@ -30,6 +30,14 @@ Opettajan määrittämien artikkeleiden lukeminen ja tiivistäminen.
 - Kirjoitetaan tiedostoon tekstiä MarkDown-merkintäkielellä ja tallennetaan muutokset (commit changes-painike).
 
 ### Raportin kirjoittaminen
+
+-
+
+-
+
+-
+
+- 
 
 ## a) Hello Windows Salt Word!
 
