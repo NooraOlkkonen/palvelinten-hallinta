@@ -30,7 +30,7 @@ Opettajan osoittamien artikkeleiden lukeminen ja tiivistäminen.
 
 ### Raportin kirjoittaminen
 
-- Raportin tulee olla täsmällinen kuvaus siitä mitä on tehty ja mitä tapahtui.
+- Raportti on kuvaus siitä mitä on tehty ja mitä tapahtui.
 
 - Raporttia tulee kirjoittaa samanaikaisesti tehtävää tehdessä.
 
