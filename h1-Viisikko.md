@@ -30,13 +30,13 @@ Opettajan osoittamien artikkelien lukeminen ja tiivistäminen.
 
 ### Raportin kirjoittaminen
 
-- Raportti on kuvaus siitä mitä on tehty ja mitä tapahtui.
+- Raportti on kuvaus siitä mitä harjoituksessa on tehty ja tapahtunut.
 
-- Raporttia tulee kirjoittaa samanaikaisesti tehtävää tehdessä.
+- Raporttia tulee kirjoittaa samanaikaisesti harjoitusta tehdessä.
 
 - Raportin tulee olla toistettava, täsmällinen ja helppolukuinen.
 
-- Raporttiin tulee muistaa lisätä viittaukset lähteisiin, joita on käytetty tehtävää tehdessä / raporttia laadittaessa.
+- Raporttiin tulee muistaa lisätä viittaukset lähteisiin, joita on käytetty harjoitusta tehdessä / raporttia laadittaessa.
 
 - Sepittäminen, plagiointi ja kuvien luvaton kopiointi on kiellettyä.
 
