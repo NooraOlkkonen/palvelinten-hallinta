@@ -4,14 +4,14 @@
 
 ### Salt-komentojen suorittaminen paikallisesti (Run Salt Command Locally)
 
-### Verkkosivun luonti GitHubin avulla (Create a Web Page Using Github)
--Luodaan omaan Github-profiiliin uusi arkisto (repository)
+### Verkkosivun luonti Githubin avulla (Create a Web Page Using Github)
+- Luodaan omaan Github-profiiliin uusi arkisto (repository)
 
--Määritetään arkiston tiedot ja asetukset: nimi, kuvaus, julkisuus, lisenssi ja lisätään README-tiedosto
+- Määritetään arkiston tiedot ja asetukset: nimi, kuvaus, julkisuus, lisenssi ja lisätään README-tiedosto
 
--Luodaan arkistoon uusi tiedosto ja nimetään se (esim. otsikko.md)
+- Luodaan arkistoon uusi tiedosto ja nimetään se (esim. otsikko.md)
 
--Kirjoitetaan tiedostoon tekstiä MarkDown-merkintäkielellä ja tallennetaan muutokset (commit changes-painike)
+- Kirjoitetaan tiedostoon tekstiä MarkDown-merkintäkielellä ja tallennetaan muutokset (commit changes-painike)
 
 ### Raportin kirjoittaminen
 
