@@ -12,9 +12,9 @@ Opettajan määrittämien artikkeleiden lukeminen ja tiivistäminen.
 
 - Luodaan omaan Github-profiiliin uusi arkisto (repository)
 
-- Määritetään arkiston tiedot ja asetukset: nimi, kuvaus, julkisuus, lisenssi ja lisätään README-tiedosto
+- Arkiston luonnin yhteydessä määritetään arkiston tiedot ja asetukset: nimi, kuvaus, julkisuus, lisenssi ja lisätään myös README-tiedosto
 
-- Luodaan arkistoon uusi tiedosto ja nimetään se (esim. otsikko.md)
+- Luodaan arkistoon uusi tiedosto ja nimetään se. Oleellista, että nimi on .md -loppuinen, jotta tiedosto muuntuu verkkosivuksi
 
 - Kirjoitetaan tiedostoon tekstiä MarkDown-merkintäkielellä ja tallennetaan muutokset (commit changes-painike)
 
@@ -41,9 +41,9 @@ Opettajan määrittämien artikkeleiden lukeminen ja tiivistäminen.
 
 ## Lähteet
 
-Karvinen 2023: Run Salt Command Locally. Luettavissa: https://terokarvinen.com/2021/salt-run-command-locally/. Luettu: 29.3.2024
+Karvinen 2023: Run Salt Command Locally. Luettavissa: https://terokarvinen.com/2021/salt-run-command-locally/. Luettu: 29.3.2024.
 
-Karvinen 2023: Create a Web Page Using Github. Luettavissa: https://terokarvinen.com/2023/create-a-web-page-using-github/. Luettu: 29.3.2024
+Karvinen 2023: Create a Web Page Using Github. Luettavissa: https://terokarvinen.com/2023/create-a-web-page-using-github/. Luettu: 29.3.2024.
 
 Karvinen 2006: Raportin kirjoittaminen. Luettavissa: https://terokarvinen.com/2006/06/04/raportin-kirjoittaminen-4/. Luettu 29.3.2024.
 
