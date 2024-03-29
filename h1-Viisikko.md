@@ -20,3 +20,9 @@ Opettajan määrittämien artikkeleiden lukeminen ja tiivistäminen.
 
 ### Raportin kirjoittaminen
 
+
+
+
+## Lähteet
+
+
