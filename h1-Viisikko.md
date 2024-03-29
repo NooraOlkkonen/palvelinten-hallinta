@@ -8,7 +8,7 @@ Opettajan määrittämien artikkeleiden lukeminen ja tiivistäminen.
 
 ### Salt-komentojen suorittaminen paikallisesti
 
-- Saltia käytetään yleensä sallitsemaan yhtäaikaisesti suuria määriä tietokoneita.
+- Saltia käytetään yleensä hallitsemaan suuria määriä tietokoneita yhtäaikaisesti.
 
 - Salt-komentoja voi myös suorittaa paikallisesti. Tämä on hyödyllistä harjoittelu- ja testausmielessä.
 
