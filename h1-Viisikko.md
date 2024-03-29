@@ -4,7 +4,7 @@
 
 ## x) Lue ja tiivistä
 
-Opettajan määrittämien artikkeleiden lukeminen ja tiivistäminen.
+Opettajan osoittamien artikkeleiden lukeminen ja tiivistäminen.
 
 ### Salt-komentojen suorittaminen paikallisesti
 
@@ -18,8 +18,6 @@ Opettajan määrittämien artikkeleiden lukeminen ja tiivistäminen.
 
 - Linux- ja Windows-käyttöjärjestelmissä toimii samat Salt-toiminnot.
 
-cp sourceFile destFile
-
 ### Verkkosivun luonti Githubin avulla
 
 - Luodaan omaan Github-profiiliin uusi arkisto (create new repository).
@@ -32,13 +30,15 @@ cp sourceFile destFile
 
 ### Raportin kirjoittaminen
 
--
+- Raportin tulee olla täsmällinen kuvaus siitä mitä on tehty ja mitä tapahtui.
 
--
+- Raporttia tulee kirjoittaa samanaikaisesti tehtävää tehdessä.
 
--
+- Raportin tulee olla toistettava, täsmällinen ja helppolukuinen.
 
-- 
+- Raporttiin tulee muistaa lisätä viittaukset lähteisiin, joita tehtävää tehdessä on käytetty.
+
+- Sepittäminen, plagiointi ja kuvien luvaton kopiointi on kiellettyä.
 
 ## a) Hello Windows Salt Word!
 
