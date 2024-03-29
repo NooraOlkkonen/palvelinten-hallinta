@@ -18,6 +18,7 @@ Opettajan määrittämien artikkeleiden lukeminen ja tiivistäminen.
 
 - Linux- ja Windows-käyttöjärjestelmissä toimii samat Salt-toiminnot.
 
+cp sourceFile destFile
 
 ### Verkkosivun luonti Githubin avulla
 
