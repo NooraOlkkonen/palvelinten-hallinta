@@ -41,4 +41,6 @@ Opettajan määrittämien artikkeleiden lukeminen ja tiivistäminen.
 
 ## Lähteet
 
+Karvinen 2023: Create a Web Page Using Github. Luettavissa: https://terokarvinen.com/2023/create-a-web-page-using-github/. Luettu: 29.3.2024
+
 
