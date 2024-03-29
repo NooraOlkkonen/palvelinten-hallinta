@@ -8,11 +8,17 @@ Opettajan määrittämien artikkeleiden lukeminen ja tiivistäminen.
 
 ### Salt-komentojen suorittaminen paikallisesti
 
-- Saltia käytetään yleensä hallitsemaan suuria määriä tietokoneita yhtäaikaisesti.
+- Yleensä Saltilla hallitaan yhtäaikaisesti suuria määriä tietokoneita.
 
-- Salt-komentoja voi myös suorittaa paikallisesti. Tämä on hyödyllistä harjoittelu- ja testausmielessä.
+- Salt-komentoja voi myös suorittaa paikallisesti. Tämä on hyödyllistä esim. harjoittelu- ja testausmielessä.
+
+- Salt-komentojen suorittaminen paikallisesti tapahtuu $ sudo salt-call --local -l info state.single pkg.installed tree
 
 - Tärkeimmät Salt-toiminnot ovat pkg, file, service, user ja cmd.
+
+- Linux + Windows
+
+- 
 
 ### Verkkosivun luonti Githubin avulla
 
