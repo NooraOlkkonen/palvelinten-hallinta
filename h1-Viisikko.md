@@ -18,6 +18,12 @@ Opettajan määrittämien artikkeleiden lukeminen ja tiivistäminen.
 
 - Kirjoitetaan tiedostoon tekstiä MarkDown-merkintäkielellä ja tallennetaan muutokset (commit changes-painike)
 
+## a)
+
+## b)
+
+## c)
+
 ### Raportin kirjoittaminen
 
 
