@@ -20,11 +20,19 @@ Opettajan määrittämien artikkeleiden lukeminen ja tiivistäminen.
 
 ### Raportin kirjoittaminen
 
-## a)
+## a) Hello Windows Salt Word!
 
-## b)
+## b) Hello Vagrant!
 
-## c)
+## c) Linux-virtuaalikoneen luonti Vagrantilla
+
+## a) Salt-minionin asennus virtuaalikoneeseen
+
+## b) Viisi tärkeintä
+
+## c) Idempotentti
+
+## d) Tietoja koneesta
 
 
 
