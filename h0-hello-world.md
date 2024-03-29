@@ -1,4 +1,4 @@
-# h1 - Hello world!
+# h0 - Hello world!
 
 Creating GitHub-profile was my first task in this course.
 
