@@ -4,7 +4,7 @@
 
 ## x) Lue ja tiivistä
 
-Opettajan osoittamien artikkeleiden lukeminen ja tiivistäminen.
+Opettajan osoittamien artikkelien lukeminen ja tiivistäminen.
 
 ### Salt-komentojen suorittaminen paikallisesti
 
