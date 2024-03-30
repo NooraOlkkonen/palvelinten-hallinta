@@ -48,12 +48,9 @@ Aloitin lataamalla Salt-ohjelmiston Windows 64 bittiselle käyttöjärjestelmäl
 
 ![kuva](https://github.com/NooraOlkkonen/Palvelinten-hallinta/assets/165004946/4f7a3269-ab37-4e1b-8b9b-5202fc0a5f96)
 
-Avasin Windows PowerShellin oikeuksin. Komennolla salt-call --version
+Avasin Windows PowerShellin järjestelmänvalvojan oikeuksin. Selvitin Saltin asennuksen onnistumisen käyttämällä komentoa salt-call --version.
 
-![kuva](https://github.com/NooraOlkkonen/Palvelinten-hallinta/assets/165004946/a4b09693-4ebf-4674-b158-ec38ab254904)
-
-
-
+![kuva](https://github.com/NooraOlkkonen/Palvelinten-hallinta/assets/165004946/bee571f7-6d8c-46ca-8f96-efdd5a70ae5c)
 
 ## b) Hello Vagrant!
 
