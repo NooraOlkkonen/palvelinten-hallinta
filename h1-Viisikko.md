@@ -1,10 +1,11 @@
 # h1 Viisikko
 
-1. viikon kotitehtävät
+1. viikon kotitehtävät. Tehtävänannot kurssisivulla: https://terokarvinen.com/2024/configuration-management-2024-spring/.
+
+Kotitehtävissä käytetyn tietokoneen tiedot:
+
 
 ## x) Lue ja tiivistä
-
-Opettajan osoittamien artikkelien lukeminen ja tiivistäminen.
 
 ### Salt-komentojen suorittaminen paikallisesti
 
@@ -42,7 +43,7 @@ Opettajan osoittamien artikkelien lukeminen ja tiivistäminen.
 
 ## a) Hello Windows Salt Word!
 
-Aloitin lataamalla Salt-ohjelmiston Windows 64 bittiselle käyttöjärjestelmälle. 
+Aloitin lataamalla tietokoneelle Salt-ohjelmiston Windows 64-bittiselle käyttöjärjestelmälle. 
 
 ![kuva](https://github.com/NooraOlkkonen/Palvelinten-hallinta/assets/165004946/fe5a345f-2369-4ceb-adaa-20ecca498603)
 
@@ -53,6 +54,11 @@ Avasin Windows PowerShellin järjestelmänvalvojan oikeuksin. Selvitin Saltin as
 ![kuva](https://github.com/NooraOlkkonen/Palvelinten-hallinta/assets/165004946/bee571f7-6d8c-46ca-8f96-efdd5a70ae5c)
 
 ## b) Hello Vagrant!
+
+Latasin ensin tietokoneelle Oraclen VirtualBox-hypervisorin version 7.0.14. Ohjelman asennuksen yhteydessä tuli ilmoitukset Microsoft Visual C++ 2019 Redistributable Packagen lataamisesta, asennuksen ennenaikaisesta päättymisestä ja vakavasta virheestä asennuksen aikana. Googletin neuvoja ja asensin Microsoft Visual C++ 2019 Redistributable Packagen Youtube-videon ohjeiden avulla (https://www.youtube.com/watch?v=nvdnQX9UkMY). Tämän jälkeen sain asennettua Virtual Boxin ilman ongelmia.
+ 
+![kuva](https://github.com/NooraOlkkonen/Palvelinten-hallinta/assets/165004946/469fe2bb-f3c9-4f21-9ff8-c7c3da1d84bb)
+
 
 ## c) Linux-virtuaalikoneen luonti Vagrantilla
 
