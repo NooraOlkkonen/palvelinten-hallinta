@@ -86,7 +86,7 @@ Avasin Windows PowerShellin järjestelmänvalvojan oikeuksin. Selvitin Vagrantin
 
 Loin oman kansion (bullseye) luotavalle virtuaalikoneelle. PowerShellissa siirryin kyseiseen kansioon ja suoritin komennon vagrant init debian/bullseye64. Seuraavaksi käynnistin virtuaalikoneen komennolla vagrant up, jolloin virtuaalikone käynnistyy VirtualBoxissa. 
 
-![kuva](https://github.com/NooraOlkkonen/Palvelinten-hallinta/assets/165004946/788c04ac-62d4-46ba-bdf8-ee96e3104cbb)
+![kuva](https://github.com/NooraOlkkonen/Palvelinten-hallinta/assets/165004946/8a1f13ea-88f4-4b43-92e1-967519268a0d)
 
 Otin SSH-yhteyden virtuaalikoneeseen komennolla vagrant ssh.
 
