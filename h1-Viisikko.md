@@ -12,7 +12,7 @@ Suoritin: Intel(R) Core(TM) i5-6300U CPU @ 2.40GHz 2.50 GHz
 
 Asennettu RAM-muisti: 8.00 GB (7.88 GB käytettävissä)
 
-Järjestelmän tyyppi: 64-bittinen käyttöjärjestelmä, x64-suoritin
+Järjestelmätyyppi: 64-bittinen käyttöjärjestelmä, x64-suoritin
 
 Käyttöjärjestelmä: Windows 10 Pro
 
