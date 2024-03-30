@@ -53,13 +53,17 @@ Avasin Windows PowerShellin järjestelmänvalvojan oikeuksin. Selvitin Saltin as
 
 ![kuva](https://github.com/NooraOlkkonen/Palvelinten-hallinta/assets/165004946/bee571f7-6d8c-46ca-8f96-efdd5a70ae5c)
 
-## b) Hello Vagrant!
+## b) Hello VirtualBox! / Hello Vagrant!
 
-Latasin ensin tietokoneelle Oraclen VirtualBox-hypervisorin version 7.0.14. Ohjelman asennuksen yhteydessä tuli ilmoitukset Microsoft Visual C++ 2019 Redistributable Packagen lataamisesta, asennuksen ennenaikaisesta päättymisestä ja vakavasta virheestä asennuksen aikana. 
+Latasin ensin tietokoneelle Oraclen VirtualBox-hypervisorin version 7.0.14 asennustiedoston. Ohjelman asennuksen yhteydessä tuli ilmoitukset Microsoft Visual C++ 2019 Redistributable Packagen lataamisesta, asennuksen ennenaikaisesta päättymisestä ja vakavasta virheestä asennuksen aikana. 
 
 Googletin neuvoja ja asensin Microsoft Visual C++ 2019 Redistributable Packagen Youtube-videon ohjeiden avulla. Tämän jälkeen sain asennettua Virtual Boxin ilman ongelmia.
  
 ![kuva](https://github.com/NooraOlkkonen/Palvelinten-hallinta/assets/165004946/469fe2bb-f3c9-4f21-9ff8-c7c3da1d84bb)
+
+Seuraavaksi latasin Vagrant-ohjelman version 2.4.1 asennustiedoston. Tietokone tuli käynnistää uudelleen asennuksen jälkeen.
+
+![kuva](https://github.com/NooraOlkkonen/Palvelinten-hallinta/assets/165004946/0f610bff-55a7-41aa-9716-3a8a1288b0a0)
 
 
 ## c) Linux-virtuaalikoneen luonti Vagrantilla
