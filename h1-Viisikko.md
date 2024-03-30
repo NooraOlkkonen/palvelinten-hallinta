@@ -106,6 +106,8 @@ Latasin päivitykset virtuaalikoneeseen komennolla sudo apt-get update ja tämä
 
 ## Lähteet
 
+HashiCorp 2024: Install Vagrant. Luettavissa: https://developer.hashicorp.com/vagrant/install. Luettu 30.3.2024.
+
 GameTrick 2022: Oracle VM VirtualBox Needs the Microsoft Visual C++ Redistributable Package Being Installed First. Katsottavissa: https://www.youtube.com/watch?v=xKTKgjUHu48. Katsottu 30.3.2024.
 
 Karvinen 2023: Run Salt Command Locally. Luettavissa: https://terokarvinen.com/2021/salt-run-command-locally/. Luettu: 29.3.2024.
