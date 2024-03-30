@@ -82,11 +82,21 @@ Avasin Windows PowerShellin järjestelmänvalvojan oikeuksin. Selvitin Vagrantin
 
 ![kuva](https://github.com/NooraOlkkonen/Palvelinten-hallinta/assets/165004946/75a50317-c654-4edf-b2b0-b7d5551695a3)
 
-
-
 ## c) Linux-virtuaalikoneen luonti Vagrantilla
 
+Loin oman kansion (bullseye) luotavalle virtuaalikoneelle. PowerShellissa siirryin kyseiseen kansioon ja suoritin komennon vagrant init debian/bullseye64. Seuraavaksi käynnistin virtuaalikoneen komennolla vagrant up, jolloin virtuaalikone käynnistyy VirtualBoxissa. 
+
+![kuva](https://github.com/NooraOlkkonen/Palvelinten-hallinta/assets/165004946/788c04ac-62d4-46ba-bdf8-ee96e3104cbb)
+
+Otin SSH-yhteyden virtuaalikoneeseen komennolla vagrant ssh.
+
+![kuva](https://github.com/NooraOlkkonen/Palvelinten-hallinta/assets/165004946/e0aee916-0af1-4440-8cfd-a878967b0149)
+
 ## a) Salt-minionin asennus virtuaalikoneeseen
+
+Latasin päivitykset virtuaalikoneeseen komennolla sudo apt-get update ja tämän jälkeen asensin Salt-ohjelmiston (salt-minion) komennolla sudo apt-get install salt-minion. Varmistuin Saltin asentumisesta komennolla sudo salt-call --version.
+
+![kuva](https://github.com/NooraOlkkonen/Palvelinten-hallinta/assets/165004946/2ce87f09-349a-4f06-b16f-2c1246a37857)
 
 ## b) Viisi tärkeintä
 
