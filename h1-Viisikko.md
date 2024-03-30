@@ -65,6 +65,11 @@ Seuraavaksi latasin Vagrant-ohjelman version 2.4.1 asennustiedoston. Tietokone t
 
 ![kuva](https://github.com/NooraOlkkonen/Palvelinten-hallinta/assets/165004946/0f610bff-55a7-41aa-9716-3a8a1288b0a0)
 
+Avasin Windows PowerShellin järjestelmänvalvojan oikeuksin. Selvitin Vagrantin asennuksen onnistumisen käyttämällä komentoa vagrant --version.
+
+![kuva](https://github.com/NooraOlkkonen/Palvelinten-hallinta/assets/165004946/75a50317-c654-4edf-b2b0-b7d5551695a3)
+
+
 
 ## c) Linux-virtuaalikoneen luonti Vagrantilla
 
