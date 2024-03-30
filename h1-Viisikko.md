@@ -55,7 +55,9 @@ Avasin Windows PowerShellin järjestelmänvalvojan oikeuksin. Selvitin Saltin as
 
 ## b) Hello Vagrant!
 
-Latasin ensin tietokoneelle Oraclen VirtualBox-hypervisorin version 7.0.14. Ohjelman asennuksen yhteydessä tuli ilmoitukset Microsoft Visual C++ 2019 Redistributable Packagen lataamisesta, asennuksen ennenaikaisesta päättymisestä ja vakavasta virheestä asennuksen aikana. Googletin neuvoja ja asensin Microsoft Visual C++ 2019 Redistributable Packagen Youtube-videon ohjeiden avulla (https://www.youtube.com/watch?v=nvdnQX9UkMY). Tämän jälkeen sain asennettua Virtual Boxin ilman ongelmia.
+Latasin ensin tietokoneelle Oraclen VirtualBox-hypervisorin version 7.0.14. Ohjelman asennuksen yhteydessä tuli ilmoitukset Microsoft Visual C++ 2019 Redistributable Packagen lataamisesta, asennuksen ennenaikaisesta päättymisestä ja vakavasta virheestä asennuksen aikana. 
+
+Googletin neuvoja ja asensin Microsoft Visual C++ 2019 Redistributable Packagen Youtube-videon ohjeiden avulla. Tämän jälkeen sain asennettua Virtual Boxin ilman ongelmia.
  
 ![kuva](https://github.com/NooraOlkkonen/Palvelinten-hallinta/assets/165004946/469fe2bb-f3c9-4f21-9ff8-c7c3da1d84bb)
 
@@ -70,17 +72,18 @@ Latasin ensin tietokoneelle Oraclen VirtualBox-hypervisorin version 7.0.14. Ohje
 
 ## d) Tietoja koneesta
 
-
-
-
-
-
 ## Lähteet
+
+GameTrick 2022: Oracle VM VirtualBox Needs the Microsoft Visual C++ Redistributable Package Being Installed First. Katsottavissa: https://www.youtube.com/watch?v=xKTKgjUHu48. Katsottu 30.3.2024.
 
 Karvinen 2023: Run Salt Command Locally. Luettavissa: https://terokarvinen.com/2021/salt-run-command-locally/. Luettu: 29.3.2024.
 
 Karvinen 2023: Create a Web Page Using Github. Luettavissa: https://terokarvinen.com/2023/create-a-web-page-using-github/. Luettu: 29.3.2024.
 
 Karvinen 2006: Raportin kirjoittaminen. Luettavissa: https://terokarvinen.com/2006/06/04/raportin-kirjoittaminen-4/. Luettu 29.3.2024.
+
+Oracle 2023: Download VirtualBox. Luettavissa: https://www.virtualbox.org/wiki/Downloads. Luettu 30.3.2024.
+
+Salt Project 2024: Downloads. Luettavissa: https://docs.saltproject.io/salt/install-guide/en/latest/topics/downloads.html#windows. Luettu: 30.3.2024.
 
 
