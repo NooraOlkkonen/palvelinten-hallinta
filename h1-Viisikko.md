@@ -42,6 +42,11 @@ Opettajan osoittamien artikkelien lukeminen ja tiivistäminen.
 
 ## a) Hello Windows Salt Word!
 
+Aloitin lataamalla Salt-ohjelmiston Windows x64 -käyttöjärjestelmälle
+
+![kuva](https://github.com/NooraOlkkonen/Palvelinten-hallinta/assets/165004946/fe5a345f-2369-4ceb-adaa-20ecca498603)
+
+
 ## b) Hello Vagrant!
 
 ## c) Linux-virtuaalikoneen luonti Vagrantilla
