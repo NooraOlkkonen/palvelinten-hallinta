@@ -1,6 +1,6 @@
 # h1 Viisikko
 
-1. viikon kotitehtävät. Tehtävänannot kurssisivulla: https://terokarvinen.com/2024/configuration-management-2024-spring/.
+Ensimmäisen viikon kotitehtävät. Tehtävänannot kurssisivulla: https://terokarvinen.com/2024/configuration-management-2024-spring/.
 
 ## Kotitehtävissä käytetyn fyysisen tietokoneen tiedot
 
