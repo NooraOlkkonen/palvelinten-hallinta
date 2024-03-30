@@ -42,9 +42,17 @@ Opettajan osoittamien artikkelien lukeminen ja tiivistäminen.
 
 ## a) Hello Windows Salt Word!
 
-Aloitin lataamalla Salt-ohjelmiston Windows x64 -käyttöjärjestelmälle
+Aloitin lataamalla Salt-ohjelmiston Windows 64 bittiselle käyttöjärjestelmälle. 
 
 ![kuva](https://github.com/NooraOlkkonen/Palvelinten-hallinta/assets/165004946/fe5a345f-2369-4ceb-adaa-20ecca498603)
+
+![kuva](https://github.com/NooraOlkkonen/Palvelinten-hallinta/assets/165004946/4f7a3269-ab37-4e1b-8b9b-5202fc0a5f96)
+
+Avasin Windows PowerShellin oikeuksin. Komennolla salt-call --version
+
+![kuva](https://github.com/NooraOlkkonen/Palvelinten-hallinta/assets/165004946/a4b09693-4ebf-4674-b158-ec38ab254904)
+
+
 
 
 ## b) Hello Vagrant!
