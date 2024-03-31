@@ -40,7 +40,7 @@ Käyttöjärjestelmän versio: 22H2
 
 - Luodaan arkistoon uusi tiedosto (add file - create new file) ja nimetään se. Oleellista on, että nimi on .md -loppuinen, jotta tiedosto muuntuu verkkosivuksi.
 
-- Kirjoitetaan tiedostoon tekstiä MarkDown-merkintäkielellä ja tallennetaan muutokset (commit changes-painike).
+- Kirjoitetaan tiedostoon tekstiä Markdown-merkintäkielellä ja tallennetaan muutokset (commit changes-painike).
 
 ### Raportin kirjoittaminen
 
@@ -56,7 +56,7 @@ Käyttöjärjestelmän versio: 22H2
 
 ## a) Hello Windows Salt Word!
 
-Aloitin lataamalla tietokoneelle Salt-ohjelmiston Windows 64-bittiselle käyttöjärjestelmälle. 
+Aloitin lataamalla Salt-ohjelmiston asennustiedoston käytössäni olevalle fyysiselle tietokoneelle ja suoritin asennuksen. 
 
 ![kuva](https://github.com/NooraOlkkonen/Palvelinten-hallinta/assets/165004946/fe5a345f-2369-4ceb-adaa-20ecca498603)
 
