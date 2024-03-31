@@ -92,17 +92,40 @@ Otin SSH-yhteyden virtuaalikoneeseen komennolla vagrant ssh.
 
 ![kuva](https://github.com/NooraOlkkonen/Palvelinten-hallinta/assets/165004946/e0aee916-0af1-4440-8cfd-a878967b0149)
 
-## a) Salt-minionin asennus virtuaalikoneeseen
+## d) Salt-minionin asennus virtuaalikoneeseen
 
 Latasin päivitykset virtuaalikoneeseen komennolla sudo apt-get update ja tämän jälkeen asensin Salt-ohjelmiston (salt-minion) komennolla sudo apt-get install salt-minion. Varmistuin Saltin asentumisesta komennolla sudo salt-call --version.
 
 ![kuva](https://github.com/NooraOlkkonen/Palvelinten-hallinta/assets/165004946/2ce87f09-349a-4f06-b16f-2c1246a37857)
 
-## b) Viisi tärkeintä
+## e) Viisi tärkeintä
 
-## c) Idempotentti
+Viisi tärkeintä Salt-tilafunktiota.
 
-## d) Tietoja koneesta
+1. pkg
+
+2. file
+
+3. service
+
+4. user
+
+5. cmd
+
+## f) Idempotentti
+
+## g) Tietoja koneesta
+
+Tutustuin virtuaalikoneen tietoihin käyttäen komentoa sudo salt-call --local grains.items. Poimin kolme mielenkiintoista tietoa, jotka sain eriteltyä komennolla sudo salt-call --local grains.item osfinger shell saltversion. 
+
+![kuva](https://github.com/NooraOlkkonen/Palvelinten-hallinta/assets/165004946/16ee485b-c9b6-4bf6-a2be-eb8d150d6df6)
+
+- osfinger = kertoo virtuaalikoneen käyttöjärjestelmän
+
+- saltversion = kertoo virtuaalikoneeseen asennetun Salt-ohjelmiston version
+
+- shell = kertoo virtuaalikoneen komentotulkin
+
 
 ## Lähteet
 
