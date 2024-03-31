@@ -70,7 +70,13 @@ Avasin Windows PowerShellin järjestelmänvalvojan oikeuksin. Selvitin Saltin as
 
 Latasin ensin tietokoneelle Oraclen VirtualBox-hypervisorin version 7.0.14 asennustiedoston. Ohjelman asennuksen yhteydessä tuli ilmoitukset Microsoft Visual C++ 2019 Redistributable Packagen lataamisesta, asennuksen ennenaikaisesta päättymisestä ja vakavasta virheestä asennuksen aikana. 
 
-Googletin neuvoja ja asensin Microsoft Visual C++ 2019 Redistributable Packagen Youtube-videon ohjeiden avulla. Tämän jälkeen sain asennettua Virtual Boxin ilman ongelmia.
+![kuva](https://github.com/NooraOlkkonen/Palvelinten-hallinta/assets/165004946/a220381e-6314-404d-b935-6f1d1324a6f2)
+
+![kuva](https://github.com/NooraOlkkonen/Palvelinten-hallinta/assets/165004946/a7d782c7-9ff8-432f-ab85-077e81456d92)
+
+![kuva](https://github.com/NooraOlkkonen/Palvelinten-hallinta/assets/165004946/4c7d1f65-0100-48a8-bea0-86605e0826ad)
+
+Googletin neuvoja ja asensin Microsoft Visual C++ 2019 Redistributable Packagen GameTrick-käyttäjän Youtube-videon ohjeiden avulla. Tämän jälkeen sain asennettua Virtual Boxin ilman ongelmia.
  
 ![kuva](https://github.com/NooraOlkkonen/Palvelinten-hallinta/assets/165004946/469fe2bb-f3c9-4f21-9ff8-c7c3da1d84bb)
 
@@ -100,7 +106,7 @@ Latasin päivitykset virtuaalikoneeseen komennolla sudo apt-get update ja tämä
 
 ## e) Viisi tärkeintä
 
-Viisi tärkeintä Salt-tilafunktiota.
+Viiden tärkeimmän Salt-tilafunktion esittely ja esimerkit niistä.
 
 ### 1. pkg
 
@@ -144,6 +150,12 @@ Esimerkkinä touch /tmp/foo -komennon suorittaminen. Käytin komentoa sudo salt-
 
 ## f) Idempotentti
 
+Idempotentin toiminnon vaikutukset ovat samat toiminnon suorituskertojen lukumäärästä huolimatta. Esimerkiksi järjestelmään ei tule muutoksia, vaikka toiminto suoritettaisiin useampaan kertaan. Idempotentti toiminto voi myös olla toiminto, joka tekee muutoksen järjestelmään ensimmäisellä suorituskerralla, mutta ei saman toiminnon myöhemmillä suorituskerroilla. Saltin tilafunktioiden tulisi olla idempotentteja.
+
+Valitsin esimerkiksi idempotentistä toiminnosta Saltin user-tilafunktion. Aiemmin tehtävässä e) loin omistaja-nimisen käyttäjän. Kun suoritin uudelleen komennon sudo salt-call --local -l info state.single user.present omistaja, toista samannimistä käyttäjää ei enää luotu. Sen sijaan tuli ilmoitus kyseisen käyttäjän olemassaolosta (Comment: User omistaja is present and up to date). Siis kun sama komento suoritettiin uudelleen, mitään muutoksia ei tehty.
+
+![kuva](https://github.com/NooraOlkkonen/Palvelinten-hallinta/assets/165004946/db741ed4-c5a7-4ec3-ae1f-925349ff4ce6)
+
 ## g) Tietoja koneesta
 
 Tutustuin virtuaalikoneen tietoihin käyttäen komentoa sudo salt-call --local grains.items. Poimin kolme mielenkiintoista tietoa, jotka sain eriteltyä komennolla sudo salt-call --local grains.item osfinger shell saltversion. 
@@ -172,6 +184,8 @@ Oracle 2023: Download VirtualBox. Luettavissa: https://www.virtualbox.org/wiki/D
 
 Salt Project 2024: Downloads. Luettavissa: https://docs.saltproject.io/salt/install-guide/en/latest/topics/downloads.html#windows. Luettu: 30.3.2024.
 
+Salt Project 2024: Glossary - Idempotent. Luettavissa: https://docs.saltproject.io/en/latest/glossary.html. Luettu 31.3.2024.
+
 Salt Project 2024: Salt.states.pkg. Luettavissa: https://docs.saltproject.io/en/latest/ref/states/all/salt.states.pkg.html. Luettu 31.3.2024.
 
 Salt Project 2024: Salt.states.file. Luettavissa: https://docs.saltproject.io/en/latest/ref/states/all/salt.states.file.html. Luettu 31.3.2024.
@@ -182,4 +196,4 @@ Salt Project 2024: Salt.states.user. Luettavissa: https://docs.saltproject.io/en
 
 Salt Project 2024: Salt.states.cmd. Luettavissa: https://docs.saltproject.io/en/latest/ref/states/all/salt.states.cmd.html. Luettu 31.3.2024.
 
-Salt Project 2024: Glossary - Idempotent. Luettavissa: https://docs.saltproject.io/en/latest/glossary.html. Luettu 31.3.2024.
+Wikipedia 2019: Idempotenssi. Luettavissa: https://fi.wikipedia.org/wiki/Idempotenssi. Luettu: 31.3.2024.
