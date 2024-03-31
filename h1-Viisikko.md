@@ -128,7 +128,11 @@ Esimerkkinä määritin Apache2-palvelun käynnistämisen komennolla sudo salt-c
 
 ### 4. user
 
-Tekstiä
+Käyttäjäasetusten hallinta (esim. tietty käyttäjä tulee olla olemassa). 
+
+Esimerkkinä määritin omistaja-nimisen käyttäjän olemassaolon komennolla sudo salt-call --local -l info state.single user.present omistaja. Käyttäjä luotiin, koska sitä ei ollut aiemmin olemassa (Comment: New user omistaja created). Toiminto onnistui (Succeeded: 1).
+
+![kuva](https://github.com/NooraOlkkonen/Palvelinten-hallinta/assets/165004946/6ccec7ab-2180-4c6a-ad4e-63f6558fd083)
 
 ### 5. cmd
 
