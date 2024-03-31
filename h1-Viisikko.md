@@ -136,7 +136,11 @@ Esimerkkinä määritin omistaja-nimisen käyttäjän olemassaolon komennolla su
 
 ### 5. cmd
 
-Tekstiä
+Suoritettavien komentojen määrittäminen (esim. tietty komento suoritetaan, kun tietyt ehdot täyttyvät).
+
+Esimerkkinä touch /tmp/foo -komennon suorittaminen. Käytin komentoa sudo salt-call --local -l info state.single cmd.run 'touch /tmp/foo' creates="/tmp/foo". Toiminto onnistui (Succeeded: 1).
+
+![kuva](https://github.com/NooraOlkkonen/Palvelinten-hallinta/assets/165004946/bf650d12-9787-43d2-8985-ce6767c5ece1)
 
 ## f) Idempotentti
 
@@ -174,4 +178,6 @@ Salt Project 2024: Salt.states.file. Luettavissa: https://docs.saltproject.io/en
 
 Salt Project 2024: Salt.states.service. Luettavissa: https://docs.saltproject.io/en/latest/ref/states/all/salt.states.service.html. Luettu 31.3.2024.
 
+Salt Project 2024: Salt.states.user. Luettavissa: https://docs.saltproject.io/en/latest/ref/states/all/salt.states.user.html. Luettu 31.3.2024.
 
+Salt Project 2024: Salt.states.cmd. Luettavissa: https://docs.saltproject.io/en/latest/ref/states/all/salt.states.cmd.html. Luettu 31.3.2024.
