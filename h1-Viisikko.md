@@ -181,3 +181,5 @@ Salt Project 2024: Salt.states.service. Luettavissa: https://docs.saltproject.io
 Salt Project 2024: Salt.states.user. Luettavissa: https://docs.saltproject.io/en/latest/ref/states/all/salt.states.user.html. Luettu 31.3.2024.
 
 Salt Project 2024: Salt.states.cmd. Luettavissa: https://docs.saltproject.io/en/latest/ref/states/all/salt.states.cmd.html. Luettu 31.3.2024.
+
+Salt Project 2024: Glossary - Idempotent. Luettavissa: https://docs.saltproject.io/en/latest/glossary.html. Luettu 31.3.2024.
