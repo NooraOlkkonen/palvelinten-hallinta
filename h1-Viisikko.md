@@ -20,6 +20,8 @@ Käyttöjärjestelmän versio: 22H2
 
 ## x) Lue ja tiivistä
 
+Tiivistelmät opettajan osoittamista artikkeleista.
+
 ### Salt-komentojen suorittaminen paikallisesti
 
 - Yleensä Salt-ohjelmistolla hallitaan yhtäaikaisesti suuria määriä tietokoneita.
@@ -68,7 +70,7 @@ Avasin Windows PowerShellin järjestelmänvalvojan oikeuksin. Selvitin Saltin as
 
 ## b) Hello VirtualBox! / Hello Vagrant!
 
-Latasin ensin tietokoneelle Oraclen VirtualBox-hypervisorin version 7.0.14 asennustiedoston. Ohjelman asennuksen yhteydessä tuli ilmoitukset Microsoft Visual C++ 2019 Redistributable Packagen lataamisesta, asennuksen ennenaikaisesta päättymisestä ja vakavasta virheestä asennuksen aikana. 
+Latasin Oraclen VirtualBox-hypervisorin version 7.0.14 asennustiedoston käytössäni olevalle fyysiselle tietokoneelle. Asennuksen suorittamisen yhteydessä tuli ilmoitukset Microsoft Visual C++ 2019 Redistributable Packagen lataamisesta, VirtualBoxin asennuksen ennenaikaisesta päättymisestä ja vakavasta virheestä asennuksen aikana. 
 
 ![kuva](https://github.com/NooraOlkkonen/Palvelinten-hallinta/assets/165004946/a220381e-6314-404d-b935-6f1d1324a6f2)
 
@@ -76,25 +78,25 @@ Latasin ensin tietokoneelle Oraclen VirtualBox-hypervisorin version 7.0.14 asenn
 
 ![kuva](https://github.com/NooraOlkkonen/Palvelinten-hallinta/assets/165004946/4c7d1f65-0100-48a8-bea0-86605e0826ad)
 
-Googletin neuvoja ja asensin Microsoft Visual C++ 2019 Redistributable Packagen GameTrick-käyttäjän Youtube-videon ohjeiden avulla. Tämän jälkeen sain asennettua Virtual Boxin ilman ongelmia.
+Googletin neuvoja ja asensin Microsoft Visual C++ 2019 Redistributable Packagen GameTrick-käyttäjän Youtube-videon ohjeiden avulla. Tämän jälkeen sain asennettua VirtualBoxin onnistuneesti.
  
 ![kuva](https://github.com/NooraOlkkonen/Palvelinten-hallinta/assets/165004946/469fe2bb-f3c9-4f21-9ff8-c7c3da1d84bb)
 
-Seuraavaksi latasin Vagrant-ohjelman version 2.4.1 asennustiedoston. Tietokone tuli käynnistää uudelleen asennuksen jälkeen.
+Seuraavaksi latasin Vagrant-ohjelman version 2.4.1 asennustiedoston käytössäni olevalle fyysiselle tietokoneelle ja suoritin asennuksen. Tietokone tuli käynnistää uudelleen asennuksen jälkeen.
 
 ![kuva](https://github.com/NooraOlkkonen/Palvelinten-hallinta/assets/165004946/0f610bff-55a7-41aa-9716-3a8a1288b0a0)
 
-Avasin Windows PowerShellin järjestelmänvalvojan oikeuksin. Selvitin Vagrantin asennuksen onnistumisen käyttämällä komentoa vagrant --version.
+Tietokoneen uudelleen käynnistymisen jälkeen avasin Windows PowerShellin järjestelmänvalvojan oikeuksin. Selvitin Vagrantin asennuksen onnistumisen käyttämällä komentoa vagrant --version.
 
 ![kuva](https://github.com/NooraOlkkonen/Palvelinten-hallinta/assets/165004946/75a50317-c654-4edf-b2b0-b7d5551695a3)
 
 ## c) Linux-virtuaalikoneen luonti Vagrantilla
 
-Loin oman kansion (bullseye) luotavalle virtuaalikoneelle. PowerShellissa siirryin kyseiseen kansioon ja suoritin komennon vagrant init debian/bullseye64. Seuraavaksi käynnistin virtuaalikoneen komennolla vagrant up, jolloin virtuaalikone käynnistyy VirtualBoxissa. 
+Loin oman kansion (nimi: bullseye) käytössäni olevalle fyysiselle tietokoneelle virtuaalitietokonetta varten. PowerShellissa siirryin kyseiseen kansioon ja suoritin komennon vagrant init debian/bullseye64. Seuraavaksi käynnistin virtuaalikoneen komennolla vagrant up, jolloin virtuaalikone käynnistyi VirtualBoxissa. 
 
 ![kuva](https://github.com/NooraOlkkonen/Palvelinten-hallinta/assets/165004946/8a1f13ea-88f4-4b43-92e1-967519268a0d)
 
-Otin SSH-yhteyden virtuaalikoneeseen komennolla vagrant ssh.
+Otin etäyhteyden virtuaalikoneeseen SSH:ta käyttämällä (komento vagrant ssh).
 
 ![kuva](https://github.com/NooraOlkkonen/Palvelinten-hallinta/assets/165004946/e0aee916-0af1-4440-8cfd-a878967b0149)
 
@@ -106,7 +108,7 @@ Latasin päivitykset virtuaalikoneeseen komennolla sudo apt-get update ja tämä
 
 ## e) Viisi tärkeintä
 
-Viiden tärkeimmän Salt-tilafunktion esittely ja esimerkit niistä.
+Viiden tärkeimmän Salt-tilafunktion lyhyet esittelyt.
 
 ### 1. pkg
 
@@ -152,13 +154,13 @@ Esimerkkinä touch /tmp/foo -komennon suorittaminen. Käytin komentoa sudo salt-
 
 Idempotentin toiminnon vaikutukset ovat samat toiminnon suorituskertojen lukumäärästä huolimatta. Esimerkiksi järjestelmään ei tule muutoksia, vaikka toiminto suoritettaisiin useampaan kertaan. Idempotentti toiminto voi myös olla toiminto, joka tekee muutoksen järjestelmään ensimmäisellä suorituskerralla, mutta ei saman toiminnon myöhemmillä suorituskerroilla. Saltin tilafunktioiden tulisi olla idempotentteja.
 
-Valitsin esimerkiksi idempotentistä toiminnosta Saltin user-tilafunktion. Aiemmin tehtävässä e) loin omistaja-nimisen käyttäjän. Kun suoritin uudelleen komennon sudo salt-call --local -l info state.single user.present omistaja, toista samannimistä käyttäjää ei enää luotu. Sen sijaan tuli ilmoitus kyseisen käyttäjän olemassaolosta (Comment: User omistaja is present and up to date). Siis kun sama komento suoritettiin uudelleen, mitään muutoksia ei tehty.
+Valitsin esimerkiksi idempotentistä toiminnosta Saltin user-tilafunktion. Aiemmin tehtävässä e) loin omistaja-nimisen käyttäjän. Kun suoritin uudelleen komennon ```sudo salt-call --local -l info state.single user.present omistaja```, toista samannimistä käyttäjää ei enää luotu. Sen sijaan tuli ilmoitus kyseisen käyttäjän olemassaolosta (Comment: User omistaja is present and up to date). Siis kun sama komento suoritettiin uudelleen, mitään muutoksia ei tehty.
 
 ![kuva](https://github.com/NooraOlkkonen/Palvelinten-hallinta/assets/165004946/db741ed4-c5a7-4ec3-ae1f-925349ff4ce6)
 
 ## g) Tietoja koneesta
 
-Tutustuin virtuaalikoneen tietoihin käyttäen komentoa sudo salt-call --local grains.items. Poimin kolme mielenkiintoista tietoa, jotka sain eriteltyä komennolla sudo salt-call --local grains.item osfinger shell saltversion. 
+Tutustuin virtuaalikoneen tietoihin käyttäen komentoa ```sudo salt-call --local grains.items```. Poimin kolme mielenkiintoista tietoa, jotka sain eriteltyä komennolla ```sudo salt-call --local grains.item osfinger shell saltversion```. 
 
 ![kuva](https://github.com/NooraOlkkonen/Palvelinten-hallinta/assets/165004946/16ee485b-c9b6-4bf6-a2be-eb8d150d6df6)
 
