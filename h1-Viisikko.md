@@ -114,13 +114,17 @@ Esimerkkinä määritin tree-nimisen paketin asennettavaksi komennolla sudo salt
 
 Tiedostojen hallitseminen. Tavallisia tiedostoja voidaan ladata master-koneesta ja sijoittaa kohdejärjestelmään käyttäen file.managed -tilaa.
 
-Esimerkkinä määritin testitiedosto-nimisen tiedoston luotavaksi komennolla sudo salt-call --local -l info state.single file.managed /tmp/testitiedosto. Toiminto onnistui (succeeded: 1).
+Esimerkkinä määritin testitiedosto-nimisen tiedoston luotavaksi komennolla sudo salt-call --local -l info state.single file.managed /tmp/testitiedosto. Toiminto onnistui (Succeeded: 1).
 
 ![kuva](https://github.com/NooraOlkkonen/Palvelinten-hallinta/assets/165004946/df049bab-072a-46e3-8ade-1e3889139c54)
 
 ### 3. service
 
-Tekstiä
+Palvelujen ja demonien käynnistämisen tai uudelleenkäynnistämisen määrittäminen.
+
+Esimerkkinä määritin Apache2-palvelun käynnistämisen komennolla sudo salt-call --local -l info state.single service.running apache2 enable=True. Tämä kuitenkin epäonnistui (Result: False / Comment: The named service apacge 2 is not available / Failed: 1), koska Apache2-palvelua ei ole asennettu virtuaalikoneeseen. 
+
+![kuva](https://github.com/NooraOlkkonen/Palvelinten-hallinta/assets/165004946/f37ae4b9-4dc5-40dc-be75-aeeb96798a9f)
 
 ### 4. user
 
@@ -144,7 +148,6 @@ Tutustuin virtuaalikoneen tietoihin käyttäen komentoa sudo salt-call --local g
 
 - shell = kertoo virtuaalikoneen komentotulkin
 
-
 ## Lähteet
 
 HashiCorp 2024: Install Vagrant. Luettavissa: https://developer.hashicorp.com/vagrant/install. Luettu 30.3.2024.
@@ -163,6 +166,8 @@ Salt Project 2024: Downloads. Luettavissa: https://docs.saltproject.io/salt/inst
 
 Salt Project 2024: Salt.states.pkg. Luettavissa: https://docs.saltproject.io/en/latest/ref/states/all/salt.states.pkg.html. Luettu 31.3.2024.
 
+Salt Project 2024: Salt.states.file. Luettavissa: https://docs.saltproject.io/en/latest/ref/states/all/salt.states.file.html. Luettu 31.3.2024.
 
+Salt Project 2024: Salt.states.service. Luettavissa: https://docs.saltproject.io/en/latest/ref/states/all/salt.states.service.html. Luettu 31.3.2024.
 
 
