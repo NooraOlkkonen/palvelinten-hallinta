@@ -102,15 +102,33 @@ Latasin päivitykset virtuaalikoneeseen komennolla sudo apt-get update ja tämä
 
 Viisi tärkeintä Salt-tilafunktiota.
 
-1. pkg
+### 1. pkg
 
-2. file
+Ohjelmistopakettien hallitseminen (esim. määrittäminen asennettavaksi tai poistettavaksi).
 
-3. service
+Esimerkkinä määritin tree-nimisen paketin asennettavaksi komennolla sudo salt-call --local -l info state.single pkg.installed tree. Toiminto onnistui (succeeded: 1).
 
-4. user
+![kuva](https://github.com/NooraOlkkonen/Palvelinten-hallinta/assets/165004946/17485b09-415f-4219-a83a-c94070953998)
 
-5. cmd
+### 2. file
+
+Tiedostojen hallitseminen. Tavallisia tiedostoja voidaan ladata master-koneesta ja sijoittaa kohdejärjestelmään käyttäen file.managed -tilaa.
+
+Esimerkkinä määritin testitiedosto-nimisen tiedoston luotavaksi komennolla sudo salt-call --local -l info state.single file.managed /tmp/testitiedosto. Toiminto onnistui (succeeded: 1).
+
+![kuva](https://github.com/NooraOlkkonen/Palvelinten-hallinta/assets/165004946/df049bab-072a-46e3-8ade-1e3889139c54)
+
+### 3. service
+
+Tekstiä
+
+### 4. user
+
+Tekstiä
+
+### 5. cmd
+
+Tekstiä
 
 ## f) Idempotentti
 
@@ -142,5 +160,9 @@ Karvinen 2006: Raportin kirjoittaminen. Luettavissa: https://terokarvinen.com/20
 Oracle 2023: Download VirtualBox. Luettavissa: https://www.virtualbox.org/wiki/Downloads. Luettu 30.3.2024.
 
 Salt Project 2024: Downloads. Luettavissa: https://docs.saltproject.io/salt/install-guide/en/latest/topics/downloads.html#windows. Luettu: 30.3.2024.
+
+Salt Project 2024: Salt.states.pkg. Luettavissa: https://docs.saltproject.io/en/latest/ref/states/all/salt.states.pkg.html. Luettu 31.3.2024.
+
+
 
 
