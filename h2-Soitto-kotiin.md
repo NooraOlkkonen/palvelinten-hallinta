@@ -34,8 +34,25 @@ Tiivistelmät opettajan osoittamista artikkeleista.
 
 - Otetaan SSH-yhteys haluttuun virtuaalikoneeseen: fyysisen isäntäkoneen komentokehotteessa annetaan komento ```vagrant ssh``` + virtuaalikoneen ID.
 
-### Salt Master ja Salt Slave
+### Salt herra-orja -arkkitehtuuri
 
+- Salt-ohjelmiston avulla voi hallita suuria määriä tietokoneita.
+
+- Herra (master) on tietokone, joka hallitsee ohjaa ja hallitsee orjatietokonetta (slave) -> yksi herra hallitsee useita orjia.
+
+- Herran tulee olla julkisesti saavutettavissa, mutta orjan sijainti voi olla tuntematon ja se voi sijaita esim. palomuurin takana.
+
+- Tietokoneelle tulee ladata uusimmat päivitykset ennen herra- tai orjaroolin määrittämistä. Linux-pohjaisissa järjestelmissä tämä tapahtuu komennolla ```sudo apt-get update```.
+
+- Herran rooli ladataan Linux-pohjaisissa järjestelmissä komennolla ```sudo apt-get -y install salt-master```.
+
+- Orjan rooli ladataan Linux-pohjaisissa järjestelmissä komennolla ```sudo apt-get -y install salt-minion```.
+
+- Orjan tulee tietää herran sijainti, eli orjan konfigurointitiedostoon tulee lisätä herran IP-osoite.
+
+- Orjan konfigurointitiedostoon tehtyjen muutosten jälkeen orjademoni (slave minion) tulee käynnistää uudelleen komennolla ```sudo systemctl restart salt-minion.service```.
+
+- Orjat saavat yhteyden herraan lähettämällä sille avaimen, jonka herra voi katsoa ja hyväksyä komennolla ```sudo salt-key -A```.
 
 ### Hello Salt Infra-as-Code
 
@@ -94,6 +111,20 @@ Testasin toimiiko yhteys t001- ja t002-virtuaalikoneiden välillä. Käytin täh
 
 ## b) Salt herra-orja -arkkitehtuuri verkon yli
 
+1. Määritin **t001**-virtuaalikoneen herraksi (master)
+
+- Latasin uusimmat päivitykset komennolla ```sudo apt-get update``` ja tämän jälkeen latasin herran roolin komennolla ```sudo apt-get -y install salt-master```.
+
+  ![kuva](https://github.com/NooraOlkkonen/Palvelinten-hallinta/assets/165004946/205e11b2-d4fb-4ddd-bda4-6a69ae9b5268)
+
+- Tarkistin herran roolin statuksen (salt-master status) komennolla ```sudo systemctl status salt-master```. Rooli asentui ja käynnistyi, koska tilana active (running).
+
+  ![kuva](https://github.com/NooraOlkkonen/Palvelinten-hallinta/assets/165004946/875bd45f-9e3b-495c-b7c8-8842933646f4)
+
+
+2. Määritin **t002**-virtuaalikoneen orjaksi (slave).
+
+- 
 
 # Lähteet 
 
