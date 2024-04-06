@@ -57,7 +57,7 @@ Konfiguraatiotiedoston nimessä näkyi tiedostopääte (.txt). Opin tiistain 2.4
 
 ![kuva](https://github.com/NooraOlkkonen/Palvelinten-hallinta/assets/165004946/ebaf8551-c9cc-4016-9b70-96044b4a9beb)
 
-Nimesin uudelleen konfiguraatiotiedoston käyttämällä komentokehotteessa komentoa ```mv Vagrantfile.txt Vagrantfile```. Nimesin siis tiedoston ilman tiedostopäätettä .txt. Tämän jälkeen konfiguraatiotiedosto oli sellainen kuin pitää. 
+Nimesin uudelleen konfiguraatiotiedoston ilman tiedostopäätettä .txt käyttämällä komentokehotteessa komentoa ```mv Vagrantfile.txt Vagrantfile```. Tämän jälkeen konfiguraatiotiedosto oli sellainen kuin pitää. 
 
 ![kuva](https://github.com/NooraOlkkonen/Palvelinten-hallinta/assets/165004946/c52b9ccc-e5ec-4b2b-80c3-ccdf6eecffdb)
 
@@ -95,7 +95,13 @@ Testasin toimiiko yhteys t001- ja t002-virtuaalikoneiden välillä. Käytin täh
 ## b) Salt herra-orja -arkkitehtuuri verkon yli
 
 
-# Lähteetbb
+# Lähteet 
 
-Linux hostname-komennon manuaalisivu. Luettu 6.4.2024.
+Karvinen 2023: Two Machine Virtual Network With Debian 11 Bullseye and Vagrant. Luettavissa: https://terokarvinen.com/2021/two-machine-virtual-network-with-debian-11-bullseye-and-vagrant/. Luettu: 6.4.2024.
+
+Karvinen 2018: Salt Quickstart – Salt Stack Master and Slave on Ubuntu Linux. Luettavissa: https://terokarvinen.com/2018/salt-quickstart-salt-stack-master-and-slave-on-ubuntu-linux/?fromSearch=salt%20quickstart%20salt%20stack%20master%20and%20slave%20on%20ubuntu%20linux. Luettu: 6.4.2024.
+
+Karvinen 2023: Hello Salt Infra-as-Code. Luettavissa: https://terokarvinen.com/2024/hello-salt-infra-as-code/. Luettu: x.xx.xxxx.
+ 
+Linux 2009: Hostname-komennon manuaalisivu. Luettu 6.4.2024.
 
