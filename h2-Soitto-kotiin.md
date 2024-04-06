@@ -79,7 +79,7 @@ Molemmat virtuaalitietokoneet näkyivät käynnistyneinä VirtualBoxissa.
 
 ![kuva](https://github.com/NooraOlkkonen/Palvelinten-hallinta/assets/165004946/1afa27df-c32b-49cc-8c9c-5419716be28c)
 
-Seuraavaksi tarkistin t001- ja t002-virtuaalikoneiden IPv4-osoitteet komennolla ```hostname -I```. IPv4-osoitteet vastaavat konfiguraatiotiedostossa määriteltyjä IPv4-osoitteita.
+Seuraavaksi tarkistin t001- ja t002-virtuaalikoneiden IPv4-osoitteet komennolla ```hostname -I```. Kyseisellä komennolla saadaan selville isäntänimen kaikkien verkkoliitäntöjen IPv4-osoitteet.
 
 ![kuva](https://github.com/NooraOlkkonen/Palvelinten-hallinta/assets/165004946/e5e546ef-7c89-4333-9b4e-5e21a9628af2)
 
@@ -95,4 +95,7 @@ Testasin toimiiko yhteys t001- ja t002-virtuaalikoneiden välillä. Käytin täh
 ## b) Salt herra-orja -arkkitehtuuri verkon yli
 
 
+# Lähteetbb
+
+Linux hostname-komennon manuaalisivu. Luettu 6.4.2024.
 
