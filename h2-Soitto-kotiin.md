@@ -50,7 +50,7 @@ Tiivistelmät opettajan osoittamista artikkeleista.
 
 - Orjan tulee tietää herran sijainti, eli orjan konfigurointitiedostoon tulee lisätä herran IP-osoite.
 
-- Orjan konfigurointitiedostoon tehtyjen muutosten jälkeen orjademoni (slave minion) tulee käynnistää uudelleen komennolla ```sudo systemctl restart salt-minion.service```.
+- Orjan konfigurointitiedostoon tehtyjen muutosten jälkeen orjarooli (slave minion) tulee käynnistää uudelleen komennolla ```sudo systemctl restart salt-minion.service```.
 
 - Orjat saavat yhteyden herraan lähettämällä sille avaimen, jonka herra voi katsoa ja hyväksyä komennolla ```sudo salt-key -A```.
 
@@ -113,7 +113,7 @@ Testasin toimiiko yhteys t001- ja t002-virtuaalikoneiden välillä. Käytin täh
 
 1. Määritin **t001**-virtuaalikoneen herraksi (master)
 
-- Latasin uusimmat päivitykset komennolla ```sudo apt-get update``` ja tämän jälkeen latasin herran roolin komennolla ```sudo apt-get -y install salt-master```.
+- Latasin uusimmat päivitykset komennolla ```sudo apt-get update```. Tämän jälkeen latasin herran roolin komennolla ```sudo apt-get -y install salt-master```.
 
   ![kuva](https://github.com/NooraOlkkonen/Palvelinten-hallinta/assets/165004946/205e11b2-d4fb-4ddd-bda4-6a69ae9b5268)
 
@@ -122,9 +122,33 @@ Testasin toimiiko yhteys t001- ja t002-virtuaalikoneiden välillä. Käytin täh
   ![kuva](https://github.com/NooraOlkkonen/Palvelinten-hallinta/assets/165004946/875bd45f-9e3b-495c-b7c8-8842933646f4)
 
 
-2. Määritin **t002**-virtuaalikoneen orjaksi (slave).
+2. Määritin **t002**-virtuaalikoneen orjaksi (slave)
 
-- 
+- Latasin uusimmat päivitykset komennolla ```sudo apt-get update```. Tämän jälkeen latasin orjan roolin komennolla ```sudo apt-get -y install salt-minion```.
+
+  ![kuva](https://github.com/NooraOlkkonen/Palvelinten-hallinta/assets/165004946/6b624ec3-4494-48f1-bd56-47f41b89313c)
+
+  ![kuva](https://github.com/NooraOlkkonen/Palvelinten-hallinta/assets/165004946/6beb15ad-4180-423c-b5e7-336fb477aed2)
+
+- Tarkistin orjan roolin statuksen (salt-minion status) komennolla ```sudo systemctl status salt-minion```. Rooli asentui ja käynnistyi, koska tilana active (running).
+
+  ![kuva](https://github.com/NooraOlkkonen/Palvelinten-hallinta/assets/165004946/a70a95f5-e222-4e4f-a832-88054523ad38)
+
+- Määritin herran IP-osoitteen orjan konfiguraatiotiedostoon. Herran IPv4-osoite on 192.168.88.101, kuten konfiguraatiotiedostossa ja kohdassa a) todettu. Pääsin muokkaamaan konfiguraatiotiedostoa komennolla ```sudoedit /etc/salt/minion```.
+   
+  ![kuva](https://github.com/NooraOlkkonen/Palvelinten-hallinta/assets/165004946/541bee06-e66a-46bc-9ecb-bfdeb89044cd)
+
+- Käynnistin uudelleen orjaroolin (slave minion) komennolla ```sudo systemctl restart salt-minion.service```.
+
+  ![kuva](https://github.com/NooraOlkkonen/Palvelinten-hallinta/assets/165004946/f5fa9eb3-3e5a-4b91-84f2-267ebfebd09a)
+
+3. Hyväksyin herratietokoneella (t001) orjatietokoneen (t002) lähettämän avaimen
+
+- Tarkistin ja hyväksyin orjan (t002) herralle (t001) lähettämän avaimen komennolla ```sudo salt-key -A```.
+  
+  ![kuva](https://github.com/NooraOlkkonen/Palvelinten-hallinta/assets/165004946/476911d2-f99b-4758-be70-8248c33262da)
+
+
 
 # Lähteet 
 
