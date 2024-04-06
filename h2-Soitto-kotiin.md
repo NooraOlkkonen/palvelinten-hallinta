@@ -53,11 +53,11 @@ Loin virtuaalikoneille t001 ja t002 konfiguraatiotiedoston NotePad-tekstieditori
 
 ![kuva](https://github.com/NooraOlkkonen/Palvelinten-hallinta/assets/165004946/a50ae087-867b-4b4e-ab57-754b36bb7822)
 
-Konfiguraatiotiedoston nimessä näkyi tiedostopääte (.txt). Opin tiistain 2.4.2024 oppitunneilla, ettei konfugiraatiotiedosto toimi, jos nimessä näkyy tiedostopääte. 
+Konfiguraatiotiedoston nimessä näkyi tiedostopääte (.txt). Opin tiistain 2.4.2024 oppitunnilla, ettei konfugiraatiotiedosto toimi, jos nimessä näkyy tiedostopääte. 
 
 ![kuva](https://github.com/NooraOlkkonen/Palvelinten-hallinta/assets/165004946/ebaf8551-c9cc-4016-9b70-96044b4a9beb)
 
-Nimesin uudelleen konfiguraatiotiedoston ilman tiedostopäätettä .txt käyttämällä komentokehotteessa komentoa ```mv Vagrantfile.txt Vagrantfile```. Tämän jälkeen konfiguraatiotiedosto oli sellainen kuin pitää. 
+Nimesin uudelleen konfiguraatiotiedoston ilman tiedostopäätettä .txt käyttämällä komentokehotteessa komentoa ```mv Vagrantfile.txt Vagrantfile``` (vanha tiedoston nimi -> uusi tiedoston nimi). Tämän jälkeen konfiguraatiotiedosto oli sellainen kuin pitää. 
 
 ![kuva](https://github.com/NooraOlkkonen/Palvelinten-hallinta/assets/165004946/c52b9ccc-e5ec-4b2b-80c3-ccdf6eecffdb)
 
