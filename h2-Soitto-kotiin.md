@@ -4,7 +4,7 @@ Toisen viikon kotitehtävät.
 
 Tehtävänannot kurssisivulla: https://terokarvinen.com/2024/configuration-management-2024-spring/.
 
-## Kotitehtävissä käytetyn fyysisen tietokoneen tiedot
+## Kotitehtävässä käytetyn fyysisen tietokoneen tiedot
 
 Malli: Lenovo ThinkPad X270
 
