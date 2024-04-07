@@ -104,7 +104,7 @@ Tiivistelmät opettajan osoittamista artikkeleista.
 
   ![kuva](https://github.com/NooraOlkkonen/Palvelinten-hallinta/assets/165004946/32775013-9115-4728-9519-846ac42d17a3)
 
-- Molemmat virtuaalitietokoneet näkyivät käynnistyneinä VirtualBoxissa.
+- Molemmat virtuaalikoneet näkyivät käynnistyneinä VirtualBoxissa.
 
   ![kuva](https://github.com/NooraOlkkonen/Palvelinten-hallinta/assets/165004946/1afa27df-c32b-49cc-8c9c-5419716be28c)
 
@@ -153,7 +153,7 @@ Tiivistelmät opettajan osoittamista artikkeleista.
 
   ![kuva](https://github.com/NooraOlkkonen/Palvelinten-hallinta/assets/165004946/f5fa9eb3-3e5a-4b91-84f2-267ebfebd09a)
 
-### 3. Hyväksyin herratietokoneella orjatietokoneen lähettämän avaimen
+### 3. Orjakoneen lähettämän avaimen hyväksyminen herrakoneella
 
 - Tarkistin ja hyväksyin orjan (t002) herralle (t001) lähettämän avaimen komennolla ```sudo salt-key -A```.
   
@@ -161,44 +161,44 @@ Tiivistelmät opettajan osoittamista artikkeleista.
 
 ## c) Shell-komento herra-orja-yhteyden yli
 
-Selvitin orjatietokoneen nykyisen kirjautuneena olevan käyttäjän nimen ajamalla herratietokoneessa komennon ```sudo salt '*' cmd.run 'whoami'```.
+Selvitin orjakoneen nykyisen kirjautuneena olevan käyttäjän nimen ajamalla herrakoneessa komennon ```sudo salt '*' cmd.run 'whoami'```. Komennossa '*' tarkoittaa, että komento kohdistetaan kaikille orjille.
 
 ![kuva](https://github.com/NooraOlkkonen/Palvelinten-hallinta/assets/165004946/3cd35930-cdd3-43dc-b27e-e8659914e515)
 
-## d) Idempodentit komennot herra-orja-yhteyden yli
+## d) Idempotentit komennot herra-orja-yhteyden yli
 
 ### 1. user
 
-- Suoritin herratietokoneella komennon ```sudo salt '*' state.single user.present käyttäjä```, joka luo orjakoneeseen käyttäjä-nimisen käyttäjän, jos sellaista ei ole entuudestaan olemassa. Tässä tapauksessa kyseinen käyttäjä todella luotiin, koska sitä ei ollut olemassa (ID: käyttäjä, Result: True, Comment: New user käyttäjä created).
+- Suoritin herrakoneella komennon ```sudo salt '*' state.single user.present käyttäjä```, joka luo orjakoneeseen käyttäjä-nimisen käyttäjän, jos sellaista ei ole entuudestaan olemassa. Tässä tapauksessa kyseinen käyttäjä todella luotiin, koska sitä ei ollut olemassa (ID: käyttäjä, Result: True, Comment: New user käyttäjä created).
 
   ![kuva](https://github.com/NooraOlkkonen/Palvelinten-hallinta/assets/165004946/15d14b8e-61dd-4500-9d93-6e6a7921f5d5)
 
-- /etc/passwd-tiedostosta löytyy listattuna kaikki tietokoneen käyttäjät. Tarkistin vielä komennolla ```sudo salt '*' cmd.run 'cat /etc/passwd'```, että uusi käyttäjä-niminen käyttäjä todella luotiin orjatietokoneelle.
+- /etc/passwd-tiedostosta löytyy listattuna kaikki tietokoneen käyttäjät. Tarkistin vielä komennolla ```sudo salt '*' cmd.run 'cat /etc/passwd'```, että uusi käyttäjä-niminen käyttäjä todella luotiin orjakoneelle.
 
   ![kuva](https://github.com/NooraOlkkonen/Palvelinten-hallinta/assets/165004946/eefe926d-eee5-4f21-bc10-ce08ee5c02c3)
 
-- Suoritin herratietokoneella uudelleen saman komennon ```sudo salt '*' state.single user.present käyttäjä```. Toista samannimistä käyttäjää ei luotu orjatietokoneeseen. Järjestelmä ilmoitti, että kyseinen käyttäjä on jo olemassa (ID: käyttäjä, Result: True, Comment: User käyttäjä is present and up to date).
+- Suoritin herrakoneella uudelleen saman komennon ```sudo salt '*' state.single user.present käyttäjä```. Toista samannimistä käyttäjää ei luotu orjakoneeseen. Järjestelmä ilmoitti, että kyseinen käyttäjä on jo olemassa (ID: käyttäjä, Result: True, Comment: User käyttäjä is present and up to date).
 
   ![kuva](https://github.com/NooraOlkkonen/Palvelinten-hallinta/assets/165004946/47ba44fb-1acc-4dea-96ae-299895a59e00)
 
 ### 2. file
 
-- Suoritin herratietokoneella komennon ```sudo salt '*' state.single file.managed /home/testi```, joka luo orjakoneen home-hakemistoon tyhjän testi-nimisen tiedoston, jos sellaista ei ole entuudestaan olemassa. Tässä tapauksessa kyseinen tiedosto todella luotiin, koska sitä ei ollut olemassa (ID: /home/testi, Result: True, Comment: Empty file, Changes: new: file /home/testi created).
+- Suoritin herrakoneella komennon ```sudo salt '*' state.single file.managed /home/testi```, joka luo orjakoneen home-hakemistoon tyhjän testi-nimisen tiedoston, jos sellaista ei ole entuudestaan olemassa. Tässä tapauksessa kyseinen tiedosto todella luotiin, koska sitä ei ollut olemassa (ID: /home/testi, Result: True, Comment: Empty file, Changes: new: file /home/testi created).
 
   ![kuva](https://github.com/NooraOlkkonen/Palvelinten-hallinta/assets/165004946/c97d4d1a-696e-468a-a903-5d8ab19179d3)
 
-- Suoritin herratietokoneella uudelleen saman komennon ```sudo salt '*' state.single file.managed /home/testi``` . Toista samannimistä tiedostoa ei luotu orjatietokoneeseen. Järjestelmä ilmoitti, että kyseinen tiedosto on jo olemassa (ID: /home/testi, Result: True, Comment: File /home/testi exists with proper permissions. No changes made).
+- Suoritin herrakoneella uudelleen saman komennon ```sudo salt '*' state.single file.managed /home/testi``` . Toista samannimistä tiedostoa ei luotu orjakoneeseen. Järjestelmä ilmoitti, että kyseinen tiedosto on jo olemassa (ID: /home/testi, Result: True, Comment: File /home/testi exists with proper permissions. No changes made).
 
   ![kuva](https://github.com/NooraOlkkonen/Palvelinten-hallinta/assets/165004946/7c055337-3e66-48df-87f9-4f8e16c8c1f7)
 
-- Tarkistin vielä komennolla ```sudo salt '*' cmd.run 'ls /home'```, että uusi testi-niminen tiedosto todella luotiin orjatietokoneen home-hakemistoon.
+- Tarkistin vielä komennolla ```sudo salt '*' cmd.run 'ls /home'```, että uusi testi-niminen tiedosto todella luotiin orjakoneen home-hakemistoon.
 
   ![kuva](https://github.com/NooraOlkkonen/Palvelinten-hallinta/assets/165004946/5d5a91c9-69b8-457b-801e-c0581e4670d6)
 
 
 ## e) Tietojen kerääminen orjasta
 
-Tutustuin orjakoneen tietoihin käyttäen herratietokoneella komentoa ```sudo salt '*' grains.items```. Poimin kolme mielenkiintoista tietoa, jotka sain eriteltyä komennolla ```sudo salt '*' grains.item master ip4_interfaces oscodename```.
+Tutustuin orjakoneen tietoihin käyttäen herrakoneella komentoa ```sudo salt '*' grains.items```. Poimin kolme mielenkiintoista tietoa, jotka sain eriteltyä komennolla ```sudo salt '*' grains.item master ip4_interfaces oscodename```.
 
 ![kuva](https://github.com/NooraOlkkonen/Palvelinten-hallinta/assets/165004946/ca21187d-891a-4aba-ba2a-634413899f65)
 
@@ -209,9 +209,9 @@ Tutustuin orjakoneen tietoihin käyttäen herratietokoneella komentoa ```sudo sa
 - oscodename = orjakoneen käyttöjärjestelmän koodinimi
  
 
-## f) Hello IaC
+## f) Hello, Salt IaC
 
-Suoritin tämän tehtävän orjakoneessa (t002-virtuaalitietokone). Tehtävän tarkoituksena oli luoda hello-moduuli, jonka suorittaminen paikallisesti luo tiettyyn hakemistoon tiedoston, jos kyseistä tiedostoa ei ole entuudestaan olemassa.
+Suoritin tämän tehtävän orjakoneessa (t002-virtuaalikone). Tehtävän tarkoituksena oli luoda hello-moduuli, jonka suorittaminen paikallisesti luo tiedoston tiettyyn hakemistoon, jos kyseistä tiedostoa ei ole entuudestaan olemassa.
 
 - Loin hakemiston hello-moduulille komennolla ```sudo mkdir -p /srv/salt/hello/```. Varmistuin vielä hakemiston onnistuneesta luonnista siirtymällä /srv/salt/-hakemistoon.
 
@@ -227,7 +227,7 @@ Suoritin tämän tehtävän orjakoneessa (t002-virtuaalitietokone). Tehtävän t
 
   ![kuva](https://github.com/NooraOlkkonen/Palvelinten-hallinta/assets/165004946/614f9f9e-1016-47a6-a38b-679df39ab61a)
 
-- Googletin virheilmoituksen ja päädyin Githubiin, jossa eräs käyttäjä kuvaili ratkaisunsa samaan virheilmoitukseen. Tämän avulla tajusin, että tiedostossani koodin toiselta riviltä puuttui sisennys, joten muokkasin uudelleen init.sls-tiedostoa ja lisäsin sisennyksen.
+- Googletin virheilmoituksen ja päädyin Githubiin, jossa eräs käyttäjä kuvaili ratkaisunsa samaan virheilmoitukseen. Tämän avulla tajusin, että sls-tiedostossani koodin toiselta riviltä puuttui sisennys, joten muokkasin uudelleen tiedostoa ja lisäsin sisennyksen.
 
   ![kuva](https://github.com/NooraOlkkonen/Palvelinten-hallinta/assets/165004946/49d1fb0e-2c63-4524-af5d-cd6748201398)
 
@@ -258,5 +258,7 @@ Karvinen 2023: Hello Salt Infra-as-Code. Luettavissa: https://terokarvinen.com/2
 Linux 2009: Hostname-komennon manuaalisivu. Luettu 6.4.2024.
 
 Linux 2020: Whoami-komennon manuaalisivu. Luettu 7.4.2024.
+
+Salt Project 2024: Matching the minion ID. Luettavissa: https://docs.saltproject.io/en/latest/topics/targeting/globbing.html#globbing. Luettu: 7.4.2024.
 
 Tjyang 2020: [BUG] Rendering SLS 'base:git.prod.salt.3001up' failed: could not find expected ':' #57796. Luettavissa: https://github.com/saltstack/salt/issues/57796. Luettu: 7.4.2024.
