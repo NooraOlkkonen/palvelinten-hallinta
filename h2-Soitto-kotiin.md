@@ -34,7 +34,7 @@ Tiivistelmät opettajan osoittamista artikkeleista.
 
 - Otetaan SSH-yhteys haluttuun virtuaalikoneeseen: fyysisen isäntäkoneen komentokehotteessa annetaan komento ```vagrant ssh``` + virtuaalikoneen ID.
 
-### Salt herra-orja -arkkitehtuuri
+### Salt herra-orja-arkkitehtuuri
 
 - Salt-ohjelmiston avulla voi hallita suuria määriä tietokoneita.
 
@@ -54,7 +54,19 @@ Tiivistelmät opettajan osoittamista artikkeleista.
 
 - Orjat saavat yhteyden herraan lähettämällä sille avaimen, jonka herra voi katsoa ja hyväksyä komennolla ```sudo salt-key -A```.
 
-### Hello Salt Infra-as-Code
+### Salt - infraa koodina 
+
+- Salt-ohjelmisto tulee olla ladattuna tietokoneelle.
+
+- Moduuli saa aikaan jonkun asian tai toiminnon.
+
+- Luodaan oma hakemisto moduulille.
+
+- Hakemistoon luodaan tiedosto, johon kirjoitetaan (idempotenttia) Salt-koodia.
+
+- Suoritetaan moduuli, jolloin tiedostoon kirjoitettu koodi toteutetaan, eli koodiin kirjoitettu haluttu asia/toiminto tapahtuu.
+
+- Moduulin toiminto on idempotentti, jos moduuli suoritetaan useamman kerran ja toiminnon seurauksena ei tapahdu muutoksia ensimmäisen suorituskerran jälkeen.
 
 ## a) Virtuaalikoneiden luonti ja niiden toimivuuden testaaminen
 
