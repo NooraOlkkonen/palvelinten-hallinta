@@ -156,7 +156,7 @@ Selvitin orjatietokoneen nykyisen kirjautuneen käyttäjän nimen ajamalla herra
 
 ## d) Idempodentit komennot herra-orja-yhteyden yli
 
-**1. user**
+### 1. user
 
 - Suoritin herratietokoneella komennon ```sudo salt '*' state.single user.present 'käyttäjä'```, joka luo käyttäjä-nimisen käyttäjän, jos sellaista ei entuudestaan ole olemassa. Tässä tapauksessa kyseinen käyttäjä todella luotiin, koska sitä ei ollut olemassa (ID: käyttäjä, Result: True, Comment: New user käyttäjä created).
 
@@ -186,7 +186,9 @@ Tutustuin orjatietokoneen (t002) tietoihin käyttäen herratietokoneella (t001) 
 
 ## f) Hello IaC
 
-# Lähteet 
+# Lähteet
+
+Gite 2024: Linux List All Users In The System Command. Luettavissa: https://www.cyberciti.biz/faq/linux-list-users-command/. Luettu 7.4.2024.
 
 Karvinen 2023: Two Machine Virtual Network With Debian 11 Bullseye and Vagrant. Luettavissa: https://terokarvinen.com/2021/two-machine-virtual-network-with-debian-11-bullseye-and-vagrant/. Luettu: 6.4.2024.
 
