@@ -66,7 +66,7 @@ Tiivistelmät opettajan osoittamista artikkeleista.
 
 - Suoritetaan moduuli, jolloin tiedostoon kirjoitettu koodi toteutetaan, eli koodiin kirjoitettu haluttu asia/toiminto tapahtuu.
 
-- Moduulin toiminto on idempotentti, jos moduuli suoritetaan useamman kerran ja toiminnon seurauksena ei tapahdu muutoksia ensimmäisen suorituskerran jälkeen.
+- Moduulin toiminto on idempotentti, jos moduuli suoritetaan useamman kerran ja toiminnon seurauksena ei tapahdu muutoksia enää ensimmäisen suorituskerran jälkeen.
 
 ## a) Virtuaalikoneiden luonti ja niiden toimivuuden testaaminen
 
