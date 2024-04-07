@@ -211,7 +211,7 @@ Tutustuin orjakoneen tietoihin käyttäen herratietokoneella komentoa ```sudo sa
 
 ## f) Hello IaC
 
-Suoritin tämän tehtävän orjakoneessa (t002-virtuaalitietokone). Tehtävän tarkoituksena oli luoda hello-moduuli, jonka suorittaminen saa aikaan tietyn tiedoston luonnin, jos kyseistä tiedostoa ei ole entuudestaan olemassa.
+Suoritin tämän tehtävän orjakoneessa (t002-virtuaalitietokone). Tehtävän tarkoituksena oli luoda hello-moduuli, jonka suorittaminen paikallisesti luo tiettyyn hakemistoon tiedoston, jos kyseistä tiedostoa ei ole entuudestaan olemassa.
 
 - Loin hakemiston hello-moduulille komennolla ```sudo mkdir -p /srv/salt/hello/```. Varmistuin vielä hakemiston onnistuneesta luonnista siirtymällä /srv/salt/-hakemistoon.
 
