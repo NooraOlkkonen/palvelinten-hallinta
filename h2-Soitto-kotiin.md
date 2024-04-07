@@ -70,7 +70,7 @@ Loin virtuaalikoneille t001 ja t002 konfiguraatiotiedoston NotePad-tekstieditori
 
 ![kuva](https://github.com/NooraOlkkonen/Palvelinten-hallinta/assets/165004946/a50ae087-867b-4b4e-ab57-754b36bb7822)
 
-Konfiguraatiotiedoston nimessä näkyi tiedostopääte (.txt). Opin tiistain 2.4.2024 oppitunnilla, ettei konfugiraatiotiedosto toimi, jos nimessä näkyy tiedostopääte. 
+Konfiguraatiotiedoston nimessä näkyi tiedostopääte (.txt). Opin tiistain 2.4.2024 opetuskerralla, ettei konfugiraatiotiedosto toimi, jos nimessä näkyy tiedostopääte. 
 
 ![kuva](https://github.com/NooraOlkkonen/Palvelinten-hallinta/assets/165004946/ebaf8551-c9cc-4016-9b70-96044b4a9beb)
 
@@ -109,7 +109,7 @@ Testasin toimiiko yhteys t001- ja t002-virtuaalikoneiden välillä. Käytin täh
 ![kuva](https://github.com/NooraOlkkonen/Palvelinten-hallinta/assets/165004946/25d192fb-9495-4537-a776-ddd2b7419f2a)
 
 
-## b) Salt herra-orja -arkkitehtuuri verkon yli
+## b) Salt herra-orja-arkkitehtuuri verkon yli
 
 1. Määritin **t001**-virtuaalikoneen herraksi (master)
 
@@ -134,7 +134,7 @@ Testasin toimiiko yhteys t001- ja t002-virtuaalikoneiden välillä. Käytin täh
 
   ![kuva](https://github.com/NooraOlkkonen/Palvelinten-hallinta/assets/165004946/a70a95f5-e222-4e4f-a832-88054523ad38)
 
-- Määritin herran IP-osoitteen orjan konfiguraatiotiedostoon. Herran IPv4-osoite on 192.168.88.101, kuten konfiguraatiotiedostossa ja kohdassa a) todettu. Pääsin muokkaamaan konfiguraatiotiedostoa komennolla ```sudoedit /etc/salt/minion```.
+- Määritin herran IP-osoitteen orjan konfiguraatiotiedostoon. Herran IPv4-osoite on 192.168.88.101, kuten kohdassa a) todettu. Pääsin muokkaamaan konfiguraatiotiedostoa komennolla ```sudoedit /etc/salt/minion```.
    
   ![kuva](https://github.com/NooraOlkkonen/Palvelinten-hallinta/assets/165004946/541bee06-e66a-46bc-9ecb-bfdeb89044cd)
 
@@ -148,7 +148,24 @@ Testasin toimiiko yhteys t001- ja t002-virtuaalikoneiden välillä. Käytin täh
   
   ![kuva](https://github.com/NooraOlkkonen/Palvelinten-hallinta/assets/165004946/476911d2-f99b-4758-be70-8248c33262da)
 
+## c)
 
+## d)
+
+## e) Tietojen kerääminen orjasta
+
+Tutustuin orjatietokoneen (t002) tietoihin käyttäen herratietokoneella (t001) komentoa ```sudo salt '*' grains.items```. Poimin kolme mielenkiintoista tietoa, jotka sain eriteltyä komennolla ```sudo salt '*' grains.item master ip4_interfaces oscodename```.
+
+![kuva](https://github.com/NooraOlkkonen/Palvelinten-hallinta/assets/165004946/ca21187d-891a-4aba-ba2a-634413899f65)
+
+- ip4_interfaces = orjatietokoneen liitäntöjen IPv4-osoitteet 
+
+- master = orjatietokoneeseen määritetyn herran IPv4-osoite
+
+- oscodename = orjatietokoneen käyttöjärjestelmän koodinimi
+ 
+
+## f) Hello IaC
 
 # Lähteet 
 
@@ -156,7 +173,7 @@ Karvinen 2023: Two Machine Virtual Network With Debian 11 Bullseye and Vagrant. 
 
 Karvinen 2018: Salt Quickstart – Salt Stack Master and Slave on Ubuntu Linux. Luettavissa: https://terokarvinen.com/2018/salt-quickstart-salt-stack-master-and-slave-on-ubuntu-linux/?fromSearch=salt%20quickstart%20salt%20stack%20master%20and%20slave%20on%20ubuntu%20linux. Luettu: 6.4.2024.
 
-Karvinen 2023: Hello Salt Infra-as-Code. Luettavissa: https://terokarvinen.com/2024/hello-salt-infra-as-code/. Luettu: x.xx.xxxx.
+Karvinen 2023: Hello Salt Infra-as-Code. Luettavissa: https://terokarvinen.com/2024/hello-salt-infra-as-code/. Luettu: 7.4.2024.
  
 Linux 2009: Hostname-komennon manuaalisivu. Luettu 6.4.2024.
 
