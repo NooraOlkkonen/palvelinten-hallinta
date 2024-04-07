@@ -58,7 +58,7 @@ Tiivistelmät opettajan osoittamista artikkeleista.
 
 ## a) Virtuaalikoneiden luonti ja niiden toimivuuden testaaminen
 
-Asensin Vagrant-ohjelmiston fyysiseen tietokoneeseen edellisen kotitehtävän yhteydessä. Tarkistin asennetun Vagrant-ohjelmiston versio komennolla ```vagrant --version```.
+Asensin Vagrant-ohjelmiston fyysiseen tietokoneeseen edellisen kotitehtävän yhteydessä. Tarkistin asennetun Vagrant-ohjelmiston version komennolla ```vagrant --version```.
 
 ![kuva](https://github.com/NooraOlkkonen/Palvelinten-hallinta/assets/165004946/6d25cb46-6ab8-4f37-b3d1-5042bbd0aee5)
 
@@ -70,7 +70,7 @@ Loin virtuaalikoneille t001 ja t002 konfiguraatiotiedoston NotePad-tekstieditori
 
 ![kuva](https://github.com/NooraOlkkonen/Palvelinten-hallinta/assets/165004946/a50ae087-867b-4b4e-ab57-754b36bb7822)
 
-Konfiguraatiotiedoston nimessä näkyi tiedostopääte (.txt). Opin tiistain 2.4.2024 opetuskerralla, ettei konfugiraatiotiedosto toimi, jos nimessä näkyy tiedostopääte. 
+Konfiguraatiotiedoston nimessä näkyi tiedostopääte (.txt). Opin tiistain 2.4.2024 opetuskerralla, ettei konfiguraatiotiedosto toimi, jos nimessä näkyy tiedostopääte. 
 
 ![kuva](https://github.com/NooraOlkkonen/Palvelinten-hallinta/assets/165004946/ebaf8551-c9cc-4016-9b70-96044b4a9beb)
 
@@ -111,7 +111,7 @@ Testasin toimiiko yhteys t001- ja t002-virtuaalikoneiden välillä. Käytin täh
 
 ## b) Salt herra-orja-arkkitehtuuri verkon yli
 
-1. Määritin **t001**-virtuaalikoneen herraksi (master)
+### 1. Määritin t001-virtuaalikoneen herraksi (master)
 
 - Latasin uusimmat päivitykset komennolla ```sudo apt-get update```. Tämän jälkeen latasin herran roolin komennolla ```sudo apt-get -y install salt-master```.
 
@@ -122,7 +122,7 @@ Testasin toimiiko yhteys t001- ja t002-virtuaalikoneiden välillä. Käytin täh
   ![kuva](https://github.com/NooraOlkkonen/Palvelinten-hallinta/assets/165004946/875bd45f-9e3b-495c-b7c8-8842933646f4)
 
 
-2. Määritin **t002**-virtuaalikoneen orjaksi (slave)
+### 2. Määritin t002-virtuaalikoneen orjaksi (slave)
 
 - Latasin uusimmat päivitykset komennolla ```sudo apt-get update```. Tämän jälkeen latasin orjan roolin komennolla ```sudo apt-get -y install salt-minion```.
 
@@ -142,7 +142,7 @@ Testasin toimiiko yhteys t001- ja t002-virtuaalikoneiden välillä. Käytin täh
 
   ![kuva](https://github.com/NooraOlkkonen/Palvelinten-hallinta/assets/165004946/f5fa9eb3-3e5a-4b91-84f2-267ebfebd09a)
 
-3. Hyväksyin herratietokoneella (t001) orjatietokoneen (t002) lähettämän avaimen
+### 3. Hyväksyin herratietokoneella orjatietokoneen lähettämän avaimen
 
 - Tarkistin ja hyväksyin orjan (t002) herralle (t001) lähettämän avaimen komennolla ```sudo salt-key -A```.
   
@@ -150,7 +150,7 @@ Testasin toimiiko yhteys t001- ja t002-virtuaalikoneiden välillä. Käytin täh
 
 ## c) Shell-komento herra-orja-yhteyden yli
 
-Selvitin orjatietokoneen nykyisen kirjautuneen käyttäjän nimen ajamalla herratietokoneessa komennon ```sudo salt '*' cmd.run 'whoami'```.
+Selvitin orjatietokoneen nykyisen kirjautuneena olevan käyttäjän nimen ajamalla herratietokoneessa komennon ```sudo salt '*' cmd.run 'whoami'```.
 
 ![kuva](https://github.com/NooraOlkkonen/Palvelinten-hallinta/assets/165004946/3cd35930-cdd3-43dc-b27e-e8659914e515)
 
@@ -158,7 +158,7 @@ Selvitin orjatietokoneen nykyisen kirjautuneen käyttäjän nimen ajamalla herra
 
 ### 1. user
 
-- Suoritin herratietokoneella komennon ```sudo salt '*' state.single user.present 'käyttäjä'```, joka luo käyttäjä-nimisen käyttäjän, jos sellaista ei entuudestaan ole olemassa. Tässä tapauksessa kyseinen käyttäjä todella luotiin, koska sitä ei ollut olemassa (ID: käyttäjä, Result: True, Comment: New user käyttäjä created).
+- Suoritin herratietokoneella komennon ```sudo salt '*' state.single user.present käyttäjä```, joka luo orjakoneeseen käyttäjä-nimisen käyttäjän, jos sellaista ei ole entuudestaan olemassa. Tässä tapauksessa kyseinen käyttäjä todella luotiin, koska sitä ei ollut olemassa (ID: käyttäjä, Result: True, Comment: New user käyttäjä created).
 
   ![kuva](https://github.com/NooraOlkkonen/Palvelinten-hallinta/assets/165004946/15d14b8e-61dd-4500-9d93-6e6a7921f5d5)
 
@@ -166,14 +166,28 @@ Selvitin orjatietokoneen nykyisen kirjautuneen käyttäjän nimen ajamalla herra
 
   ![kuva](https://github.com/NooraOlkkonen/Palvelinten-hallinta/assets/165004946/eefe926d-eee5-4f21-bc10-ce08ee5c02c3)
 
-- Suoritin uudelleen saman komennon ```sudo salt '*' state.single user.present 'käyttäjä'``` herratietokoneella. Toista samannimistä käyttäjää ei luotu orjatietokoneeseen. Järjestelmä ilmoitti, että kyseinen käyttäjä on jo olemassa (ID: käyttäjä, Result: True, Comment: User käyttäjä is present and up to date).
+- Suoritin herratietokoneella uudelleen saman komennon ```sudo salt '*' state.single user.present käyttäjä```. Toista samannimistä käyttäjää ei luotu orjatietokoneeseen. Järjestelmä ilmoitti, että kyseinen käyttäjä on jo olemassa (ID: käyttäjä, Result: True, Comment: User käyttäjä is present and up to date).
 
   ![kuva](https://github.com/NooraOlkkonen/Palvelinten-hallinta/assets/165004946/47ba44fb-1acc-4dea-96ae-299895a59e00)
+
+### 2. file
+
+- Suoritin herratietokoneella komennon ```sudo salt '*' state.single file.managed /home/testi```, joka luo orjakoneen home-hakemistoon tyhjän testi-nimisen tiedoston, jos sellaista ei ole entuudestaan olemassa. Tässä tapauksessa kyseinen tiedosto todella luotiin, koska sitä ei ollut olemassa (ID: /home/testi, Result: True, Comment: Empty file, Changes: new: file /home/testi created).
+
+  ![kuva](https://github.com/NooraOlkkonen/Palvelinten-hallinta/assets/165004946/c97d4d1a-696e-468a-a903-5d8ab19179d3)
+
+- Suoritin herratietokoneella uudelleen saman komennon ```sudo salt '*' state.single file.managed /home/testi``` . Toista samannimistä tiedostoa ei luotu orjatietokoneeseen. Järjestelmä ilmoitti, että kyseinen tiedosto on jo olemassa (ID: /home/testi, Result: True, Comment: File /home/testi exists with proper permissions. No changes made).
+
+  ![kuva](https://github.com/NooraOlkkonen/Palvelinten-hallinta/assets/165004946/7c055337-3e66-48df-87f9-4f8e16c8c1f7)
+
+- Tarkistin vielä komennolla ```sudo salt '*' cmd.run 'ls /home'```, että uusi testi-niminen tiedosto todella luotiin orjatietokoneen home-hakemistoon.
+
+  ![kuva](https://github.com/NooraOlkkonen/Palvelinten-hallinta/assets/165004946/5d5a91c9-69b8-457b-801e-c0581e4670d6)
 
 
 ## e) Tietojen kerääminen orjasta
 
-Tutustuin orjatietokoneen (t002) tietoihin käyttäen herratietokoneella (t001) komentoa ```sudo salt '*' grains.items```. Poimin kolme mielenkiintoista tietoa, jotka sain eriteltyä komennolla ```sudo salt '*' grains.item master ip4_interfaces oscodename```.
+Tutustuin orjatietokoneen tietoihin käyttäen herratietokoneella komentoa ```sudo salt '*' grains.items```. Poimin kolme mielenkiintoista tietoa, jotka sain eriteltyä komennolla ```sudo salt '*' grains.item master ip4_interfaces oscodename```.
 
 ![kuva](https://github.com/NooraOlkkonen/Palvelinten-hallinta/assets/165004946/ca21187d-891a-4aba-ba2a-634413899f65)
 
@@ -197,4 +211,6 @@ Karvinen 2018: Salt Quickstart – Salt Stack Master and Slave on Ubuntu Linux. 
 Karvinen 2023: Hello Salt Infra-as-Code. Luettavissa: https://terokarvinen.com/2024/hello-salt-infra-as-code/. Luettu: 7.4.2024.
  
 Linux 2009: Hostname-komennon manuaalisivu. Luettu 6.4.2024.
+
+Linux 2020: Whoami-komennon manuaalisivu. Luettu 7.4.2024.
 
