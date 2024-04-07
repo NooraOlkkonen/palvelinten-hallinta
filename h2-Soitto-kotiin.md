@@ -62,7 +62,7 @@ Tiivistelmät opettajan osoittamista artikkeleista.
 
 - Luodaan oma hakemisto moduulille.
 
-- Hakemistoon luodaan tiedosto, johon kirjoitetaan (idempotenttia) Salt-koodia.
+- Hakemistoon luodaan sls-tiedosto, johon kirjoitetaan (idempotenttia) Salt-koodia.
 
 - Suoritetaan moduuli, jolloin tiedostoon kirjoitettu koodi toteutetaan, eli koodiin kirjoitettu haluttu asia/toiminto tapahtuu.
 
@@ -198,18 +198,52 @@ Selvitin orjatietokoneen nykyisen kirjautuneena olevan käyttäjän nimen ajamal
 
 ## e) Tietojen kerääminen orjasta
 
-Tutustuin orjatietokoneen tietoihin käyttäen herratietokoneella komentoa ```sudo salt '*' grains.items```. Poimin kolme mielenkiintoista tietoa, jotka sain eriteltyä komennolla ```sudo salt '*' grains.item master ip4_interfaces oscodename```.
+Tutustuin orjakoneen tietoihin käyttäen herratietokoneella komentoa ```sudo salt '*' grains.items```. Poimin kolme mielenkiintoista tietoa, jotka sain eriteltyä komennolla ```sudo salt '*' grains.item master ip4_interfaces oscodename```.
 
 ![kuva](https://github.com/NooraOlkkonen/Palvelinten-hallinta/assets/165004946/ca21187d-891a-4aba-ba2a-634413899f65)
 
-- ip4_interfaces = orjatietokoneen liitäntöjen IPv4-osoitteet 
+- ip4_interfaces = orjakoneen liitäntöjen IPv4-osoitteet 
 
-- master = orjatietokoneeseen määritetyn herran IPv4-osoite
+- master = orjakoneeseen määritetyn herran IPv4-osoite
 
-- oscodename = orjatietokoneen käyttöjärjestelmän koodinimi
+- oscodename = orjakoneen käyttöjärjestelmän koodinimi
  
 
 ## f) Hello IaC
+
+Suoritin tämän tehtävän orjakoneessa (t002-virtuaalitietokone). Tehtävän tarkoituksena oli luoda hello-moduuli, jonka suorittaminen saa aikaan tietyn tiedoston luonnin, jos kyseistä tiedostoa ei ole entuudestaan olemassa.
+
+- Loin hakemiston hello-moduulille komennolla ```sudo mkdir -p /srv/salt/hello/```. Varmistuin vielä hakemiston onnistuneesta luonnista siirtymällä /srv/salt/-hakemistoon.
+
+  ![kuva](https://github.com/NooraOlkkonen/Palvelinten-hallinta/assets/165004946/80675d53-20de-43d4-b655-198a852e0e99)
+
+- Siirryin vielä itse hello-hakemistoon, johon loin init.sls-tiedoston komennolla ```sudoedit init.sls```. Nano-tekstieditori avautui ja kirjoitin tiedostoon koodia Saltin koodikielellä.
+
+  ![kuva](https://github.com/NooraOlkkonen/Palvelinten-hallinta/assets/165004946/9c44a59d-269d-4b77-ac82-77e2b666cc9a)
+
+  ![kuva](https://github.com/NooraOlkkonen/Palvelinten-hallinta/assets/165004946/7739e628-2025-4d8c-94b1-d650591532ad)
+
+- Yritin suorittaa hello-moduulin paikallisesti komennolla ```sudo salt-call --local state.apply hello```, mutta se ei onnistunut. Siirryin juurihakemistoon ja yritin uudelleen onnistumatta.
+
+  ![kuva](https://github.com/NooraOlkkonen/Palvelinten-hallinta/assets/165004946/614f9f9e-1016-47a6-a38b-679df39ab61a)
+
+- Googletin virheilmoituksen ja päädyin Githubiin, jossa eräs käyttäjä kuvaili ratkaisunsa samaan virheilmoitukseen. Tämän avulla tajusin, että tiedostossani koodin toiselta riviltä puuttui sisennys, joten muokkasin uudelleen init.sls-tiedostoa ja lisäsin sisennyksen.
+
+  ![kuva](https://github.com/NooraOlkkonen/Palvelinten-hallinta/assets/165004946/49d1fb0e-2c63-4524-af5d-cd6748201398)
+
+  ![kuva](https://github.com/NooraOlkkonen/Palvelinten-hallinta/assets/165004946/c2b4ae63-d4a7-4bb7-b51e-3aba5c39ef15)
+
+- Suoritin uudelleen kommennon ```sudo salt-call --local state.apply hello```. Tällä kertaa hello-moduulin suorittaminen onnistui, eli tyhjä hellonoora-tiedosto luotiin tmp-hakemistoon, koska sitä ei ollut siellä entuudestaan (ID: /tmp/hellonoora, Comment: empty file, Changes: new: file /tmp/hellonoora created).
+
+  ![kuva](https://github.com/NooraOlkkonen/Palvelinten-hallinta/assets/165004946/9cb81aba-fb70-4848-a9aa-aa26bd93809a)
+
+- Idempotenssin osoittamiseksi suoritin vielä kerran uudelleen kommennon ```sudo salt-call --local state.apply hello```. Uutta samannimistä tiedostoa ei luotu, koska sellainen oli jo olemassa (ID: /tmp/hellonoora, Comment: File /tmp/hellonoora exists with proper permissions. No changes made). Eli saman komennon uudelleen suorittaminen ei saanut aikaan muutoksia.
+
+  ![kuva](https://github.com/NooraOlkkonen/Palvelinten-hallinta/assets/165004946/852ac8b3-49e6-4340-babb-94ef678ef55f)
+
+- Siirryin vielä itse tmp-hakemistoon varmistuakseni hellonoora-tiedoston luonnista.
+
+  ![kuva](https://github.com/NooraOlkkonen/Palvelinten-hallinta/assets/165004946/f9f8094f-f036-4127-844b-4cd34d61ebe8)
 
 # Lähteet
 
@@ -225,3 +259,4 @@ Linux 2009: Hostname-komennon manuaalisivu. Luettu 6.4.2024.
 
 Linux 2020: Whoami-komennon manuaalisivu. Luettu 7.4.2024.
 
+Tjyang 2020: [BUG] Rendering SLS 'base:git.prod.salt.3001up' failed: could not find expected ':' #57796. Luettavissa: https://github.com/saltstack/salt/issues/57796. Luettu: 7.4.2024.
