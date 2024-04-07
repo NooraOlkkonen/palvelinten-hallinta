@@ -148,9 +148,28 @@ Testasin toimiiko yhteys t001- ja t002-virtuaalikoneiden välillä. Käytin täh
   
   ![kuva](https://github.com/NooraOlkkonen/Palvelinten-hallinta/assets/165004946/476911d2-f99b-4758-be70-8248c33262da)
 
-## c)
+## c) Shell-komento herra-orja-yhteyden yli
 
-## d)
+Selvitin orjatietokoneen nykyisen kirjautuneen käyttäjän nimen ajamalla herratietokoneessa komennon ```sudo salt '*' cmd.run 'whoami'```.
+
+![kuva](https://github.com/NooraOlkkonen/Palvelinten-hallinta/assets/165004946/3cd35930-cdd3-43dc-b27e-e8659914e515)
+
+## d) Idempodentit komennot herra-orja-yhteyden yli
+
+**1. user**
+
+- Suoritin herratietokoneella komennon ```sudo salt '*' state.single user.present 'käyttäjä'```, joka luo käyttäjä-nimisen käyttäjän, jos sellaista ei entuudestaan ole olemassa. Tässä tapauksessa kyseinen käyttäjä todella luotiin, koska sitä ei ollut olemassa (ID: käyttäjä, Result: True, Comment: New user käyttäjä created).
+
+  ![kuva](https://github.com/NooraOlkkonen/Palvelinten-hallinta/assets/165004946/15d14b8e-61dd-4500-9d93-6e6a7921f5d5)
+
+- /etc/passwd-tiedostosta löytyy listattuna kaikki tietokoneen käyttäjät. Tarkistin vielä komennolla ```sudo salt '*' cmd.run 'cat /etc/passwd'```, että uusi käyttäjä-niminen käyttäjä todella luotiin orjatietokoneelle.
+
+  ![kuva](https://github.com/NooraOlkkonen/Palvelinten-hallinta/assets/165004946/eefe926d-eee5-4f21-bc10-ce08ee5c02c3)
+
+- Suoritin uudelleen saman komennon ```sudo salt '*' state.single user.present 'käyttäjä'``` herratietokoneella. Toista samannimistä käyttäjää ei luotu orjatietokoneeseen. Järjestelmä ilmoitti, että kyseinen käyttäjä on jo olemassa (ID: käyttäjä, Result: True, Comment: User käyttäjä is present and up to date).
+
+  ![kuva](https://github.com/NooraOlkkonen/Palvelinten-hallinta/assets/165004946/47ba44fb-1acc-4dea-96ae-299895a59e00)
+
 
 ## e) Tietojen kerääminen orjasta
 
