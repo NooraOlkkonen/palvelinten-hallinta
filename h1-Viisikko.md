@@ -150,6 +150,12 @@ Esimerkkinä komennon ```touch /tmp/foo``` suorittaminen. Käytin komentoa ```su
 
 ![kuva](https://github.com/NooraOlkkonen/Palvelinten-hallinta/assets/165004946/bf650d12-9787-43d2-8985-ce6767c5ece1)
 
+### Päivitys 8.4.2024:
+
+Opetuskerran 2.4.2024 pohjalta tarkennus. Esimerkkikomento ```sudo salt-call --local -l info state.single cmd.run 'touch /tmp/testi.txt' creates='/tmp/testi.txt'```. Tämän mukaan suoritetaan komento ```touch /tmp/testi.txt```, jos tiedostoa testi.txt ei ole olemassa. Tässä tapauksessa komento luo tiedoston testi.txt sijaintiin /tmp/, jos tiedostoa ei ole entuudestaan olemassa. Lisäksi hyvä vielä tarkistaa erikseen, että tiedosto on todella luotu.
+
+
+
 ## f) Idempotentti
 
 Idempotentin toiminnon vaikutukset ovat samat toiminnon suorituskertojen lukumäärästä huolimatta. Esimerkiksi järjestelmään ei tule muutoksia, vaikka toiminto suoritettaisiin useampaan kertaan. Idempotentti toiminto voi myös olla toiminto, joka tekee muutoksen järjestelmään ensimmäisellä suorituskerralla, mutta ei saman toiminnon myöhemmillä suorituskerroilla. Saltin tilafunktioiden tulisi olla idempotentteja.
