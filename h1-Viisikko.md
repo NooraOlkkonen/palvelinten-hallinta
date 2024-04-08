@@ -106,6 +106,13 @@ Latasin päivitykset virtuaalikoneeseen komennolla ```sudo apt-get update``` ja 
 
 ![kuva](https://github.com/NooraOlkkonen/Palvelinten-hallinta/assets/165004946/2ce87f09-349a-4f06-b16f-2c1246a37857)
 
+### Päivitys 8.4.2024:
+
+Tarkennus opetuskerran 2.4.2024 pohjalta. Olisi hyvä tarkistaa Salt-minionin toiminta jotenkin muutoin, kun tsekkaamalla versionumero. Tähän tarkoitukseen on hyvä komento ```sudo service salt-minion status```, jonka avulla voi selvittää onko Salt-minion aktiivinen.
+
+![kuva](https://github.com/NooraOlkkonen/Palvelinten-hallinta/assets/165004946/2e6e9800-471a-4dd2-9b30-c2464d206326)
+
+
 ## e) Viisi tärkeintä
 
 Viiden tärkeimmän Salt-tilafunktion lyhyet esittelyt aiemmin luotua virtuaalikonetta käyttämällä.
@@ -152,8 +159,19 @@ Esimerkkinä komennon ```touch /tmp/foo``` suorittaminen. Käytin komentoa ```su
 
 ### Päivitys 8.4.2024:
 
-Opetuskerran 2.4.2024 pohjalta tarkennus. Esimerkkikomento ```sudo salt-call --local -l info state.single cmd.run 'touch /tmp/testi.txt' creates='/tmp/testi.txt'```. Tämän mukaan suoritetaan komento ```touch /tmp/testi.txt```, jos tiedostoa testi.txt ei ole olemassa. Tässä tapauksessa komento luo tiedoston testi.txt sijaintiin /tmp/, jos tiedostoa ei ole entuudestaan olemassa. Lisäksi hyvä vielä tarkistaa erikseen, että tiedosto on todella luotu.
+Tarkennus opetuskerran 2.4.2024 pohjalta. Esimerkkikomento ```sudo salt-call --local -l info state.single cmd.run 'touch /tmp/testi.txt' creates='/tmp/testi.txt'```. Tässä siis suoritetaan komento ```touch /tmp/testi.txt```, jos tiedostoa testi.txt ei ole olemassa tmp-hakemistossa. Komento luo tiedoston testi.txt sijaintiin /tmp/. 
 
+Ensimmäisellä komennon ```sudo salt-call --local -l info state.single cmd.run 'touch /tmp/testi.txt' creates='/tmp/testi.txt'``` ajokerralla järjestelmä ilmoittaa, että komento ```touch /tmp/testi.txt``` on suoritettu.
+
+![kuva](https://github.com/NooraOlkkonen/Palvelinten-hallinta/assets/165004946/819e0408-9b22-465e-8345-f660b61954b6)
+
+Kun komento ```sudo salt-call --local -l info state.single cmd.run 'touch /tmp/testi.txt' creates='/tmp/testi.txt'``` ajetaan uudelleen, se ei saa aikaan muutoksia, eli toista samanlaista tiedostoa (testi.txt) luoda. Järjestelmä ilmoittaa, että kyseinen tiedosto on jo olemassa.
+
+![kuva](https://github.com/NooraOlkkonen/Palvelinten-hallinta/assets/165004946/9c9ca6db-b10f-47e5-a365-2e651142ca52)
+
+Lisäksi on hyvä vielä tarkistaa erikseen, että tiedosto on todella luotu hakemistoon.
+
+![kuva](https://github.com/NooraOlkkonen/Palvelinten-hallinta/assets/165004946/a28eebd5-c44a-4700-8d64-8f25004d015e)
 
 
 ## f) Idempotentti
