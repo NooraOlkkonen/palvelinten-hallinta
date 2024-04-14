@@ -24,6 +24,14 @@ Käyttöjärjestelmän versio: 22H2
 
 ### 2. Komento: git add . && git commit; git pull && git push
 
+- git add . = git add --all = valitaan kaikki varaston tiedostot git commitia varten
+
+- git commit = tallentaa tehdyt muutokset varastoon, eli laatii ns. tilannekuvan (snapshot) varastosta
+
+- git pull = päivittää etänä tehdyt muutokset paikalliseen varastoon
+
+- git push = paikallisesti tehdyt muutokset päivitetään/julkaistaan etävarastoon
+
 ## a) Online
 
 - Loin webliittymän kautta Githubiin uuden varaston (repository), jonka nimestä ja kuvauksesta löytyy sana "summer". Loin varastoon myös tiedoston (README.md) ja lisenssin (GNU General Public Licence 3).
@@ -82,7 +90,6 @@ Käyttöjärjestelmän versio: 22H2
 
 - Komennot ```git add .``` + ```git commit``` + ```git pull``` + ```git push``` olisi pitänyt suorittaa heti varaston kloonaamisen jälkeen ennen tiedoston plan-a.md luontia varastoon. Olisin myös voinut jättää uuden tiedoston plan-b.md tekemättä ja vain suorittaa uudelleen komennot ```git add .``` + ```git commit``` + ```git pull``` + ```git push```, jolloin tiedosto plan-a.md olisi päivittynyt Githubin webbiliittymään. Kun suoritin komennot ```git add .``` + ```git commit``` + ```git pull``` + ```git push``` tiedoston plan-b.md laatimisen jälkeen, päivittyivät molemmat tiedostot (plan-a.md ja plan-b.md) samalla kertaa Githubin webbiliittymään.
 
-
 ## c) Doh!
 
 ## d) Tukki
@@ -90,4 +97,12 @@ Käyttöjärjestelmän versio: 22H2
 ## e) Suolattu rakki
 
 ## Lähteet
+
+Git Guides 2024a. Git Add. Luettavissa: https://github.com/git-guides/git-add. Luettu: 14.4.2024.
+
+Git Guides 2024b. Git Commit. Luettavissa: https://github.com/git-guides/git-commit. Luettu: 14.4.2024.
+
+Git Guides 2024c. Git Pull. Luettavissa: https://github.com/git-guides/git-pull. Luettu: 14.4.2024.
+
+Git Guides 2024d. Git Push. Luettavissa: https://github.com/git-guides/git-push. Luettu: 14.4.2024.
 
