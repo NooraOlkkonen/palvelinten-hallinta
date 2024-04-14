@@ -22,9 +22,19 @@ Käyttöjärjestelmän versio: 22H2
 
 ### 1. Getting Started - What is Git? (Chacon and Straub 2014)
 
-- Git käsittää datan ja käsittelee sitä eri tavalla kuin muut versionhallintajärjestelmät -> Gitissä data nähdään tilannekuvien virtana
+- Git käsittää datan ja käsittelee sitä eri tavalla kuin muut versionhallintajärjestelmät -> Gitissä data nähdään tilannekuvien virtana.
 
-- Tiedostojen päätilat: modified, staged ja committed.
+- Gitissä monia toimintoja pystyy suorittamaan käyttämällä pelkästään paikallisia resursseja ilman internetyhteyttä.
+
+- Melkein kaikki Gitin toiminnot vain lisäävät dataa Gitin tietokantaan.
+
+- Tiedostojen päätilat Gitissä:
+  
+    - modified = tiedostoon on tehty muutoksia, mutta sitä ei ole tallennettu tietokantaan
+      
+    - staged = muokattu tiedosto on merkitty menemään tallennettavaan tilannekuvaan (commit snapshot)
+      
+    - committed = data on tallennettu paikalliseen tietokantaan
 
 ### 2. Komento: git add . && git commit; git pull && git push
 
