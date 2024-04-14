@@ -42,13 +42,15 @@ Käyttöjärjestelmän versio: 22H2
 
 - git add . = git add --all = valitaan kaikki varaston tiedostot tilannekuvaa varten
 
-- git commit = tallentaa varastoon tehdyt muutokset, eli laatii ns. tilannekuvan (snapshot) varastosta
+- git commit = tallentaa varaston tiedostoihin tehdyt muutokset, eli laatii ns. tilannekuvan (snapshot) varastosta
 
 - git pull = päivittää etänä tehdyt muutokset paikalliseen varastoon
 
 - git push = paikallisesti tehdyt muutokset päivitetään/julkaistaan etävarastoon
 
 ### 3. Loki ja muutokset 
+
+En oikein ymmärtänyt miten opettajan laatiman varaston lokitekstiä ja muutoksia olisi pitänyt tiivistää.
 
 ## a) Online
 
@@ -78,7 +80,7 @@ Käyttöjärjestelmän versio: 22H2
 
   ![kuva](https://github.com/NooraOlkkonen/Palvelinten-hallinta/assets/165004946/2846a171-1975-48a0-881d-b98c541389c6)
 
-- Päivitin tekijän henkilöllisyyden seuraavilla komennoilla: ```git config --global user.email``` ja ```git config --global user.name``` 
+- Päivitin tekijän henkilöllisyyden seuraavilla komennoilla: ```git config --global user.email``` ja ```git config --global user.name``` ja lisäsin omat tietoni.
 
   ![kuva](https://github.com/NooraOlkkonen/Palvelinten-hallinta/assets/165004946/1613d890-9c4e-4e85-ac7e-645ce37ebf64)
 
@@ -110,7 +112,7 @@ Käyttöjärjestelmän versio: 22H2
 
 - Tiistain 9.4.2024 opetuskerralla huomasin, ettei komento ```git add . && git commit; git pull && git push``` toimi sellaisenaan Windows-käyttöjärjestelmän komentokehotteessa. Komennon osat voi suorittaa Windowsilla yksittäisinä, kuten tein tässä tehtävässä.
 
-- Komennot ```git add .``` + ```git commit``` + ```git pull``` + ```git push``` olisi pitänyt suorittaa heti varaston kloonaamisen jälkeen ennen tiedoston plan-a.md luontia varastoon. Olisin myös voinut jättää uuden tiedoston plan-b.md tekemättä ja vain suorittaa uudelleen komennot ```git add .``` + ```git commit``` + ```git pull``` + ```git push```, jolloin tiedosto plan-a.md olisi päivittynyt Githubin webbiliittymään. Kun suoritin komennot ```git add .``` + ```git commit``` + ```git pull``` + ```git push``` tiedoston plan-b.md laatimisen jälkeen, päivittyivät molemmat tiedostot (plan-a.md ja plan-b.md) samalla kertaa Githubin webbiliittymään.
+- Komennot ```git add .``` + ```git commit``` + ```git pull``` + ```git push``` olisi pitänyt suorittaa heti varaston kloonaamisen jälkeen ennen tiedoston plan-a.md luontia varastoon. Olisin myös voinut jättää uuden tiedoston plan-b.md luomatta ja vain suorittaa uudelleen komennot ```git add .``` + ```git commit``` + ```git pull``` + ```git push```, jolloin tiedosto plan-a.md olisi päivittynyt Githubin webbiliittymään. Kun suoritin komennot ```git add .``` + ```git commit``` + ```git pull``` + ```git push``` tiedoston plan-b.md laatimisen jälkeen, päivittyivät molemmat tiedostot (plan-a.md ja plan-b.md) samalla kertaa Githubin webbiliittymään.
 
 ## c) Doh!
 
@@ -140,7 +142,7 @@ Käyttöjärjestelmän versio: 22H2
 
     - Inital commit = varaston summer2024 luonti
       
-    - Add plan-b.md file = tiedostojen plan-a.md ja plan-b.md lisääminen
+    - Add plan-b.md file = tiedostojen plan-a.md ja plan-b.md luonti
 
    ![kuva](https://github.com/NooraOlkkonen/Palvelinten-hallinta/assets/165004946/729e32b0-4865-4175-911b-5449ac1f8a49)
 
@@ -149,7 +151,13 @@ Käyttöjärjestelmän versio: 22H2
 
 ## e) Suolattu rakki
 
+### Salt-tilojen ajaminen omasta varastosta
+
+Tämä tehtävä käytiin läpi tiistain 9.4.2024 opetuskerralla, mutta aihe oli jo silloin vaikea enkä nytkään osannut tehdä tehtävää.
+
 ## Lähteet
+
+Chacon ja Straub 2014: Pro Git (2nd edition), 1.3 Getting Started - What is Git?. Luettavissa: https://git-scm.com/book/en/v2/Getting-Started-What-is-Git%3F. Luettu 14.4.2024.
 
 Git Guides 2024a. Git Add. Luettavissa: https://github.com/git-guides/git-add. Luettu: 14.4.2024.
 
@@ -158,6 +166,4 @@ Git Guides 2024b. Git Commit. Luettavissa: https://github.com/git-guides/git-com
 Git Guides 2024c. Git Pull. Luettavissa: https://github.com/git-guides/git-pull. Luettu: 14.4.2024.
 
 Git Guides 2024d. Git Push. Luettavissa: https://github.com/git-guides/git-push. Luettu: 14.4.2024.
-
-Chacon ja Straub 2014: Pro Git (2nd edition), 1.3 Getting Started - What is Git?. Luettavissa: https://git-scm.com/book/en/v2/Getting-Started-What-is-Git%3F. Luettu 14.4.2024.
 
