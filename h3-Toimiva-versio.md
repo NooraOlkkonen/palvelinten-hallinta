@@ -22,11 +22,15 @@ Käyttöjärjestelmän versio: 22H2
 
 ### 1. Getting Started - What is Git? (Chacon and Straub 2014)
 
+- Git käsittää datan ja käsittelee sitä eri tavalla kuin muut versionhallintajärjestelmät -> Gitissä data nähdään tilannekuvien virtana
+
+- Tiedostojen päätilat: modified, staged ja committed.
+
 ### 2. Komento: git add . && git commit; git pull && git push
 
 - git add . = git add --all = valitaan kaikki varaston tiedostot git commitia varten
 
-- git commit = tallentaa tehdyt muutokset varastoon, eli laatii ns. tilannekuvan (snapshot) varastosta
+- git commit = tallentaa varastoon tehdyt muutokset, eli laatii ns. tilannekuvan (snapshot) varastosta
 
 - git pull = päivittää etänä tehdyt muutokset paikalliseen varastoon
 
