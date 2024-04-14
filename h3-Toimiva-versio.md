@@ -26,6 +26,12 @@ Käyttöjärjestelmän versio: 22H2
 
 ## a) Online
 
+- Loin Githubiin uuden varaston (repository), jonka nimestä ja kuvauksesta löytyy sana "summer". Loin varastoon myös tiedoston (README.md) ja lisenssin (GNU General Public Licence 3).
+
+  ![kuva](https://github.com/NooraOlkkonen/Palvelinten-hallinta/assets/165004946/e5d5c84a-307d-4279-a214-f8dda294e6b2)
+
+
+
 ## b) Dolly
 
 ## c) Doh!
