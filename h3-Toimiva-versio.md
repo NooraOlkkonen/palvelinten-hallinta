@@ -44,7 +44,7 @@ Käyttöjärjestelmän versio: 22H2
 
   ![kuva](https://github.com/NooraOlkkonen/Palvelinten-hallinta/assets/165004946/6c4fa3a1-2f2d-47b1-b96a-6e80057d801e)
 
-- Suoritin komennon ```git commit```, jolloin järjestelmä huomautti tuntemattomasta tekijän henkilöllisyydestä.
+- Suoritin komennon ```git commit```, jolloin järjestelmä huomautti tekijän tuntemattomasta henkilöllisyydestä.
 
   ![kuva](https://github.com/NooraOlkkonen/Palvelinten-hallinta/assets/165004946/2846a171-1975-48a0-881d-b98c541389c6)
 
@@ -60,7 +60,7 @@ Käyttöjärjestelmän versio: 22H2
 
   ![kuva](https://github.com/NooraOlkkonen/Palvelinten-hallinta/assets/165004946/4f602b53-cc34-4c6e-bb8c-b1ace5372be2)
 
-- Muutos (plan-a.md-tiedoston lisääminen) ei päivittynyt Githubin webbiliittymään.
+- Muutos (plan-a.md-tiedoston lisääminen varastoon) ei päivittynyt Githubin webbiliittymään.
 
   ![kuva](https://github.com/NooraOlkkonen/Palvelinten-hallinta/assets/165004946/5d2a4e6b-18df-4b61-a923-a60d2af57a66)
 
@@ -68,7 +68,7 @@ Käyttöjärjestelmän versio: 22H2
 
   ![kuva](https://github.com/NooraOlkkonen/Palvelinten-hallinta/assets/165004946/86092810-816f-4123-bca5-577bfda2e377)
 
-- Suoritin uudelleen komennot ```git add .``` + ```git commit``` + ```git pull``` + ```git push```. Komennon ```git commit``` yhteydessä kirjoitin commit messagen (selityksen tehdyistä muutoksista).
+- Suoritin uudelleen komennot ```git add .``` + ```git commit``` + ```git pull``` + ```git push```. Komennon ```git commit``` yhteydessä kirjoitin commit messagen, eli selityksen tehdyistä muutoksista (Add plan-b.md file).
 
   ![kuva](https://github.com/NooraOlkkonen/Palvelinten-hallinta/assets/165004946/7edf38ab-55dc-4baa-b116-8130e7a70d44)
 
@@ -76,7 +76,11 @@ Käyttöjärjestelmän versio: 22H2
 
   ![kuva](https://github.com/NooraOlkkonen/Palvelinten-hallinta/assets/165004946/f70e5688-2fc6-4cb1-8951-43fb27b5acf8)
 
-- Huomioita tehtävästä:
+### Huomioita tehtävästä:
+
+- Tiistain 9.4.2024 opetuskerralla huomasin, ettei komento ```git add . && git commit; git pull && git push``` toimi sellaisenaan Windows-käyttöjärjestelmän komentokehotteessa. Komennon osat voi suorittaa Windowsilla yksittäisinä, kuten tein tässä tehtävässä.
+
+- Komennot ```git add .``` + ```git commit``` + ```git pull``` + ```git push``` olisi pitänyt suorittaa heti varaston kloonaamisen jälkeen ennen tiedoston plan-a.md luontia varastoon. Olisin myös voinut jättää uuden tiedoston plan-b.md tekemättä ja vain suorittaa uudelleen komennot ```git add .``` + ```git commit``` + ```git pull``` + ```git push```, jolloin tiedosto plan-a.md olisi päivittynyt Githubin webbiliittymään. Kun suoritin komennot ```git add .``` + ```git commit``` + ```git pull``` + ```git push``` tiedoston plan-b.md laatimisen jälkeen, päivittyivät molemmat tiedostot (plan-a.md ja plan-b.md) samalla kertaa Githubin webbiliittymään.
 
 
 ## c) Doh!
