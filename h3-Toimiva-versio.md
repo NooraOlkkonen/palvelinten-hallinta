@@ -50,12 +50,6 @@ Käyttöjärjestelmän versio: 22H2
 
 ### 3. Loki ja muutokset 
 
--
-
--
-
--
-
 ## a) Online
 
 ### Uuden varaston luonti
@@ -137,6 +131,21 @@ Käyttöjärjestelmän versio: 22H2
   ![kuva](https://github.com/NooraOlkkonen/Palvelinten-hallinta/assets/165004946/d07dfe6c-3a4f-47e5-ac56-65b6dd0f0527)
 
 ## d) Tukki
+
+### Varaston lokitietojen tarkasteleminen ja selittäminen
+
+- Tarkastelin varaston summer2024 lokitietoja fyysisen tietokoneen komentokehotteessa komennolla ```git log --patch```.
+
+- Lokitiedoissa näkyy kaksi commitia:
+
+    - Inital commit = varaston summer2024 luonti
+      
+    - Add plan-b.md file = tiedostojen plan-a.md ja plan-b.md lisääminen
+
+   ![kuva](https://github.com/NooraOlkkonen/Palvelinten-hallinta/assets/165004946/729e32b0-4865-4175-911b-5449ac1f8a49)
+
+  ![kuva](https://github.com/NooraOlkkonen/Palvelinten-hallinta/assets/165004946/fc369e66-be1d-4d32-adcc-591fcb1bfa15)
+
 
 ## e) Suolattu rakki
 
