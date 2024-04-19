@@ -138,6 +138,51 @@ Tässä tehtävässä käytin aiemmassa h2-kotitehtävässä laatimaani virtuaal
 
   ![kuva](https://github.com/NooraOlkkonen/palvelinten-hallinta/assets/165004946/1c9eeafd-77f7-431c-bc0c-d43cbd09b40e)
 
+## b) Top
+
+Tässä tehtävässä käytin aiemmassa h2-kotitehtävässä laatimiani virtuaalikoneita t001 ja t002.
+
+### Useiden tilamoduulien suorittaminen orjassa
+
+- Loin t001-herrakoneella /srv/salt-hakemistoon uutta packages-tilamoduulia varten hakemiston komennolla ```sudo mkdir packages```.
+
+  ![kuva](https://github.com/NooraOlkkonen/palvelinten-hallinta/assets/165004946/80c918be-f3b4-4757-8ce6-9fe63261b9a6)
+
+- Siirryin kyseiseen hakemistoon ja loin sinne tiedoston init.sls.
+
+  ![kuva](https://github.com/NooraOlkkonen/palvelinten-hallinta/assets/165004946/94cd39e5-45fa-4b6d-87a1-b7a7cfbb415e)
+
+- Loin tilamoduulin, jossa asennetaan cowsay- ja curl-ohjelmistopaketit, jos niitä ei ole entuudestaan olemassa.
+
+  ![kuva](https://github.com/NooraOlkkonen/palvelinten-hallinta/assets/165004946/6e7c63b3-3d6b-4773-b518-62579ff9a662)
+
+- Seuraavaksi loin hakemistoon /srv/salt/hello top.sls-tiedoston, jossa määritetään tilamoduulien suorittaminen orjilla.
+
+  ![kuva](https://github.com/NooraOlkkonen/palvelinten-hallinta/assets/165004946/28239c19-8b32-4b8d-a940-f05aace6b23d)
+
+- Määritin aiemman kohdan a) hello-tilamoduulin ja packages-tilamoduulin suoritettavaksi kaikille orjille.
+
+  ![kuva](https://github.com/NooraOlkkonen/palvelinten-hallinta/assets/165004946/7657b4c1-c87c-4fe7-a3a6-bf07254c3a5f)
+
+- Suoritin t001-herrakoneella top.sls-tiedoston mukaiset tilamoduulit komennolla ```sudo salt '*' state.apply```. t002-orjakoneeseen laadittiin hellosls-tiedosto tmp-hakemistoon sekä ladattiin cowsay- ja curl-ohjelmistopaketit. Tässä tapauksessa top.sls-tiedoston osoittamat tilamoduulit suoritettiin vain t002-orjakoneessa, koska tämä kone on ainut orja t001-herrakoneelle.
+
+  ![kuva](https://github.com/NooraOlkkonen/palvelinten-hallinta/assets/165004946/3910c8e0-0411-47b7-a52d-5ffc592afa3e)
+
+  ![kuva](https://github.com/NooraOlkkonen/palvelinten-hallinta/assets/165004946/fb565db3-c4aa-4344-aa77-761b4c8cf719)
+
+- Lopuksi tarkistin vielä t002-orjakoneella, että hellosls-tiedosto oli luotu tmp-hakemistoon sekä curl- ja cowsay-ohjelmistojen toiminnan.
+
+  ![kuva](https://github.com/NooraOlkkonen/palvelinten-hallinta/assets/165004946/5d154829-4d34-487c-8f6c-6ce0f4f45551)
+
+  ![kuva](https://github.com/NooraOlkkonen/palvelinten-hallinta/assets/165004946/a2a3dd17-fd22-4339-9e43-8fd4193da81a)
+
+  ![kuva](https://github.com/NooraOlkkonen/palvelinten-hallinta/assets/165004946/d637c6e7-a6ac-460e-baa3-103e0aebea88)
+
+  
+
+  
+  
+
 
 ## Lähteet
 
