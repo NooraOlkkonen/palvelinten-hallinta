@@ -178,10 +178,45 @@ Tässä tehtävässä käytin aiemmassa h2-kotitehtävässä laatimiani virtuaal
 
   ![kuva](https://github.com/NooraOlkkonen/palvelinten-hallinta/assets/165004946/d637c6e7-a6ac-460e-baa3-103e0aebea88)
 
-  
+## c) Apache easy mode
 
+### Apachen asentaminen käsin virtuaalikoneelle
+
+- Asensin Apache2-ohjelmistopaketin t001-virtuaalikoneelle komennolla ```sudo apt-get install apache2```. Tarkistin Apachen toiminnan komennolla ```sudo systemctl status apache2```.
+
+  ![kuva](https://github.com/NooraOlkkonen/palvelinten-hallinta/assets/165004946/75f4921c-6065-4eed-8572-ad7064cc3828)
+
+- Tarkistin Apache2-testisivun toiminnan komennolla ```curl -s localhost | grep title```. Kyseisellä komennolla saadaan näkyviin vain testisivun otsikko, eikä koko sivua.
+
+  ![kuva](https://github.com/NooraOlkkonen/palvelinten-hallinta/assets/165004946/2bc23a2b-94d8-439a-ba58-cc77438ba4e4)
+
+- Loin /home/vagrant-hakemistoon uuden webbi-hakemiston, johon puolestaan loin index.html-tiedoston Nano-tekstieditorilla. Kirjoitin index.html-tiedostoon vapaavalintaista tekstiä ilman ääkkösiä. Tästä tiedostosta tulee uusi Apachen etusivu testisivun tilalle.
+
+  ![kuva](https://github.com/NooraOlkkonen/palvelinten-hallinta/assets/165004946/a74c6091-5469-40a7-b220-8fc2a1e2d4de)
+
+- Seuraavaksi siirryin Apachen konfiguraatiotiedostoihin (/etc/apache2). Täällä siirryin Apachen sites-available-hakemistoon, jonne loin uuden konfiguraatiotiedoston noora.conf Nano-tekstieditorilla. Käytin konfiguraatiotiedoston pohjana opettajan osoittamaa mallipohjaa, joka löytyy täältä: https://terokarvinen.com/2018/name-based-virtual-hosts-on-apache-multiple-websites-to-single-ip-address/. Muutin pohjaan aiemmin luomani index.html-tiedoston sijainnin (/home/vagrant/webbi) DocumentRoot- ja Directory-kohtiin.
+
+  ![kuva](https://github.com/NooraOlkkonen/palvelinten-hallinta/assets/165004946/0521b62b-98b7-46bd-b7de-9cea218e04ad)
+
+- Tämän jälkeen siirryin /etc/apache2/sites-enabled-hakemistoon, joka sisältää symboliset linkit sites-available-hakemiston tiedostoihin. Poistin olemassa olevan linkin oletuskonfiguraatiotiedostoon (000-default.conf) komennolla ```sudo rm 000-default.conf```. Loin tilalle uuden symbolisen linkin uuteen konfiguraatiotiedostoon (noora.conf) komennolla ```sudo ln -s ../sites-available/noora.conf .```
+
+  ![kuva](https://github.com/NooraOlkkonen/palvelinten-hallinta/assets/165004946/a9378e03-26ff-485e-971e-95afcfd2a0bc)
+
+- Testasin toimivatko konfiguraatiot ja näkyykö uusi Apachen etusivu komennolla ```curl localhost | grep title```. Ei toiminut, vaan edelleen näkyi Apachen testisivu.
+
+  ![kuva](https://github.com/NooraOlkkonen/palvelinten-hallinta/assets/165004946/3632eac1-a19e-4ec4-900e-3a8e8bab35c0)
+
+- Apache2-palvelu tulee käynnistää uudelleen konfiguraatiotiedostoihin tehtyjen muutosten voimaan saattamiseksi. Käynnistin Apache2-palvelun uudelleen komennolla ```sudo systemctl restart apache2``` ja suoritin uudelleen komennon ```curl localhost | grep title```. Apachen testisivun sijasta tuli sivu, jonka otsikkona oli 403 Forbidden.
   
-  
+  ![kuva](https://github.com/NooraOlkkonen/palvelinten-hallinta/assets/165004946/57b47fd8-37ba-4b1d-a05e-27bee8137abf)
+
+- Aloitin vianselvityksen, jonka tuloksena huomasin nopeasti, että olin tallentanut index.html-tiedoston /home/vagrant-hakemistoon enkä /home/vagrant/webbi-hakemistoon. Siirsin tiedoston haluttuun paikkaan komennolla ```mv index.html /home/vagrant/webbi/```.
+
+  ![kuva](https://github.com/NooraOlkkonen/palvelinten-hallinta/assets/165004946/b3bd5325-e657-47b9-8385-7c897764a304)
+
+- Käynnistin Apache2-palvelun taas uudelleen komennolla ```sudo systemctl restart apache2``` (jäi pois kuvasta). Tämän jälkeen suoritin myös uudelleen komennon ```curl localhost | grep title```, mutta taaskaan ei haluttua lopputulosta. Seuraavaksi suoritin komennon ```curl localhost``` ja luomani etusivun (index.html) otsikko tuli onnistuneesti näkyviin.
+
+  ![kuva](https://github.com/NooraOlkkonen/palvelinten-hallinta/assets/165004946/01888665-95df-41c2-a322-7affc3c869d4)
 
 
 ## Lähteet
