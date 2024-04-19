@@ -111,6 +111,33 @@ Tehtävänannot kurssisivulla: https://terokarvinen.com/2024/configuration-manag
   - service.dead: varmistetaan, että tietty palvelu on pysäytetyssä tilassa / pysäytetään palvelu, mikäli se on toiminnassa
 
   - enable: nimetyn palvelun käyttöönotto käynnistyksen yhteydessä
+ 
+## a) Hello SLS!
+
+Tässä tehtävässä käytin aiemmassa h2-kotitehtävässä laatimaani virtuaalikonetta t001.
+
+### Hei maailma -tila tekstitiedostona
+
+- Loin hello-tilamoduulia varten hakemiston komennolla ```sudo mkdir -p /srv/salt/hello```.
+
+  ![kuva](https://github.com/NooraOlkkonen/palvelinten-hallinta/assets/165004946/68922ad0-407d-49c6-b677-168d71294b6a)
+
+- Siirryin kyseiseen hakemistoon ja loin sinne tiedoston init.sls.
+
+  ![kuva](https://github.com/NooraOlkkonen/palvelinten-hallinta/assets/165004946/e2995363-7afc-4091-b8ee-b1d57cf473bf)
+
+- Loin tilamoduulin, jossa tmp-hakemistoon luodaan hellosls-niminen tiedosto, jos sitä ei ole entuudestaan olemassa.
+
+  ![kuva](https://github.com/NooraOlkkonen/palvelinten-hallinta/assets/165004946/1b6c8ada-7d33-4602-9646-02d3d4c9baf7)
+
+- Suoritin hello-tilamoodulin paikallisesti komennolla ```sudo salt-call --local state.apply hello```. /tmp/hellosls-tiedosto luotiin onnistuneesti, koska sitä ei ollut entuudestaan olemassa.
+
+  ![kuva](https://github.com/NooraOlkkonen/palvelinten-hallinta/assets/165004946/6cf4b12b-17e7-4542-b7d7-9bc03e32306c)
+
+- Tarkistin vielä tiedoston onnistuneen luonnin siirtymällä tmp-hakemistoon.
+
+  ![kuva](https://github.com/NooraOlkkonen/palvelinten-hallinta/assets/165004946/1c9eeafd-77f7-431c-bc0c-d43cbd09b40e)
+
 
 ## Lähteet
 
