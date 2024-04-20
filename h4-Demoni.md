@@ -264,7 +264,7 @@ Tässä tehtävässä käytin aiemmassa h2-kotitehtävässä laatimiani virtuaal
 
    ![kuva](https://github.com/NooraOlkkonen/palvelinten-hallinta/assets/165004946/90171cde-443c-45a9-b48a-2f9bc475054b)
 
-- Loin konfiguraatiotiedoston noora.conf /etc/apache2/sites-available-hakemistoon samalla tavalla kuin aiemmin Apachen käsin asentamisessa. noora.conf-tiedosto sisältää tiedostopolun aiemmin luotuun index.html-tiedostoon.
+- Loin konfiguraatiotiedoston noora.conf /etc/apache2/sites-available-hakemistoon samalla tavalla kuin aiemmin Apachen käsin asentamisessa. noora.conf-tiedosto sisältää hakemistopolun aiemmin luotuun index.html-tiedostoon.
 
   ![kuva](https://github.com/NooraOlkkonen/palvelinten-hallinta/assets/165004946/a31cdcce-350f-4851-9ec2-3b5ea657d44d)
 
@@ -290,11 +290,11 @@ Tässä tehtävässä käytin aiemmassa h2-kotitehtävässä laatimiani virtuaal
 
   ![kuva](https://github.com/NooraOlkkonen/palvelinten-hallinta/assets/165004946/5caa217b-61d3-417f-a1c8-cf0798455f74)
 
-- Päätin aloittaa alusta. Poistin Apache2-ohjelmiston asennuksen ja käsin luomani tiedostot. Luin myös Apacheen liittyvää tehtäväraporttiani aikaisemmalta Linux-palvelimet-opintojaksolta. Raportin perusteella päätin kokeilla lähestymistapaa, jossa loin uuden etusivun (etusivu.html) /var/www/html/-hakemistoon. Otin varmuuskopion Apachen oletusetusivusta (index.html) ja muutin oman etusivu.html-tiedoston index.html-tiedostoksi.
+- Päätin aloittaa alusta. Poistin Apache2-ohjelmiston asennuksen ja käsin luomani tiedostot. Luin myös Apacheen liittyvää tehtäväraporttiani aikaisemmalta Linux palvelimet-opintojaksolta. Raportin perusteella päätin kokeilla lähestymistapaa, jossa loin uuden etusivun (etusivu.html) /var/www/html/-hakemistoon. Otin varmuuskopion Apachen oletusetusivusta (index.html) ja muutin oman etusivu.html-tiedoston index.html-tiedostoksi.
 
   ![kuva](https://github.com/NooraOlkkonen/palvelinten-hallinta/assets/165004946/3179773e-32d5-4edb-b53a-95d77f018df2)
 
-- Loin noora.conf-tiedoston /etc/apache2/sites-availabe/-hakemistoon. Merkitsin noora.conf-tiedostoon hakemistopolun index.html-tiedostoon.
+- Loin noora.conf-tiedoston /etc/apache2/sites-available/-hakemistoon. Merkitsin noora.conf-tiedostoon hakemistopolun index.html-tiedostoon.
 
   ![kuva](https://github.com/NooraOlkkonen/palvelinten-hallinta/assets/165004946/913c7d8d-d62d-4a3d-b966-accfc3cf28a5)
 
@@ -310,7 +310,7 @@ Tässä tehtävässä käytin aiemmassa h2-kotitehtävässä laatimiani virtuaal
 
   ![kuva](https://github.com/NooraOlkkonen/palvelinten-hallinta/assets/165004946/b51623bc-c086-4c0a-9e1d-f8d081ffc747)
 
-- Nyt symlinkit näyttivät oikealta ja oma etusivuni tuli näkyviin.
+- Nyt symlinkit näyttivät oikealta ja oma etusivuni tuli näkyviin. Apache2-ohjelmiston asennus apache-moduulin konfiguraatioilla siis onnistui.
 
   ![kuva](https://github.com/NooraOlkkonen/palvelinten-hallinta/assets/165004946/b1841a87-3af7-490d-9c69-a298e0bd0af5)
 
@@ -321,6 +321,22 @@ Tässä tehtävässä käytin aiemmassa h2-kotitehtävässä laatimiani virtuaal
 - Suoritin uudelleen Apache-moduulin ja tarkistin /etc/apache2/sites-enabled-hakemiston sisällön. Symlinkit ok: 000-default.conf poissa, noora.conf sinisenä. Oma etusivu myös näkyi niin kuin pitää.
 
   ![kuva](https://github.com/NooraOlkkonen/palvelinten-hallinta/assets/165004946/f8aea5a4-719d-4917-9470-ab4adfd4a717)
+
+- Jatkoin niin, että en suorittanutkaan enää Apache-moduulia paikallisesti t001-herrakoneella, vaan suoritin moduulin kaikille orjille komennolla ```sudo salt '*' state.apply apache```. Tavoitteenani oli saada Apache2-ohjelmisto asentumaan ainoaan orjakoneeseen (t002). t002-koneen vastaus näytti ainakin lupaavalta.
+
+  ![kuva](https://github.com/NooraOlkkonen/palvelinten-hallinta/assets/165004946/d10b47bc-1dc7-49fc-b884-5fe785e54610)
+
+  ![kuva](https://github.com/NooraOlkkonen/palvelinten-hallinta/assets/165004946/feff715f-9767-4d91-aeef-4987cfe9aee7)
+
+- Tarkistin Apache2-ohjelmiston statuksen t002-orjakoneella. Status oli aktiivinen, josta päätellen ohjelmisto asentui oikein myös orjakoneeseen. 
+
+  ![kuva](https://github.com/NooraOlkkonen/palvelinten-hallinta/assets/165004946/586968d3-830d-4f56-82fb-1bfc00c41be4)
+
+- Suoritin t002-orjakoneella vielä komennon ```curl 192.168.88.101``` (t001-herrakoneen IP-osoite on 192.168.88.101). Luomani Apache-etusivu näkyy myös t002-orjakoneella.
+
+  ![kuva](https://github.com/NooraOlkkonen/palvelinten-hallinta/assets/165004946/bfb28b38-988d-4f46-9891-1d37557b1633)
+
+  ![kuva](https://github.com/NooraOlkkonen/palvelinten-hallinta/assets/165004946/b81d4597-750a-4eb1-bebc-356539ba4be3)
 
 
 ## Lähteet
