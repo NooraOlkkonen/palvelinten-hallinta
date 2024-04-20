@@ -240,7 +240,7 @@ Tässä tehtävässä käytin aiemmassa h2-kotitehtävässä laatimiani virtuaal
 
   ![kuva](https://github.com/NooraOlkkonen/palvelinten-hallinta/assets/165004946/070dcea4-aeec-47d8-ad12-2e74fcf5ed97)
 
-- Testin onnistuttua muokkasin init.sls-tiedostoa määrittääkseni Apache2-ohjelmistopaketin lataamisen. Ajoin apache-tilamoduulin ja Apache2-ohjelmiston lataus onnistui.
+- Testin jälkeen aloin tekemään varsinaisia määrityksiä init.sls-tiedostoon Apache2-ohjelmistopakettia koskien. Määritin ensin Apache2-ohjelmistopaketin asennuksen. Suoritin paikallisesti apache-moduulin komennolla ```sudo salt-call –local state.apply apache``` ja ohjelmistopaketin asennus onnistui.
 
   ![kuva](https://github.com/NooraOlkkonen/palvelinten-hallinta/assets/165004946/169bf4f2-8035-41e8-a9e4-381340e977c7)
 
@@ -256,7 +256,7 @@ Tässä tehtävässä käytin aiemmassa h2-kotitehtävässä laatimiani virtuaal
 
   ![kuva](https://github.com/NooraOlkkonen/palvelinten-hallinta/assets/165004946/1445681d-ed87-498c-a83f-d51e869cfc1c)
 
-- Suoritin uudelleen komennon ```sudo salt-call --local state.apply apache```. Ei muutoksia, koska Apache2-ohjelmisto on jo asennettu ja käynnissä.
+- Suoritin uudelleen komennon ```sudo salt-call --local state.apply apache```. Ei tapahtunut muutoksia, koska Apache2-ohjelmisto on jo asennettu ja käynnissä.
 
   ![kuva](https://github.com/NooraOlkkonen/palvelinten-hallinta/assets/165004946/e3b118ca-8097-40f3-8ccd-afc237d6ae0b)
 
@@ -267,6 +267,60 @@ Tässä tehtävässä käytin aiemmassa h2-kotitehtävässä laatimiani virtuaal
 - Loin konfiguraatiotiedoston noora.conf /etc/apache2/sites-available-hakemistoon samalla tavalla kuin aiemmin Apachen käsin asentamisessa. noora.conf-tiedosto sisältää tiedostopolun aiemmin luotuun index.html-tiedostoon.
 
   ![kuva](https://github.com/NooraOlkkonen/palvelinten-hallinta/assets/165004946/a31cdcce-350f-4851-9ec2-3b5ea657d44d)
+
+- Kopioin noora.conf-tiedoston /srv/salt/apache-hakemistoon komennolla ```sudo cp noora.conf /srv/salt/apache/```.
+
+  ![kuva](https://github.com/NooraOlkkonen/palvelinten-hallinta/assets/165004946/38d6a76d-042b-4fe7-8124-395a977fa04a)
+
+- Siirryin muokkaamaan init.sls-tiedostoa. Käytin tässä tiistain 16.4.2024 opetuskerralla oppimiani määrityksiä. Kuvassa valmiin init.sls-tiedoston sisältö.
+
+  ![kuva](https://github.com/NooraOlkkonen/palvelinten-hallinta/assets/165004946/29b65556-eca0-4cde-8bcb-996917648d69)
+
+- Suoritin paikallisesti komennon ```sudo salt-call --local state.apply apache```.
+
+  ![kuva](https://github.com/NooraOlkkonen/palvelinten-hallinta/assets/165004946/9760c5be-92d1-41f6-9ffd-298a01f91253)
+
+  ![kuva](https://github.com/NooraOlkkonen/palvelinten-hallinta/assets/165004946/a416f32b-67ef-47ca-82f9-a4b66de2a14a)
+
+- Tarkistin komennolla ```curl -s localhost | grep title``` josko oman etusivuni teksti tulisi nyt näkyviin. Ei kuitenkaan tullut.
+
+  ![kuva](https://github.com/NooraOlkkonen/palvelinten-hallinta/assets/165004946/61b82466-50b3-4ccd-aecf-e35d9bce130a)
+
+- Yritin pohtia syytä tähän. Tarkastelin Apachen konfiguraatiotiedostojen hakemistoja. Jostain syystä noora.config-tiedoston symlink oli punaisella. En keksinyt miten tämä korjataan.
+
+  ![kuva](https://github.com/NooraOlkkonen/palvelinten-hallinta/assets/165004946/5caa217b-61d3-417f-a1c8-cf0798455f74)
+
+- Päätin aloittaa alusta. Poistin Apache2-ohjelmiston asennuksen ja käsin luomani tiedostot. Luin myös Apacheen liittyvää tehtäväraporttiani aikaisemmalta Linux-palvelimet-opintojaksolta. Raportin perusteella päätin kokeilla lähestymistapaa, jossa loin uuden etusivun (etusivu.html) /var/www/html/-hakemistoon. Otin varmuuskopion Apachen oletusetusivusta (index.html) ja muutin oman etusivu.html-tiedoston index.html-tiedostoksi.
+
+  ![kuva](https://github.com/NooraOlkkonen/palvelinten-hallinta/assets/165004946/3179773e-32d5-4edb-b53a-95d77f018df2)
+
+- Loin noora.conf-tiedoston /etc/apache2/sites-availabe/-hakemistoon. Merkitsin noora.conf-tiedostoon hakemistopolun index.html-tiedostoon.
+
+  ![kuva](https://github.com/NooraOlkkonen/palvelinten-hallinta/assets/165004946/913c7d8d-d62d-4a3d-b966-accfc3cf28a5)
+
+- Kopioin noora.conf-tiedoston /srv/salt/apache-hakemistoon.
+
+  ![kuva](https://github.com/NooraOlkkonen/palvelinten-hallinta/assets/165004946/b73330fb-9508-4648-9a89-ae650e608b18)
+
+- Muokkasin init.sls-tiedostoa. Jätin aiemmasta kokeilustani poiketen file.absent-kohdan pois. Tarkistin voiko sillä vaikutusta lopputulokseen.
+
+  ![kuva](https://github.com/NooraOlkkonen/palvelinten-hallinta/assets/165004946/14b8402b-abb1-4420-8ce3-4fd94cb82726)
+
+- Suoritin paikallisesti komennon ```sudo salt-call --local state.apply apache```, jonka tulokset kuvissa.
+
+  ![kuva](https://github.com/NooraOlkkonen/palvelinten-hallinta/assets/165004946/b51623bc-c086-4c0a-9e1d-f8d081ffc747)
+
+- Nyt symlinkit näyttivät oikealta ja oma etusivuni tuli näkyviin.
+
+  ![kuva](https://github.com/NooraOlkkonen/palvelinten-hallinta/assets/165004946/b1841a87-3af7-490d-9c69-a298e0bd0af5)
+
+- Lisäsin kokeilumielessä vielä init.sls-tiedostoon file.absent-kohdan. Testasin vaikuttaako lopputulokseen.
+
+  ![kuva](https://github.com/NooraOlkkonen/palvelinten-hallinta/assets/165004946/de0d586e-2796-46a9-9526-5f7dbdb8eaba)
+
+- Suoritin uudelleen Apache-moduulin ja tarkistin /etc/apache2/sites-enabled-hakemiston sisällön. Symlinkit ok: 000-default.conf poissa, noora.conf sinisenä. Oma etusivu myös näkyi niin kuin pitää.
+
+  ![kuva](https://github.com/NooraOlkkonen/palvelinten-hallinta/assets/165004946/f8aea5a4-719d-4917-9470-ab4adfd4a717)
 
 
 ## Lähteet
