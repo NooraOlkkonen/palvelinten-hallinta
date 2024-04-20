@@ -218,6 +218,56 @@ Tässä tehtävässä käytin aiemmassa h2-kotitehtävässä laatimiani virtuaal
 
   ![kuva](https://github.com/NooraOlkkonen/palvelinten-hallinta/assets/165004946/01888665-95df-41c2-a322-7affc3c869d4)
 
+### Apachen automaattinen asentaminen Saltilla
+
+- Pysäytin käsin asentamani Apache2-ohjelman toiminnan t001-virtuaalikoneella komennolla ```sudo systemctl stop apache2```.
+
+  ![kuva](https://github.com/NooraOlkkonen/palvelinten-hallinta/assets/165004946/e90f9dcc-699a-4bb2-86c4-a7619dd32c3f)
+
+- Tämän jälkeen poistin Apachen komennolla ```sudo apt purge apache2```. Tämä komento poistaa Apache2-ohjelmiston sekä sen konfiguraatiotiedostot. Jouduin tosin poistamaan käsin noora.conf-tiedoston, joka sitä ei poistettu automaattisesti /etc/apache2/sites-available-hakemistosta eikä myöskään kyseistä hakemistoa.
+
+  ![kuva](https://github.com/NooraOlkkonen/palvelinten-hallinta/assets/165004946/7fd0738d-fec2-4e9b-98e0-6f1dd37a50f6)
+
+- Tarkistin vielä Apache2-ohjelman statuksen ja varmistuin ohjelman onnistuneesta poistosta (unit apache2.service could not be found).
+
+  ![kuva](https://github.com/NooraOlkkonen/palvelinten-hallinta/assets/165004946/8af907c9-7338-4c8c-9a37-2bdf2ffc57e5)
+
+- Loin jo olemassa olevaan /srv/salt-hakemistoon apache-hakemiston, johon loin init.sls-tiedoston. Tein ensin testin tilafunktion file.managed toimivuudesta.
+
+   ![kuva](https://github.com/NooraOlkkonen/palvelinten-hallinta/assets/165004946/378c4305-4db6-43ca-8395-78fc9c9d4cd5)
+
+  ![kuva](https://github.com/NooraOlkkonen/palvelinten-hallinta/assets/165004946/6bbea775-2ee6-498e-82c9-0834c1a4d15b)
+
+  ![kuva](https://github.com/NooraOlkkonen/palvelinten-hallinta/assets/165004946/070dcea4-aeec-47d8-ad12-2e74fcf5ed97)
+
+- Testin onnistuttua muokkasin init.sls-tiedostoa määrittääkseni Apache2-ohjelmistopaketin lataamisen. Ajoin apache-tilamoduulin ja Apache2-ohjelmiston lataus onnistui.
+
+  ![kuva](https://github.com/NooraOlkkonen/palvelinten-hallinta/assets/165004946/169bf4f2-8035-41e8-a9e4-381340e977c7)
+
+  ![kuva](https://github.com/NooraOlkkonen/palvelinten-hallinta/assets/165004946/dcd8aa0c-ef87-4e9a-944f-f0959e495f7d)
+
+  ![kuva](https://github.com/NooraOlkkonen/palvelinten-hallinta/assets/165004946/861a9bed-836d-4263-8f07-e05dcd8c244f)
+
+- Loin jo olemassa olevaan /srv/salt-hakemistoon etusivunoora-hakemiston, johon puolestaan loin index.html-tiedoston. Kirjoitin tiedostoon vapaamuotoista tekstiä, joka näkyy myöhemmin Apachen etusivuna. Kyseisenä hetkenä vielä näkyi Apachen oletusetusivu. 
+
+  ![kuva](https://github.com/NooraOlkkonen/palvelinten-hallinta/assets/165004946/c68797f9-71ae-4a80-902d-81f8250c4d88)
+
+- Seuraavaksi määritin init.sls-tiedostoon tilan Apache2-ohjelmiston käynnissäolosta.
+
+  ![kuva](https://github.com/NooraOlkkonen/palvelinten-hallinta/assets/165004946/1445681d-ed87-498c-a83f-d51e869cfc1c)
+
+- Suoritin uudelleen komennon ```sudo salt-call --local state.apply apache```. Ei muutoksia, koska Apache2-ohjelmisto on jo asennettu ja käynnissä.
+
+  ![kuva](https://github.com/NooraOlkkonen/palvelinten-hallinta/assets/165004946/e3b118ca-8097-40f3-8ccd-afc237d6ae0b)
+
+ - Halusin vielä testata toimiiko Apachen asentaminen ja sen käynnissä olon varmistaminen Apache2-ohjelmiston poistamisen jälkeenkin. Ensin poistin Apache2-ohjelmiston komennolla ```sudo apt remove apache2``` ja tämän jälkeen suoritin uudelleen komennon ```sudo salt-call --local state.apply apache```. Näytti toimivan.
+
+   ![kuva](https://github.com/NooraOlkkonen/palvelinten-hallinta/assets/165004946/90171cde-443c-45a9-b48a-2f9bc475054b)
+
+- Loin konfiguraatiotiedoston noora.conf /etc/apache2/sites-available-hakemistoon samalla tavalla kuin aiemmin Apachen käsin asentamisessa. noora.conf-tiedosto sisältää tiedostopolun aiemmin luotuun index.html-tiedostoon.
+
+  ![kuva](https://github.com/NooraOlkkonen/palvelinten-hallinta/assets/165004946/a31cdcce-350f-4851-9ec2-3b5ea657d44d)
+
 
 ## Lähteet
 
