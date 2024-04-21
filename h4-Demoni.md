@@ -4,13 +4,27 @@ Neljännen viikon kotitehtävät.
 
 Tehtävänannot kurssisivulla: https://terokarvinen.com/2024/configuration-management-2024-spring/.
 
+## Kotitehtävässä käytetyn fyysisen tietokoneen tiedot
+
+Malli: Lenovo ThinkPad X270
+
+Suoritin: Intel(R) Core(TM) i5-6300U CPU @ 2.40GHz 2.50 GHz
+
+Asennettu RAM-muisti: 8.00 GB (7.88 GB käytettävissä)
+
+Järjestelmätyyppi: 64-bittinen käyttöjärjestelmä, x64-suoritin
+
+Käyttöjärjestelmä: Windows 10 Pro
+
+Käyttöjärjestelmän versio: 22H2
+
 ## x) Lue ja tiivistä
 
 ### 1. Karvinen 2023: Salt Vagrant – automatically provision one master and two slaves 
 
 - Infra as Code – Your wishes as a text file
 
-  - Luodaan hakemisto tilamoduulille, esim. moduuli hello -> luodaan hakemisto /srv/salt/hello
+  - Luodaan hakemisto tilamoduulille, esim. moduuli hello &rarr; luodaan hakemisto /srv/salt/hello
   
   - Tähän hakemistoon luodaan init.sls-tiedosto, johon kirjoitetaan suoritettavaksi halutut toiminnot YAML-merkintäkielellä (infraa koodina)
   
@@ -98,7 +112,7 @@ Tehtävänannot kurssisivulla: https://terokarvinen.com/2024/configuration-manag
 
   - file.managed: nimetyn tiedoston hallinta, esimerkiksi lataaminen herrasta orjaan 
 
-  - file.absent: varmistaa, että nimetty tiedosto tai hakemisto puuttuu -> jos se on olemassa, se poistetaan 
+  - file.absent: varmistaa, että nimetty tiedosto tai hakemisto puuttuu &rarr; jos tiedosto tai hakemisto on olemassa, se poistetaan 
 
   - file.symlink: luodaan symbolinen linkki haluttuun tiedostoon 
 
@@ -144,7 +158,7 @@ Tässä tehtävässä käytin aiemmassa h2-kotitehtävässä laatimiani virtuaal
 
 ### Useiden tilamoduulien suorittaminen orjassa
 
-- Loin t001-herrakoneella /srv/salt-hakemistoon uutta packages-tilamoduulia varten hakemiston komennolla ```sudo mkdir packages```.
+- Loin t001-herrakoneella uuden hakemiston /srv/salt-hakemistoon packages-tilamoduulia varten komennolla ```sudo mkdir packages```.
 
   ![kuva](https://github.com/NooraOlkkonen/palvelinten-hallinta/assets/165004946/80c918be-f3b4-4757-8ce6-9fe63261b9a6)
 
@@ -180,17 +194,19 @@ Tässä tehtävässä käytin aiemmassa h2-kotitehtävässä laatimiani virtuaal
 
 ## c) Apache easy mode
 
-### Apachen asentaminen käsin virtuaalikoneelle
+Tässä tehtävässä käytin aiemmassa h2-kotitehtävässä laatimiani virtuaalikoneita t001 ja t002.
 
-- Asensin Apache2-ohjelmistopaketin t001-virtuaalikoneelle komennolla ```sudo apt-get install apache2```. Tarkistin Apachen toiminnan komennolla ```sudo systemctl status apache2```.
+### 1. Apachen asentaminen käsin virtuaalikoneelle
+
+- Asensin Apache2-ohjelmistopaketin t001-virtuaalikoneelle komennolla ```sudo apt-get install apache2```. Tämän jälkeen tarkistin Apachen toiminnan komennolla ```sudo systemctl status apache2```.
 
   ![kuva](https://github.com/NooraOlkkonen/palvelinten-hallinta/assets/165004946/75f4921c-6065-4eed-8572-ad7064cc3828)
 
-- Tarkistin Apache2-testisivun toiminnan komennolla ```curl -s localhost | grep title```. Kyseisellä komennolla saadaan näkyviin vain testisivun otsikko, eikä koko sivua.
+- Tarkistin Apache2-oletussivun toiminnan komennolla ```curl -s localhost | grep title```. Kyseisellä komennolla saadaan näkyviin vain testisivun otsikko, eikä koko sivua.
 
   ![kuva](https://github.com/NooraOlkkonen/palvelinten-hallinta/assets/165004946/2bc23a2b-94d8-439a-ba58-cc77438ba4e4)
 
-- Loin /home/vagrant-hakemistoon uuden webbi-hakemiston, johon puolestaan loin index.html-tiedoston Nano-tekstieditorilla. Kirjoitin index.html-tiedostoon vapaavalintaista tekstiä ilman ääkkösiä. Tästä tiedostosta tulee uusi Apachen etusivu testisivun tilalle.
+- Loin /home/vagrant-hakemistoon uuden webbi-hakemiston, johon puolestaan loin index.html-tiedoston Nano-tekstieditorilla. Kirjoitin index.html-tiedostoon vapaavalintaista tekstiä ilman ääkkösiä. Tästä tiedostosta tulee uusi Apachen etusivu oletussivun tilalle.
 
   ![kuva](https://github.com/NooraOlkkonen/palvelinten-hallinta/assets/165004946/a74c6091-5469-40a7-b220-8fc2a1e2d4de)
 
@@ -198,7 +214,7 @@ Tässä tehtävässä käytin aiemmassa h2-kotitehtävässä laatimiani virtuaal
 
   ![kuva](https://github.com/NooraOlkkonen/palvelinten-hallinta/assets/165004946/0521b62b-98b7-46bd-b7de-9cea218e04ad)
 
-- Tämän jälkeen siirryin /etc/apache2/sites-enabled-hakemistoon, joka sisältää symboliset linkit sites-available-hakemiston tiedostoihin. Poistin olemassa olevan linkin oletuskonfiguraatiotiedostoon (000-default.conf) komennolla ```sudo rm 000-default.conf```. Loin tilalle uuden symbolisen linkin uuteen konfiguraatiotiedostoon (noora.conf) komennolla ```sudo ln -s ../sites-available/noora.conf .```
+- Tämän jälkeen siirryin /etc/apache2/sites-enabled-hakemistoon, joka sisältää symboliset linkit sites-available-hakemiston tiedostoihin. Poistin olemassa olevan linkin oletuskonfiguraatiotiedostoon 000-default.conf komennolla ```sudo rm 000-default.conf```. Loin tilalle uuden symbolisen linkin uuteen konfiguraatiotiedostoon noora.conf komennolla ```sudo ln -s ../sites-available/noora.conf .```
 
   ![kuva](https://github.com/NooraOlkkonen/palvelinten-hallinta/assets/165004946/a9378e03-26ff-485e-971e-95afcfd2a0bc)
 
@@ -218,13 +234,13 @@ Tässä tehtävässä käytin aiemmassa h2-kotitehtävässä laatimiani virtuaal
 
   ![kuva](https://github.com/NooraOlkkonen/palvelinten-hallinta/assets/165004946/01888665-95df-41c2-a322-7affc3c869d4)
 
-### Apachen automaattinen asentaminen Saltilla
+### 2. Apachen automaattinen asentaminen Saltilla
 
 - Pysäytin käsin asentamani Apache2-ohjelman toiminnan t001-virtuaalikoneella komennolla ```sudo systemctl stop apache2```.
 
   ![kuva](https://github.com/NooraOlkkonen/palvelinten-hallinta/assets/165004946/e90f9dcc-699a-4bb2-86c4-a7619dd32c3f)
 
-- Tämän jälkeen poistin Apachen komennolla ```sudo apt purge apache2```. Tämä komento poistaa Apache2-ohjelmiston sekä sen konfiguraatiotiedostot. Jouduin tosin poistamaan käsin noora.conf-tiedoston, joka sitä ei poistettu automaattisesti /etc/apache2/sites-available-hakemistosta eikä myöskään kyseistä hakemistoa.
+- Tämän jälkeen poistin Apachen komennolla ```sudo apt purge apache2```. Tämä komento poistaa Apache2-ohjelmiston sekä sen konfiguraatiotiedostot. Jouduin tosin poistamaan käsin /etc/apache2/sites-available-hakemiston ja noora.conf-tiedoston, koska niitä ei poistettu automaattisesti.
 
   ![kuva](https://github.com/NooraOlkkonen/palvelinten-hallinta/assets/165004946/7fd0738d-fec2-4e9b-98e0-6f1dd37a50f6)
 
@@ -240,7 +256,7 @@ Tässä tehtävässä käytin aiemmassa h2-kotitehtävässä laatimiani virtuaal
 
   ![kuva](https://github.com/NooraOlkkonen/palvelinten-hallinta/assets/165004946/070dcea4-aeec-47d8-ad12-2e74fcf5ed97)
 
-- Testin jälkeen aloin tekemään varsinaisia määrityksiä init.sls-tiedostoon Apache2-ohjelmistopakettia koskien. Määritin ensin Apache2-ohjelmistopaketin asennuksen. Suoritin paikallisesti apache-moduulin komennolla ```sudo salt-call –local state.apply apache``` ja ohjelmistopaketin asennus onnistui.
+- Testin jälkeen aloin tekemään varsinaisia määrityksiä init.sls-tiedostoon Apache2-ohjelmistopakettia koskien. Määritin ensin Apache2-ohjelmistopaketin asennuksen (**PKG**-file-service). Suoritin paikallisesti apache-moduulin komennolla ```sudo salt-call –local state.apply apache``` ja ohjelmistopaketin asennus onnistui.
 
   ![kuva](https://github.com/NooraOlkkonen/palvelinten-hallinta/assets/165004946/169bf4f2-8035-41e8-a9e4-381340e977c7)
 
@@ -252,7 +268,7 @@ Tässä tehtävässä käytin aiemmassa h2-kotitehtävässä laatimiani virtuaal
 
   ![kuva](https://github.com/NooraOlkkonen/palvelinten-hallinta/assets/165004946/c68797f9-71ae-4a80-902d-81f8250c4d88)
 
-- Seuraavaksi määritin init.sls-tiedostoon tilan Apache2-ohjelmiston käynnissäolosta.
+- Seuraavaksi määritin init.sls-tiedostoon tilan Apache2-ohjelmiston käynnissäolosta (pkg-file-**SERVICE**).
 
   ![kuva](https://github.com/NooraOlkkonen/palvelinten-hallinta/assets/165004946/1445681d-ed87-498c-a83f-d51e869cfc1c)
 
@@ -260,7 +276,7 @@ Tässä tehtävässä käytin aiemmassa h2-kotitehtävässä laatimiani virtuaal
 
   ![kuva](https://github.com/NooraOlkkonen/palvelinten-hallinta/assets/165004946/e3b118ca-8097-40f3-8ccd-afc237d6ae0b)
 
- - Halusin vielä testata toimiiko Apachen asentaminen ja sen käynnissä olon varmistaminen Apache2-ohjelmiston poistamisen jälkeenkin. Ensin poistin Apache2-ohjelmiston komennolla ```sudo apt remove apache2``` ja tämän jälkeen suoritin uudelleen komennon ```sudo salt-call --local state.apply apache```. Näytti toimivan.
+ - Halusin vielä testata toimiiko Apachen asentaminen ja sen käynnissä olon varmistaminen Apache2-ohjelmiston poistamisen jälkeenkin. Ensin poistin Apache2-ohjelmiston komennolla ```sudo apt remove apache2``` (konfiguraatiotiedostot ei poistu) ja tämän jälkeen suoritin uudelleen komennon ```sudo salt-call --local state.apply apache```. Näytti toimivan.
 
    ![kuva](https://github.com/NooraOlkkonen/palvelinten-hallinta/assets/165004946/90171cde-443c-45a9-b48a-2f9bc475054b)
 
@@ -268,15 +284,21 @@ Tässä tehtävässä käytin aiemmassa h2-kotitehtävässä laatimiani virtuaal
 
   ![kuva](https://github.com/NooraOlkkonen/palvelinten-hallinta/assets/165004946/a31cdcce-350f-4851-9ec2-3b5ea657d44d)
 
-- Kopioin noora.conf-tiedoston /srv/salt/apache-hakemistoon komennolla ```sudo cp noora.conf /srv/salt/apache/```.
+- Kopioin noora.conf-tiedoston /srv/salt/apache-hakemistoon komennolla ```sudo cp noora.conf /srv/salt/apache```.
 
   ![kuva](https://github.com/NooraOlkkonen/palvelinten-hallinta/assets/165004946/38d6a76d-042b-4fe7-8124-395a977fa04a)
 
-- Siirryin muokkaamaan init.sls-tiedostoa. Käytin tässä tiistain 16.4.2024 opetuskerralla oppimiani määrityksiä. Kuvassa valmiin init.sls-tiedoston sisältö.
+- Siirryin muokkaamaan init.sls-tiedostoa Apachen konfiguraatiotiedostojen suhteen (pkg-**FILE**-service). Käytin tässä tiistain 16.4.2024 opetuskerralla oppimiani määrityksiä:
+
+  - konfiguraatiotiedostona toimii herrakoneen /srv/salt/apache/noora.conf-tiedosto
+ 
+  - luodaan symbolinen linkki /etc/apache/sites-available/noora.conf-tiedostoon
+ 
+  - symbolinen linkki 000-default.conf-tiedostoon on poissa
 
   ![kuva](https://github.com/NooraOlkkonen/palvelinten-hallinta/assets/165004946/29b65556-eca0-4cde-8bcb-996917648d69)
 
-- Suoritin paikallisesti komennon ```sudo salt-call --local state.apply apache```.
+- Testasin apache-moduulin toimivuuden suorittamalla paikallisesti komennon ```sudo salt-call --local state.apply apache```.
 
   ![kuva](https://github.com/NooraOlkkonen/palvelinten-hallinta/assets/165004946/9760c5be-92d1-41f6-9ffd-298a01f91253)
 
@@ -286,11 +308,11 @@ Tässä tehtävässä käytin aiemmassa h2-kotitehtävässä laatimiani virtuaal
 
   ![kuva](https://github.com/NooraOlkkonen/palvelinten-hallinta/assets/165004946/61b82466-50b3-4ccd-aecf-e35d9bce130a)
 
-- Yritin pohtia syytä tähän. Tarkastelin Apachen konfiguraatiotiedostojen hakemistoja. Jostain syystä noora.config-tiedoston symlink oli punaisella. En keksinyt miten tämä korjataan.
+- Yritin pohtia syytä tähän. Tarkastelin Apachen konfiguraatiotiedostojen hakemistoja. Jostain syystä symbolinen linkki noora.config-tiedoston oli punaisella. En keksinyt mikä tähän syynä tai miten tämä korjataan.
 
   ![kuva](https://github.com/NooraOlkkonen/palvelinten-hallinta/assets/165004946/5caa217b-61d3-417f-a1c8-cf0798455f74)
 
-- Päätin aloittaa alusta. Poistin Apache2-ohjelmiston asennuksen ja käsin luomani tiedostot. Luin myös Apacheen liittyvää tehtäväraporttiani aikaisemmalta Linux palvelimet-opintojaksolta. Raportin perusteella päätin kokeilla lähestymistapaa, jossa loin uuden etusivun (etusivu.html) /var/www/html/-hakemistoon. Otin varmuuskopion Apachen oletusetusivusta (index.html) ja muutin oman etusivu.html-tiedoston index.html-tiedostoksi.
+- Päätin aloittaa alusta. Poistin Apache2-ohjelmiston asennuksen ja käsin luomani tiedostot. Luin myös Apacheen liittyvää tehtäväraporttiani aikaisemmalta Linux-palvelimet -opintojaksolta. Raportin perusteella päätin kokeilla lähestymistapaa, jossa loin uuden etusivun (etusivu.html) /var/www/html/-hakemistoon. Otin varmuuskopion Apachen oletusetusivusta (index.html) ja muutin oman etusivu.html-tiedoston index.html-tiedostoksi.
 
   ![kuva](https://github.com/NooraOlkkonen/palvelinten-hallinta/assets/165004946/3179773e-32d5-4edb-b53a-95d77f018df2)
 
@@ -310,7 +332,7 @@ Tässä tehtävässä käytin aiemmassa h2-kotitehtävässä laatimiani virtuaal
 
   ![kuva](https://github.com/NooraOlkkonen/palvelinten-hallinta/assets/165004946/b51623bc-c086-4c0a-9e1d-f8d081ffc747)
 
-- Nyt symlinkit näyttivät oikealta ja oma etusivuni tuli näkyviin. Apache2-ohjelmiston asennus apache-moduulin konfiguraatioilla siis onnistui.
+- Nyt symboliset linkit näyttivät oikealta ja oma etusivuni tuli näkyviin. Apache2-ohjelmiston asennus apache-moduulin konfiguraatioilla siis onnistui.
 
   ![kuva](https://github.com/NooraOlkkonen/palvelinten-hallinta/assets/165004946/b1841a87-3af7-490d-9c69-a298e0bd0af5)
 
@@ -338,12 +360,17 @@ Tässä tehtävässä käytin aiemmassa h2-kotitehtävässä laatimiani virtuaal
 
   ![kuva](https://github.com/NooraOlkkonen/palvelinten-hallinta/assets/165004946/b81d4597-750a-4eb1-bebc-356539ba4be3)
 
+## d) SSHouto
+
+Ajan puutteen vuoksi en valitettavasti ehtinyt perehtymään tehtävään ja tekemään sitä.
 
 ## Lähteet
 
 Karvinen 2018: Pkg-File-Service – Control Daemons with Salt – Change SSH Server Port. Luettavissa: https://terokarvinen.com/2018/04/03/pkg-file-service-control-daemons-with-salt-change-ssh-server-port/?fromSearch=karvinen%20salt%20ssh. Luettu: 19.4.2024  
 
 Karvinen 2023: Salt Vagrant - automatically provision one master and two slaves (kohdat Infra as Code - Your wishes as a text file, top.sls - What Slave Runs What States). Luettavissa: https://terokarvinen.com/2023/salt-vagrant/#infra-as-code---your-wishes-as-a-text-file. Luettu: 19.4.2024.
+
+Lunkka-Salonen 2023: Linux-palvelimet -opintojakson (toteutus ICI003AS2A-3005, syksy 2023) luentodiat ja harjoitustehtävä Apache2-ohjelmistoon liittyen.
 
 Salt-ohjelmiston sisäinen manuaalisivu (sys.state_doc)
 
