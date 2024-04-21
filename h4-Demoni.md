@@ -24,9 +24,9 @@ Käyttöjärjestelmän versio: 22H2
 
 - **Infra as Code – Your wishes as a text file**
 
-  - Luodaan hakemisto tilafunktiolle, esim. moduuli hello &rarr; luodaan hakemisto /srv/salt/hello
+  - Luodaan hakemisto tilafunktio(i)lle, esim. moduuli hello &rarr; luodaan hakemisto /srv/salt/hello
   
-  - Tähän hakemistoon luodaan init.sls-tiedosto, johon kirjoitetaan suoritettavaksi halutut toiminnot YAML-merkintäkielellä (infraa koodina)
+  - Tähän hakemistoon luodaan init.sls-tiedosto, johon kirjoitetaan suoritettavaksi halutut tilafunktiot YAML-merkintäkielellä (infraa koodina)
   
   - hello-moduuli suoritetaan kaikille orjille komennolla ```sudo salt '*' state.apply hello```
 
