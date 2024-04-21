@@ -144,7 +144,7 @@ Tässä tehtävässä käytin aiemmassa h2-kotitehtävässä laatimaani virtuaal
 
   ![kuva](https://github.com/NooraOlkkonen/palvelinten-hallinta/assets/165004946/1b6c8ada-7d33-4602-9646-02d3d4c9baf7)
 
-- Suoritin hello-moodulin paikallisesti komennolla ```sudo salt-call --local state.apply hello```. /tmp/hellosls-tiedosto luotiin onnistuneesti, koska sitä ei ollut entuudestaan olemassa.
+- Suoritin hello-moodulin paikallisesti komennolla ```sudo salt-call --local state.apply hello```. /tmp/hellosls/-tiedosto luotiin onnistuneesti, koska sitä ei ollut entuudestaan olemassa.
 
   ![kuva](https://github.com/NooraOlkkonen/palvelinten-hallinta/assets/165004946/6cf4b12b-17e7-4542-b7d7-9bc03e32306c)
 
@@ -166,11 +166,11 @@ Tässä tehtävässä käytin aiemmassa h2-kotitehtävässä laatimiani virtuaal
 
   ![kuva](https://github.com/NooraOlkkonen/palvelinten-hallinta/assets/165004946/94cd39e5-45fa-4b6d-87a1-b7a7cfbb415e)
 
-- Loin pkg.installed-tilamoduulin, jossa asennetaan cowsay- ja curl-ohjelmistopaketit, jos niitä ei ole entuudestaan olemassa.
+- Loin pkg.installed-tilafunktion, jossa asennetaan cowsay- ja curl-ohjelmistopaketit, jos niitä ei ole entuudestaan olemassa.
 
   ![kuva](https://github.com/NooraOlkkonen/palvelinten-hallinta/assets/165004946/6e7c63b3-3d6b-4773-b518-62579ff9a662)
 
-- Seuraavaksi loin hakemistoon /srv/salt/hello top.sls-tiedoston, jossa määritetään moduulien suorittaminen orjilla.
+- Seuraavaksi loin /srv/salt/hello/-hakemistoon top.sls-tiedoston, jossa määritetään moduulien suorittaminen orjilla.
 
   ![kuva](https://github.com/NooraOlkkonen/palvelinten-hallinta/assets/165004946/28239c19-8b32-4b8d-a940-f05aace6b23d)
 
@@ -206,19 +206,19 @@ Tässä tehtävässä käytin aiemmassa h2-kotitehtävässä laatimiani virtuaal
 
   ![kuva](https://github.com/NooraOlkkonen/palvelinten-hallinta/assets/165004946/2bc23a2b-94d8-439a-ba58-cc77438ba4e4)
 
-- Loin /home/vagrant-hakemistoon uuden webbi-hakemiston, johon puolestaan loin index.html-tiedoston Nano-tekstieditorilla. Kirjoitin index.html-tiedostoon vapaavalintaista tekstiä ilman ääkkösiä. Tästä tiedostosta tulee uusi Apachen etusivu oletussivun tilalle.
+- Loin /home/vagrant/-hakemistoon uuden webbi-hakemiston, johon puolestaan loin index.html-tiedoston Nano-tekstieditorilla. Kirjoitin index.html-tiedostoon vapaavalintaista tekstiä ilman ääkkösiä. Tästä tiedostosta tulee uusi Apachen etusivu oletussivun tilalle.
 
   ![kuva](https://github.com/NooraOlkkonen/palvelinten-hallinta/assets/165004946/a74c6091-5469-40a7-b220-8fc2a1e2d4de)
 
-- Seuraavaksi siirryin Apachen konfiguraatiotiedostoihin (/etc/apache2). Täällä siirryin Apachen sites-available-hakemistoon, jonne loin uuden konfiguraatiotiedoston noora.conf Nano-tekstieditorilla. Käytin konfiguraatiotiedoston pohjana opettajan osoittamaa mallipohjaa, joka löytyy täältä: https://terokarvinen.com/2018/name-based-virtual-hosts-on-apache-multiple-websites-to-single-ip-address/. Muutin pohjaan aiemmin luomani index.html-tiedoston sijainnin (/home/vagrant/webbi) DocumentRoot- ja Directory-kohtiin.
+- Seuraavaksi siirryin Apachen konfiguraatiotiedostoihin (/etc/apache2/). Täällä siirryin Apachen sites-available-hakemistoon, jonne loin uuden konfiguraatiotiedoston noora.conf Nano-tekstieditorilla. Käytin konfiguraatiotiedoston pohjana opettajan osoittamaa mallipohjaa, joka löytyy täältä: https://terokarvinen.com/2018/name-based-virtual-hosts-on-apache-multiple-websites-to-single-ip-address/. Muutin pohjaan aiemmin luomani index.html-tiedoston sijainnin (/home/vagrant/webbi/) DocumentRoot- ja Directory-kohtiin.
 
   ![kuva](https://github.com/NooraOlkkonen/palvelinten-hallinta/assets/165004946/0521b62b-98b7-46bd-b7de-9cea218e04ad)
 
-- Tämän jälkeen siirryin /etc/apache2/sites-enabled-hakemistoon, joka sisältää symboliset linkit sites-available-hakemiston tiedostoihin. Poistin olemassa olevan linkin oletuskonfiguraatiotiedostoon 000-default.conf komennolla ```sudo rm 000-default.conf```. Loin tilalle uuden symbolisen linkin uuteen konfiguraatiotiedostoon noora.conf komennolla ```sudo ln -s ../sites-available/noora.conf .```
+- Tämän jälkeen siirryin /etc/apache2/sites-enabled/-hakemistoon, joka sisältää symboliset linkit sites-available-hakemiston tiedostoihin. Poistin olemassa olevan linkin oletuskonfiguraatiotiedostoon 000-default.conf komennolla ```sudo rm 000-default.conf```. Loin tilalle uuden symbolisen linkin uuteen konfiguraatiotiedostoon noora.conf komennolla ```sudo ln -s ../sites-available/noora.conf .```
 
   ![kuva](https://github.com/NooraOlkkonen/palvelinten-hallinta/assets/165004946/a9378e03-26ff-485e-971e-95afcfd2a0bc)
 
-- Testasin toimivatko konfiguraatiot ja näkyykö uusi Apachen etusivu komennolla ```curl localhost | grep title```. Ei toiminut, vaan edelleen näkyi Apachen testisivu.
+- Testasin toimivatko konfiguraatiot ja näkyykö Apachen uusi etusivu komennolla ```curl localhost | grep title```. Ei toiminut, vaan edelleen näkyi Apachen oletussivu.
 
   ![kuva](https://github.com/NooraOlkkonen/palvelinten-hallinta/assets/165004946/3632eac1-a19e-4ec4-900e-3a8e8bab35c0)
 
@@ -226,7 +226,7 @@ Tässä tehtävässä käytin aiemmassa h2-kotitehtävässä laatimiani virtuaal
   
   ![kuva](https://github.com/NooraOlkkonen/palvelinten-hallinta/assets/165004946/57b47fd8-37ba-4b1d-a05e-27bee8137abf)
 
-- Aloitin vianselvityksen, jonka tuloksena huomasin nopeasti, että olin tallentanut index.html-tiedoston /home/vagrant-hakemistoon enkä /home/vagrant/webbi-hakemistoon. Siirsin tiedoston haluttuun paikkaan komennolla ```mv index.html /home/vagrant/webbi/```.
+- Aloitin vianselvityksen, jonka tuloksena huomasin nopeasti, että olin tallentanut index.html-tiedoston /home/vagrant/-hakemistoon enkä /home/vagrant/webbi/-hakemistoon. Siirsin tiedoston haluttuun paikkaan komennolla ```mv index.html /home/vagrant/webbi/```.
 
   ![kuva](https://github.com/NooraOlkkonen/palvelinten-hallinta/assets/165004946/b3bd5325-e657-47b9-8385-7c897764a304)
 
@@ -248,7 +248,7 @@ Tässä tehtävässä käytin aiemmassa h2-kotitehtävässä laatimiani virtuaal
 
   ![kuva](https://github.com/NooraOlkkonen/palvelinten-hallinta/assets/165004946/8af907c9-7338-4c8c-9a37-2bdf2ffc57e5)
 
-- Loin jo olemassa olevaan /srv/salt-hakemistoon apache-hakemiston, johon loin init.sls-tiedoston. Tein ensin testin file.managed-tilafunktion toimivuudesta.
+- Loin jo olemassa olevaan /srv/salt/-hakemistoon apache-hakemiston, johon loin init.sls-tiedoston. Tein ensin testin file.managed-tilafunktion toimivuudesta.
 
    ![kuva](https://github.com/NooraOlkkonen/palvelinten-hallinta/assets/165004946/378c4305-4db6-43ca-8395-78fc9c9d4cd5)
 
@@ -256,7 +256,7 @@ Tässä tehtävässä käytin aiemmassa h2-kotitehtävässä laatimiani virtuaal
 
   ![kuva](https://github.com/NooraOlkkonen/palvelinten-hallinta/assets/165004946/070dcea4-aeec-47d8-ad12-2e74fcf5ed97)
 
-- Testin jälkeen aloin tekemään varsinaisia määrityksiä init.sls-tiedostoon Apache2-ohjelmistopakettia koskien. Määritin ensin Apache2-ohjelmistopaketin asennuksen (**PKG**-file-service). Suoritin paikallisesti apache-moduulin komennolla ```sudo salt-call –local state.apply apache``` ja ohjelmistopaketin asennus onnistui.
+- Testin jälkeen aloin tekemään varsinaisia määrityksiä init.sls-tiedostoon Apache2-ohjelmistopakettia koskien. Määritin ensin Apache2-ohjelmistopaketin asennuksen pkg.installed-tilafunktiolla (**PKG**-file-service). Suoritin paikallisesti apache-moduulin komennolla ```sudo salt-call –local state.apply apache``` ja ohjelmistopaketin asennus onnistui.
 
   ![kuva](https://github.com/NooraOlkkonen/palvelinten-hallinta/assets/165004946/169bf4f2-8035-41e8-a9e4-381340e977c7)
 
@@ -264,11 +264,11 @@ Tässä tehtävässä käytin aiemmassa h2-kotitehtävässä laatimiani virtuaal
 
   ![kuva](https://github.com/NooraOlkkonen/palvelinten-hallinta/assets/165004946/861a9bed-836d-4263-8f07-e05dcd8c244f)
 
-- Loin jo olemassa olevaan /srv/salt-hakemistoon etusivunoora-hakemiston, johon puolestaan loin index.html-tiedoston. Kirjoitin tiedostoon vapaamuotoista tekstiä, joka näkyy myöhemmin Apachen etusivuna. Kyseisenä hetkenä vielä näkyi Apachen oletusetusivu. 
+- Loin jo olemassa olevaan /srv/salt/-hakemistoon etusivunoora-hakemiston, johon puolestaan loin index.html-tiedoston. Kirjoitin tiedostoon vapaamuotoista tekstiä, joka näkyy myöhemmin Apachen etusivuna. Kyseisenä hetkenä vielä näkyi Apachen oletusetusivu. 
 
   ![kuva](https://github.com/NooraOlkkonen/palvelinten-hallinta/assets/165004946/c68797f9-71ae-4a80-902d-81f8250c4d88)
 
-- Seuraavaksi määritin init.sls-tiedostoon tilan Apache2-ohjelmiston käynnissäolosta (pkg-file-**SERVICE**).
+- Seuraavaksi määritin init.sls-tiedostoon tilan Apache2-ohjelmiston käynnissäolosta service.running-tilafunktiolla (pkg-file-**SERVICE**).
 
   ![kuva](https://github.com/NooraOlkkonen/palvelinten-hallinta/assets/165004946/1445681d-ed87-498c-a83f-d51e869cfc1c)
 
@@ -280,19 +280,19 @@ Tässä tehtävässä käytin aiemmassa h2-kotitehtävässä laatimiani virtuaal
 
    ![kuva](https://github.com/NooraOlkkonen/palvelinten-hallinta/assets/165004946/90171cde-443c-45a9-b48a-2f9bc475054b)
 
-- Loin konfiguraatiotiedoston noora.conf /etc/apache2/sites-available-hakemistoon samalla tavalla kuin aiemmin Apachen käsin asentamisessa. noora.conf-tiedosto sisältää hakemistopolun aiemmin luotuun index.html-tiedostoon.
+- Loin konfiguraatiotiedoston noora.conf /etc/apache2/sites-available/-hakemistoon samalla tavalla kuin aiemmin Apachen käsin asentamisessa. noora.conf-tiedosto sisältää hakemistopolun aiemmin luotuun index.html-tiedostoon.
 
   ![kuva](https://github.com/NooraOlkkonen/palvelinten-hallinta/assets/165004946/a31cdcce-350f-4851-9ec2-3b5ea657d44d)
 
-- Kopioin noora.conf-tiedoston /srv/salt/apache-hakemistoon komennolla ```sudo cp noora.conf /srv/salt/apache```.
+- Kopioin noora.conf-tiedoston /srv/salt/apache/-hakemistoon komennolla ```sudo cp noora.conf /srv/salt/apache```.
 
   ![kuva](https://github.com/NooraOlkkonen/palvelinten-hallinta/assets/165004946/38d6a76d-042b-4fe7-8124-395a977fa04a)
 
 - Siirryin muokkaamaan init.sls-tiedostoa Apachen konfiguraatiotiedostojen suhteen (pkg-**FILE**-service). Käytin tässä tiistain 16.4.2024 opetuskerralla oppimiani määrityksiä:
 
-  - konfiguraatiotiedostona toimii herrakoneen /srv/salt/apache/noora.conf-tiedosto
+  - konfiguraatiotiedostona toimii herrakoneen /srv/salt/apache/noora.conf/-tiedosto
  
-  - luodaan symbolinen linkki /etc/apache/sites-available/noora.conf-tiedostoon
+  - luodaan symbolinen linkki /etc/apache/sites-available/noora.conf/-tiedostoon
  
   - symbolinen linkki 000-default.conf-tiedostoon on poissa
 
@@ -320,11 +320,11 @@ Tässä tehtävässä käytin aiemmassa h2-kotitehtävässä laatimiani virtuaal
 
   ![kuva](https://github.com/NooraOlkkonen/palvelinten-hallinta/assets/165004946/913c7d8d-d62d-4a3d-b966-accfc3cf28a5)
 
-- Kopioin noora.conf-tiedoston /srv/salt/apache-hakemistoon.
+- Kopioin noora.conf-tiedoston /srv/salt/apache/-hakemistoon.
 
   ![kuva](https://github.com/NooraOlkkonen/palvelinten-hallinta/assets/165004946/b73330fb-9508-4648-9a89-ae650e608b18)
 
-- Muokkasin init.sls-tiedostoa. Jätin aiemmasta kokeilustani poiketen file.absent-tilamoduulin pois. Tarkistin voiko sillä vaikutusta lopputulokseen.
+- Muokkasin init.sls-tiedostoa. Jätin aiemmasta kokeilustani poiketen file.absent-tilafunktion pois. Tarkistin voiko sillä vaikutusta lopputulokseen.
 
   ![kuva](https://github.com/NooraOlkkonen/palvelinten-hallinta/assets/165004946/14b8402b-abb1-4420-8ce3-4fd94cb82726)
 
@@ -336,11 +336,11 @@ Tässä tehtävässä käytin aiemmassa h2-kotitehtävässä laatimiani virtuaal
 
   ![kuva](https://github.com/NooraOlkkonen/palvelinten-hallinta/assets/165004946/b1841a87-3af7-490d-9c69-a298e0bd0af5)
 
-- Lisäsin kokeilumielessä vielä init.sls-tiedostoon file.absent-tilamoduulin. Testasin vaikuttaako lopputulokseen.
+- Lisäsin kokeilumielessä vielä init.sls-tiedostoon file.absent-tilafunktion. Testasin vaikuttaako lopputulokseen.
 
   ![kuva](https://github.com/NooraOlkkonen/palvelinten-hallinta/assets/165004946/de0d586e-2796-46a9-9526-5f7dbdb8eaba)
 
-- Suoritin uudelleen apache-moduulin ja tarkistin /etc/apache2/sites-enabled-hakemiston sisällön. Symlinkit ok: 000-default.conf poissa, noora.conf sinisenä. Oma etusivu myös näkyi niin kuin pitää.
+- Suoritin uudelleen apache-moduulin ja tarkistin /etc/apache2/sites-enabled/-hakemiston sisällön. Symboliset linkit ok: 000-default.conf poissa, noora.conf sinisenä. Oma etusivu myös näkyi niin kuin pitää.
 
   ![kuva](https://github.com/NooraOlkkonen/palvelinten-hallinta/assets/165004946/f8aea5a4-719d-4917-9470-ab4adfd4a717)
 
@@ -358,7 +358,7 @@ Tässä tehtävässä käytin aiemmassa h2-kotitehtävässä laatimiani virtuaal
 
   ![kuva](https://github.com/NooraOlkkonen/palvelinten-hallinta/assets/165004946/032a17e3-0628-404a-8100-ab4c6e267d11)
 
-- Suoritin t002-orjakoneella vielä komennon ```curl 192.168.88.101``` (t001-herrakoneen IP-osoite on 192.168.88.101). Itse luomani Apache-etusivu näkyy t001-herralta t002-orjakoneella.
+- Suoritin t002-orjakoneella vielä komennon ```curl 192.168.88.101``` (t001-herrakoneen IP-osoite on 192.168.88.101). Itse luomani Apache-etusivu näkyy t001-herralta t002-orjalle.
 
   ![kuva](https://github.com/NooraOlkkonen/palvelinten-hallinta/assets/165004946/bfb28b38-988d-4f46-9891-1d37557b1633)
 
