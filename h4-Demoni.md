@@ -240,7 +240,7 @@ Tässä tehtävässä käytin aiemmassa h2-kotitehtävässä laatimiani virtuaal
 
   ![kuva](https://github.com/NooraOlkkonen/palvelinten-hallinta/assets/165004946/e90f9dcc-699a-4bb2-86c4-a7619dd32c3f)
 
-- Tämän jälkeen poistin Apachen komennolla ```sudo apt purge apache2```. Tämä komento poistaa Apache2-ohjelmiston sekä sen konfiguraatiotiedostot. Jouduin tosin poistamaan käsin /etc/apache2/sites-available-hakemiston ja noora.conf-tiedoston, koska niitä ei poistettu automaattisesti.
+- Tämän jälkeen poistin Apachen komennolla ```sudo apt purge apache2```. Tämä komento poistaa Apache2-ohjelmiston sekä sen konfiguraatiotiedostot. Jouduin tosin poistamaan käsin /etc/apache2/sites-available/-hakemiston ja noora.conf-tiedoston, koska niitä ei poistettu automaattisesti.
 
   ![kuva](https://github.com/NooraOlkkonen/palvelinten-hallinta/assets/165004946/7fd0738d-fec2-4e9b-98e0-6f1dd37a50f6)
 
