@@ -36,11 +36,11 @@ Käyttöjärjestelmän versio: 22H2
   
    - Hakemistoon /srv/salt/hello luodaan top.sls-tiedosto
   
-   - Esim. jos hello-tilamoduuli halutaan suorittaa kaikilla orjilla, top.sls-tiedostoon kirjoitetaan:
+   - Esim. jos hello-moduuli halutaan suorittaa kaikilla orjilla, top.sls-tiedostoon kirjoitetaan:
 
      ![kuva](https://github.com/NooraOlkkonen/palvelinten-hallinta/assets/165004946/e63d2abb-0cb9-46eb-bc5b-968d17cb4057)
   
-   - Komennolla ```sudo salt '*' state.apply``` suoritetaan top.sls-tiedoston mukaiset tilamoduulit
+   - Komennolla ```sudo salt '*' state.apply``` suoritetaan top.sls-tiedoston mukaiset moduulit
 
 ### 2. SaltProject 2024: Salt contributors – Salt overview 
 
