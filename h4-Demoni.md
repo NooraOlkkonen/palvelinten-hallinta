@@ -22,7 +22,7 @@ Käyttöjärjestelmän versio: 22H2
 
 ### 1. Karvinen 2023: Salt Vagrant – automatically provision one master and two slaves 
 
-- Infra as Code – Your wishes as a text file
+- **Infra as Code – Your wishes as a text file**
 
   - Luodaan hakemisto tilamoduulille, esim. moduuli hello &rarr; luodaan hakemisto /srv/salt/hello
   
@@ -30,7 +30,7 @@ Käyttöjärjestelmän versio: 22H2
   
   - hello-moduuli suoritetaan kaikille orjille komennolla ```sudo salt '*' state.apply hello```
 
- - top.sls – What slave runs what states
+ - **top.sls – What slave runs what states**
 
    - top.sls-tiedostoa käytetään määrittämään mitkä moduulit suoritetaan milläkin orjakonella
   
@@ -44,7 +44,7 @@ Käyttöjärjestelmän versio: 22H2
 
 ### 2. SaltProject 2024: Salt contributors – Salt overview 
 
-- Rules of YAML
+- **Rules of YAML**
 
   - YAML-renderöijä on oletuksena monissa Saltin käyttämissä tiedostoissa: se kääntää YAML-tietorakenteen Python-tietorakenteeksi Saltin käyttöön
   
@@ -56,7 +56,7 @@ Käyttöjärjestelmän versio: 22H2
   
   - Kommenteiksi tarkoitetut rivit aloitetaan #-merkillä
 
-- YAML simple structure
+- **YAML simple structure**
 
   - YAML koostuu kolmesta peruselementistä: scalars, lists ja dictionaries
     
@@ -64,7 +64,7 @@ Käyttöjärjestelmän versio: 22H2
 
   ![image](https://github.com/NooraOlkkonen/Palvelinten-hallinta/assets/165004946/abf7fea9-0793-4329-9e59-33850076b0d0)
 
-- Lists and dictionaries – YAML block structures
+- **Lists and dictionaries – YAML block structures**
 
   - YAML koostuu lohkorakenteista
   
@@ -76,15 +76,15 @@ Käyttöjärjestelmän versio: 22H2
 
 - Saltin avulla pystytään hallitsemaan useita demoneja 
 
-- package-file-service -malli
+- **package-file-service** -malli
 
-  - ohjelman asentaminen (package)
+  - ohjelman asentaminen (package, pkg)
     
   - konfiguraatiotiedoston korvaaminen (file)
     
   - demonin uudelleenkäynnistäminen (service) 
 
-- SSH-palvelinportin muuttaminen Saltin avulla 
+- SSH-palvelinportin muuttaminen Saltin avulla
 
   - luodaan herra-orja-arkkitehtuuri virtuaalikoneille 
 
@@ -96,7 +96,7 @@ Käyttöjärjestelmän versio: 22H2
  
 ### 4. Salt tilafunktioiden ohjeet (Salt-ohjelmiston sisäinen manuaalisivu, sys.state_doc)
 
-- pkg 
+- **pkg**
 
   - johdanto: ohjelmistopakettien hallinta Saltilla
 
@@ -106,7 +106,7 @@ Käyttöjärjestelmän versio: 22H2
 
   - pkgs: nimetään useampi ohjelmistopaketti toiminnon kohteeksi
 
-- file 
+- **file**
 
   - johdanto: toiminnot tiedostojen, hakemistojen ja symlinkkien hallitsemiseen / Saltilla voidaan manipuloida aggressiivisesti järjestelmän tiedostoja useilla eri tavoilla
 
@@ -116,7 +116,7 @@ Käyttöjärjestelmän versio: 22H2
 
   - file.symlink: luodaan symbolinen linkki haluttuun tiedostoon 
 
-- service 
+- **service**
 
   - johdanto: järjestelmään/palveluihin liittyvät ohjeet 
 
@@ -132,7 +132,7 @@ Tässä tehtävässä käytin aiemmassa h2-kotitehtävässä laatimaani virtuaal
 
 ### Hei maailma -tila tekstitiedostona
 
-- Loin hello-tilamoduulia varten hakemiston komennolla ```sudo mkdir -p /srv/salt/hello```.
+- Loin hello-moduulia varten hakemiston komennolla ```sudo mkdir -p /srv/salt/hello```.
 
   ![kuva](https://github.com/NooraOlkkonen/palvelinten-hallinta/assets/165004946/68922ad0-407d-49c6-b677-168d71294b6a)
 
@@ -144,7 +144,7 @@ Tässä tehtävässä käytin aiemmassa h2-kotitehtävässä laatimaani virtuaal
 
   ![kuva](https://github.com/NooraOlkkonen/palvelinten-hallinta/assets/165004946/1b6c8ada-7d33-4602-9646-02d3d4c9baf7)
 
-- Suoritin hello-tilamoodulin paikallisesti komennolla ```sudo salt-call --local state.apply hello```. /tmp/hellosls-tiedosto luotiin onnistuneesti, koska sitä ei ollut entuudestaan olemassa.
+- Suoritin hello-moodulin paikallisesti komennolla ```sudo salt-call --local state.apply hello```. /tmp/hellosls-tiedosto luotiin onnistuneesti, koska sitä ei ollut entuudestaan olemassa.
 
   ![kuva](https://github.com/NooraOlkkonen/palvelinten-hallinta/assets/165004946/6cf4b12b-17e7-4542-b7d7-9bc03e32306c)
 
@@ -158,7 +158,7 @@ Tässä tehtävässä käytin aiemmassa h2-kotitehtävässä laatimiani virtuaal
 
 ### Useiden tilamoduulien suorittaminen orjassa
 
-- Loin t001-herrakoneella uuden hakemiston /srv/salt-hakemistoon packages-tilamoduulia varten komennolla ```sudo mkdir packages```.
+- Loin t001-herrakoneella uuden hakemiston /srv/salt-hakemistoon packages-moduulia varten komennolla ```sudo mkdir packages```.
 
   ![kuva](https://github.com/NooraOlkkonen/palvelinten-hallinta/assets/165004946/80c918be-f3b4-4757-8ce6-9fe63261b9a6)
 
@@ -166,19 +166,19 @@ Tässä tehtävässä käytin aiemmassa h2-kotitehtävässä laatimiani virtuaal
 
   ![kuva](https://github.com/NooraOlkkonen/palvelinten-hallinta/assets/165004946/94cd39e5-45fa-4b6d-87a1-b7a7cfbb415e)
 
-- Loin tilamoduulin, jossa asennetaan cowsay- ja curl-ohjelmistopaketit, jos niitä ei ole entuudestaan olemassa.
+- Loin pkg.installed-tilamoduulin, jossa asennetaan cowsay- ja curl-ohjelmistopaketit, jos niitä ei ole entuudestaan olemassa.
 
   ![kuva](https://github.com/NooraOlkkonen/palvelinten-hallinta/assets/165004946/6e7c63b3-3d6b-4773-b518-62579ff9a662)
 
-- Seuraavaksi loin hakemistoon /srv/salt/hello top.sls-tiedoston, jossa määritetään tilamoduulien suorittaminen orjilla.
+- Seuraavaksi loin hakemistoon /srv/salt/hello top.sls-tiedoston, jossa määritetään moduulien suorittaminen orjilla.
 
   ![kuva](https://github.com/NooraOlkkonen/palvelinten-hallinta/assets/165004946/28239c19-8b32-4b8d-a940-f05aace6b23d)
 
-- Määritin aiemman kohdan a) hello-tilamoduulin ja packages-tilamoduulin suoritettavaksi kaikille orjille.
+- Määritin aiemman kohdan a) hello-moduulin ja packages-moduulin suoritettavaksi kaikille orjille.
 
   ![kuva](https://github.com/NooraOlkkonen/palvelinten-hallinta/assets/165004946/7657b4c1-c87c-4fe7-a3a6-bf07254c3a5f)
 
-- Suoritin t001-herrakoneella top.sls-tiedoston mukaiset tilamoduulit komennolla ```sudo salt '*' state.apply```. t002-orjakoneeseen laadittiin hellosls-tiedosto tmp-hakemistoon sekä ladattiin cowsay- ja curl-ohjelmistopaketit. Tässä tapauksessa top.sls-tiedoston osoittamat tilamoduulit suoritettiin vain t002-orjakoneessa, koska tämä kone on ainut orja t001-herrakoneelle.
+- Suoritin t001-herrakoneella top.sls-tiedoston mukaiset moduulit komennolla ```sudo salt '*' state.apply```. t002-orjakoneeseen laadittiin hellosls-tiedosto tmp-hakemistoon sekä ladattiin cowsay- ja curl-ohjelmistopaketit. Tässä tapauksessa top.sls-tiedoston osoittamat moduulit suoritettiin vain t002-orjakoneessa, koska tämä kone on ainut orja t001-herrakoneelle.
 
   ![kuva](https://github.com/NooraOlkkonen/palvelinten-hallinta/assets/165004946/3910c8e0-0411-47b7-a52d-5ffc592afa3e)
 
@@ -248,7 +248,7 @@ Tässä tehtävässä käytin aiemmassa h2-kotitehtävässä laatimiani virtuaal
 
   ![kuva](https://github.com/NooraOlkkonen/palvelinten-hallinta/assets/165004946/8af907c9-7338-4c8c-9a37-2bdf2ffc57e5)
 
-- Loin jo olemassa olevaan /srv/salt-hakemistoon apache-hakemiston, johon loin init.sls-tiedoston. Tein ensin testin tilafunktion file.managed toimivuudesta.
+- Loin jo olemassa olevaan /srv/salt-hakemistoon apache-hakemiston, johon loin init.sls-tiedoston. Tein ensin testin file.managed-tilafunktion toimivuudesta.
 
    ![kuva](https://github.com/NooraOlkkonen/palvelinten-hallinta/assets/165004946/378c4305-4db6-43ca-8395-78fc9c9d4cd5)
 
@@ -324,7 +324,7 @@ Tässä tehtävässä käytin aiemmassa h2-kotitehtävässä laatimiani virtuaal
 
   ![kuva](https://github.com/NooraOlkkonen/palvelinten-hallinta/assets/165004946/b73330fb-9508-4648-9a89-ae650e608b18)
 
-- Muokkasin init.sls-tiedostoa. Jätin aiemmasta kokeilustani poiketen file.absent-kohdan pois. Tarkistin voiko sillä vaikutusta lopputulokseen.
+- Muokkasin init.sls-tiedostoa. Jätin aiemmasta kokeilustani poiketen file.absent-tilamoduulin pois. Tarkistin voiko sillä vaikutusta lopputulokseen.
 
   ![kuva](https://github.com/NooraOlkkonen/palvelinten-hallinta/assets/165004946/14b8402b-abb1-4420-8ce3-4fd94cb82726)
 
@@ -336,15 +336,15 @@ Tässä tehtävässä käytin aiemmassa h2-kotitehtävässä laatimiani virtuaal
 
   ![kuva](https://github.com/NooraOlkkonen/palvelinten-hallinta/assets/165004946/b1841a87-3af7-490d-9c69-a298e0bd0af5)
 
-- Lisäsin kokeilumielessä vielä init.sls-tiedostoon file.absent-kohdan. Testasin vaikuttaako lopputulokseen.
+- Lisäsin kokeilumielessä vielä init.sls-tiedostoon file.absent-tilamoduulin. Testasin vaikuttaako lopputulokseen.
 
   ![kuva](https://github.com/NooraOlkkonen/palvelinten-hallinta/assets/165004946/de0d586e-2796-46a9-9526-5f7dbdb8eaba)
 
-- Suoritin uudelleen Apache-moduulin ja tarkistin /etc/apache2/sites-enabled-hakemiston sisällön. Symlinkit ok: 000-default.conf poissa, noora.conf sinisenä. Oma etusivu myös näkyi niin kuin pitää.
+- Suoritin uudelleen apache-moduulin ja tarkistin /etc/apache2/sites-enabled-hakemiston sisällön. Symlinkit ok: 000-default.conf poissa, noora.conf sinisenä. Oma etusivu myös näkyi niin kuin pitää.
 
   ![kuva](https://github.com/NooraOlkkonen/palvelinten-hallinta/assets/165004946/f8aea5a4-719d-4917-9470-ab4adfd4a717)
 
-- Jatkoin niin, että en suorittanutkaan enää Apache-moduulia paikallisesti t001-herrakoneella, vaan suoritin moduulin kaikille orjille komennolla ```sudo salt '*' state.apply apache```. Tavoitteenani oli saada Apache2-ohjelmisto asentumaan ainoaan orjakoneeseen (t002). t002-koneen vastaus näytti ainakin lupaavalta.
+- Jatkoin niin, että en suorittanutkaan enää apache-moduulia paikallisesti t001-herrakoneella, vaan suoritin moduulin kaikille orjille komennolla ```sudo salt '*' state.apply apache```. Tavoitteenani oli saada Apache2-ohjelmisto asentumaan ainoaan orjakoneeseen (t002). t002-koneen vastaus näytti ainakin lupaavalta.
 
   ![kuva](https://github.com/NooraOlkkonen/palvelinten-hallinta/assets/165004946/d10b47bc-1dc7-49fc-b884-5fe785e54610)
 
@@ -358,7 +358,7 @@ Tässä tehtävässä käytin aiemmassa h2-kotitehtävässä laatimiani virtuaal
 
   ![kuva](https://github.com/NooraOlkkonen/palvelinten-hallinta/assets/165004946/032a17e3-0628-404a-8100-ab4c6e267d11)
 
-- Suoritin t002-orjakoneella vielä komennon ```curl 192.168.88.101``` (t001-herrakoneen IP-osoite on 192.168.88.101). Itse luomani Apache-etusivu näkyy t002-orjakoneella herralta.
+- Suoritin t002-orjakoneella vielä komennon ```curl 192.168.88.101``` (t001-herrakoneen IP-osoite on 192.168.88.101). Itse luomani Apache-etusivu näkyy t001-herralta t002-orjakoneella.
 
   ![kuva](https://github.com/NooraOlkkonen/palvelinten-hallinta/assets/165004946/bfb28b38-988d-4f46-9891-1d37557b1633)
 
