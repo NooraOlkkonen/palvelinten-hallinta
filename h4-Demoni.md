@@ -156,7 +156,7 @@ Tässä tehtävässä käytin aiemmassa h2-kotitehtävässä laatimaani virtuaal
 
 Tässä tehtävässä käytin aiemmassa h2-kotitehtävässä laatimiani virtuaalikoneita t001 ja t002.
 
-### Useiden moduulien suorittaminen orjassa
+### Useiden moduulien/tilafunktioiden suorittaminen orjassa
 
 - Loin t001-herrakoneella uuden hakemiston /srv/salt-hakemistoon packages-moduulia varten komennolla ```sudo mkdir packages```.
 
