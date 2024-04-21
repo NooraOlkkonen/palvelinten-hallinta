@@ -350,11 +350,15 @@ Tässä tehtävässä käytin aiemmassa h2-kotitehtävässä laatimiani virtuaal
 
   ![kuva](https://github.com/NooraOlkkonen/palvelinten-hallinta/assets/165004946/feff715f-9767-4d91-aeef-4987cfe9aee7)
 
-- Tarkistin Apache2-ohjelmiston statuksen t002-orjakoneella. Status oli aktiivinen, josta päätellen ohjelmisto asentui oikein myös orjakoneeseen. 
+- Tarkistin Apache2-ohjelmiston statuksen t002-orjakoneella. Status oli aktiivinen, josta päätellen ohjelmisto asentui orjakoneeseen. 
 
   ![kuva](https://github.com/NooraOlkkonen/palvelinten-hallinta/assets/165004946/586968d3-830d-4f56-82fb-1bfc00c41be4)
 
-- Suoritin t002-orjakoneella vielä komennon ```curl 192.168.88.101``` (t001-herrakoneen IP-osoite on 192.168.88.101). Luomani Apache-etusivu näkyy myös t002-orjakoneella.
+- Suoritin t002-orjakoneella komennon ```curl -s localhost | grep title``` tarkistaakseni Apachen etusivun. Näkyi Apachen oletussivu, eikä oma etusivuni. Tässä vaiheessa pää oli jo niin pyörällä, ettei ongelman ratkaisemiseen ollut enää energiaa.
+
+  ![kuva](https://github.com/NooraOlkkonen/palvelinten-hallinta/assets/165004946/032a17e3-0628-404a-8100-ab4c6e267d11)
+
+- Suoritin t002-orjakoneella vielä komennon ```curl 192.168.88.101``` (t001-herrakoneen IP-osoite on 192.168.88.101). Itse luomani Apache-etusivu näkyy t002-orjakoneella herralta.
 
   ![kuva](https://github.com/NooraOlkkonen/palvelinten-hallinta/assets/165004946/bfb28b38-988d-4f46-9891-1d37557b1633)
 
