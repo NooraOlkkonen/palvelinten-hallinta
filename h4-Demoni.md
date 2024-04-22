@@ -364,6 +364,47 @@ Tässä tehtävässä käytin aiemmassa h2-kotitehtävässä laatimiani virtuaal
 
   ![kuva](https://github.com/NooraOlkkonen/palvelinten-hallinta/assets/165004946/b81d4597-750a-4eb1-bebc-356539ba4be3)
 
+### Lisäys 22.4.2024:
+
+Ristiinarvioidessani kurssikaveri Saku Laitisen kotitehtäväraporttia löysin ratkaisun siihen, miksi t002-orjakoneella komennolla ```curl localhost``` tuli näkyviin Apachen oletussivu eikä itse laatimaani etusivua. t001-orjakoneen Apache-konfiguraatiotiedostosta init.sls puuttui tilafunktio, jolla uuden etusivun tiedosto siirretään herrakoneelta orjakoneeseen.
+
+Tässä raportti korjauksesta:
+
+- Loin t001-herrakoneella uuden hakemiston /srv/salt/etusivu/, johon siirsin index.html-tiedoston /var/www/html/-hakemistosta.
+  ![kuva](https://github.com/NooraOlkkonen/palvelinten-hallinta/assets/165004946/e262032a-041e-43f5-8fe5-07373eea54b3)
+
+- Muokkasin noora.conf-tiedostoa päivittämällä index.html-tiedoston sijainnin.
+
+  ![kuva](https://github.com/NooraOlkkonen/palvelinten-hallinta/assets/165004946/42976f27-0552-4b34-b385-784e9e61b183)
+
+- Päivin init.sls-tiedoston konfiguraatiota
+
+  - Lisäsin alimmaisimman file.managed-tilafunktion, jonka mukaan herrakoneen /srv/salt/etusivu/index.html-tiedosto sijoitetaan /var/www/html/index.html-tiedostoksi. Tämän pitäisi mahdollistaa se, että uusi Apache-etusivu näkyy itse orjakoneella mutta myös orjakoneelta herrakoneelle.
+
+  ![kuva](https://github.com/NooraOlkkonen/palvelinten-hallinta/assets/165004946/dd411673-2990-4a43-9ee1-91d525406aa9)
+
+- Käynnistin Apache2-ohjelmiston uudelleen herrakoneella (komento ```sudo systemctl restart apache2```), koska olin muokannut konfiguraatiotiedostoja. Suoritin vielä apache-moduulin paikallisesti (komento ```sudo cal-call --local state.apply apache```) varmistuakseni ettei tule mitään virheilmoituksia. Ei tullut virheilmoituksia ja uusi etusivu näkyi onnistuneesti.
+
+  ![kuva](https://github.com/NooraOlkkonen/palvelinten-hallinta/assets/165004946/a3c85573-1ee0-4c90-9085-5aac038feac5)
+
+- Lopuksi suoritin apache-moduulin kaikille orjille (=t002-orjalle) komennolla ```sudo salt '*' state.apply apache```. Näytti onnistuneen, ei virheilmoituksia.
+
+  ![kuva](https://github.com/NooraOlkkonen/palvelinten-hallinta/assets/165004946/59cfa82b-64d8-4145-96ba-91ae944ef429)
+
+  ![kuva](https://github.com/NooraOlkkonen/palvelinten-hallinta/assets/165004946/13101186-6ac2-48b2-a9ea-c2b1a3136deb)
+
+  ![kuva](https://github.com/NooraOlkkonen/palvelinten-hallinta/assets/165004946/3bb3941a-9486-468f-9e2f-1ec569eb5ac4)
+
+- Siirryin t002-orjakoneelle. Tarkistin Apache2-ohjelmiston statuksen (=running) ja komennolla ```curl localhost``` uusi etusivu tuli onnistuneesti näkyviin myös itse orjakoneella.
+
+  ![kuva](https://github.com/NooraOlkkonen/palvelinten-hallinta/assets/165004946/e885544d-82b5-4292-b325-3b6f4cec6398)
+
+- Tein vielä ristiintsekkaukset: curl-komento t002-orjakoneelta t001-herrakoneelle ja toisin päin.
+
+  ![kuva](https://github.com/NooraOlkkonen/palvelinten-hallinta/assets/165004946/1e74c66f-cf72-4ae7-9e28-a64527ddd0d4)
+
+  ![kuva](https://github.com/NooraOlkkonen/palvelinten-hallinta/assets/165004946/f5b82064-c0ef-4a28-92a4-2ebbf9cd087f)
+
 ## d) SSHouto
 
 Ajan puutteen vuoksi en valitettavasti ehtinyt perehtymään tehtävään ja tekemään sitä.
@@ -371,8 +412,9 @@ Ajan puutteen vuoksi en valitettavasti ehtinyt perehtymään tehtävään ja tek
 ## Lähteet
 
 Karvinen 2018: Pkg-File-Service – Control Daemons with Salt – Change SSH Server Port. Luettavissa: https://terokarvinen.com/2018/04/03/pkg-file-service-control-daemons-with-salt-change-ssh-server-port/?fromSearch=karvinen%20salt%20ssh. Luettu: 19.4.2024  
-
 Karvinen 2023: Salt Vagrant - automatically provision one master and two slaves (kohdat Infra as Code - Your wishes as a text file, top.sls - What Slave Runs What States). Luettavissa: https://terokarvinen.com/2023/salt-vagrant/#infra-as-code---your-wishes-as-a-text-file. Luettu: 19.4.2024.
+
+Laitinen 2024: Demoni-kotitehtäväraportti. Luettavissa: https://github.com/KebabGarva/Linux-palvelinten-hallinta-bgu248/blob/main/h4.md Luettu: 22.4.2024.
 
 Lunkka-Salonen 2023: Linux-palvelimet -opintojakson (toteutus ICI003AS2A-3005, syksy 2023) luentodiat ja harjoitustehtävä Apache2-ohjelmistoon liittyen.
 
