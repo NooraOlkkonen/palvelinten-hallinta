@@ -17,3 +17,69 @@ Järjestelmätyyppi: 64-bittinen käyttöjärjestelmä, x64-suoritin
 Käyttöjärjestelmä: Windows 10 Pro
 
 Käyttöjärjestelmän versio: 22H2
+
+## x) Lue ja tiivistä 
+
+Vapaavalintainen aiemman vuoden kotitehtäväraportti Saltin käytöstä Windowsilla
+
+- Le Nguyen - [kotitehtävä 6: Windows](https://github.com/16cats/Infra-as-Code-course/blob/main/h6.md), Palvelinten hallinta -opintojakson syksyn 2023 toteutus
+  
+  - Windowsin asentaminen virtuaalikoneeseen (.iso-tiedoston lataaminen Microsoftin virallisilta sivuilta ja virtuaalikoneen luonti VirtualBoxilla)
+    
+  - Salt-ohjelmiston asentaminen Windows-virtuaalikoneeseen (asennukseen tarvittava ohjelmistopaketti ladataan Saltin virallisilta internetsivuilta)
+    
+  - Saltin toimivuuden testaaminen Windows PowerShellilla (Saltin ohjelmistoversion tarkistaminen)
+    
+  - Tietojen kerääminen Windows-koneesta komennolla grains.items
+    
+  - Saltin file.managed-tilafunktion testaaminen Windowsilla
+    
+  - Itselle uuden Salt-toiminnon kokeileminen Windowsilla
+
+## a) Saltin asennus Windowsille
+
+Asensin Salt-ohjelmiston käytössäni olevan fyysisen tietokoneen Windows 10 -käyttöjärjestelmään jo aiemmin ensimmäisessä kotitehtävässä h1 Viisikko. 
+
+Avasin käytössäni olevalla fyysisellä tietokoneella Windows PowerShellin järjestelmänvalvojan oikeuksin. Tarkistin asennetun Saltin ohjelmistoversion komennolla ```salt-call --version``` ja varmistin Saltin käynnissäolon komennolla ```Get-Process salt*```. Testasin vielä Saltin toiminnan ajamalla paikallisesti user.present-tilafunktion komennolla ```salt-call --local state.single user.present omistaja```. Salt toimii, koska ei tullut virheilmoitusta ja komento antoi asianmukaisen vastauksen (omistaja-niminen käyttäjä on jo olemassa).
+
+![kuva](https://github.com/NooraOlkkonen/palvelinten-hallinta/assets/165004946/0a4a5b4b-5acc-4bac-9c8c-24bd006b2d41)
+
+## b) Tietojen kerääminen Windows-koneesta Saltin avulla
+
+Tutustuin käytössäni olevan fyysisen Windows-tietokoneen tietoihin käyttäen komentoa ```salt-call --local grains.items```. Valitsin muutamia keskeisiä tietoja, jotka sain eriteltyä näkyviin komennolla ```salt-call --local grains.item motherboard num_cpus osfullname saltpath```.
+
+![kuva](https://github.com/NooraOlkkonen/palvelinten-hallinta/assets/165004946/0eec38b9-4ad4-4010-8248-b075f5460bdd)
+
+- emolevyn tiedot: tuotenimi ja sarjanumero
+  
+- prosessorien lukumäärä
+  
+- käyttöjärjestelmän koko nimi
+  
+- Salt-ohjelmiston hakemistopolku
+
+## c) Saltin file-tilafunktion testaaminen Windowsilla
+
+Testasin Saltin file.managed-tilafunktiota siten, että C:/Windows/Temp/-hakemistoon luodaan tyhjä abc-niminen tiedosto, jos sitä ei ole siellä entuudestaan olemassa. Käytin tähän komentoa ```salt-call --local state.single file.managed C:/Windows/Temp/abc```. 
+
+![kuva](https://github.com/NooraOlkkonen/palvelinten-hallinta/assets/165004946/d73c93df-6d8b-4b9e-bc58-be7b03dc1642)
+
+Idempotenssin testaamiseksi suoritin uudelleen saman komennon ```salt-call --local state.single file.managed C:/Windows/Temp/abc```. C:/Windows/Temp/-hakemistoon ei luotu uutta abc-nimistä tiedostoa, koska se oli jo olemassa.
+
+![kuva](https://github.com/NooraOlkkonen/palvelinten-hallinta/assets/165004946/ac17b281-d6b3-439f-952f-4fbbbe58e70d)
+
+Lopuksi varmistin vielä abc-tiedoston olemassaolon siirtymällä C:/Windows/Temp/-hakemistoon ja hain tiedoston näkyviin.
+
+![kuva](https://github.com/NooraOlkkonen/palvelinten-hallinta/assets/165004946/7c0bf4fb-88d2-4ed8-828c-e56aa0302cd8)
+
+## Lähteet
+
+Karvinen 2023: Run Salt Command Locally. Luettavissa: https://terokarvinen.com/2021/salt-run-command-locally/. Luettu: 27.4.2024.
+
+Microsoft 2024: Get-Process. Luettavissa: https://learn.microsoft.com/en-us/powershell/module/microsoft.powershell.management/get-process?view=powershell-7.4. Luettu: 27.4.2024.
+
+Nguyen 2023: Kotitehtävä 6 - Windows. Luettavissa: https://github.com/16cats/Infra-as-Code-course/blob/main/h6.md. Luettu: 27.4.2024.
+
+
+
+
