@@ -50,13 +50,13 @@ Tutustuin käytössäni olevan fyysisen Windows-tietokoneen tietoihin käyttäen
 
 ![kuva](https://github.com/NooraOlkkonen/palvelinten-hallinta/assets/165004946/0eec38b9-4ad4-4010-8248-b075f5460bdd)
 
-- emolevyn tiedot: tuotenimi ja sarjanumero
+- **motherboard**: emolevyn tiedot (tuotenimi ja sarjanumero)
   
-- prosessorien lukumäärä
+- **num_cpus**: prosessorien lukumäärä
   
-- käyttöjärjestelmän koko nimi
+- **osfullname**: käyttöjärjestelmän koko nimi
   
-- Salt-ohjelmiston hakemistopolku
+- **saltpath**: Salt-ohjelmiston hakemistopolku
 
 ## c) Saltin file-tilafunktion testaaminen Windowsilla
 
