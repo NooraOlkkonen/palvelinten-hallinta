@@ -50,13 +50,13 @@ Tutustuin käytössäni olevan fyysisen Windows-tietokoneen tietoihin käyttäen
 
 ![kuva](https://github.com/NooraOlkkonen/palvelinten-hallinta/assets/165004946/0eec38b9-4ad4-4010-8248-b075f5460bdd)
 
-- **motherboard**: emolevyn tiedot (tuotenimi ja sarjanumero)
+- **motherboard** = emolevyn tiedot (tuotenimi ja sarjanumero)
   
-- **num_cpus**: prosessorien lukumäärä
+- **num_cpus** = prosessorien lukumäärä
   
-- **osfullname**: käyttöjärjestelmän koko nimi
+- **osfullname** = käyttöjärjestelmän koko nimi
   
-- **saltpath**: Salt-ohjelmiston hakemistopolku
+- **saltpath** = Salt-ohjelmiston hakemistopolku
 
 ## c) Saltin file-tilafunktion testaaminen Windowsilla
 
@@ -68,9 +68,36 @@ Idempotenssin testaamiseksi suoritin uudelleen saman komennon ```salt-call --loc
 
 ![kuva](https://github.com/NooraOlkkonen/palvelinten-hallinta/assets/165004946/ac17b281-d6b3-439f-952f-4fbbbe58e70d)
 
-Lopuksi varmistin vielä abc-tiedoston olemassaolon siirtymällä C:/Windows/Temp/-hakemistoon ja hain tiedoston näkyviin.
+Lopuksi varmistin vielä abc-tiedoston olemassaolon siirtymällä C:/Windows/Temp/-hakemistoon ja hain tiedoston näkyviin komennolla ```ls abc```.
 
 ![kuva](https://github.com/NooraOlkkonen/palvelinten-hallinta/assets/165004946/7c0bf4fb-88d2-4ed8-828c-e56aa0302cd8)
+
+## d) CSI Kerava
+
+Tein tämän tehtävän aiemmassa kotitehtävässä h2 luomallani Linux-virtuaalikoneella t001.
+
+Hain viimeisimmäksi muokatut tiedostot /etc/-hakemistosta ja kotihakemistosta /home/vagrant/ komennolla ```find -printf '%T+%p\n' | sort```.
+
+- ```find``` = tiedostojen etsiminen hakemistohierarkiasta
+
+- ```-printf``` = print format = vakiomuotoinen tulostus
+
+- ```%T``` = tiedoston viimeisin muokkausajankohta
+
+- ```%p``` = tiedoston nimi
+
+- ```\n``` = uuden rivin lisäys merkkijonon loppuun
+
+- ```| sort``` = 
+
+**/etc/-hakemiston viimeisimmäksi muokatut tiedostot:**
+
+  ![kuva](https://github.com/NooraOlkkonen/palvelinten-hallinta/assets/165004946/6b9b0eb7-cc8c-47c4-b19d-eb4acdd583d5)
+
+**Kotihakemiston /home/vagrant/ viimeisimmäksi muokatut tiedostot:**
+
+  ![kuva](https://github.com/NooraOlkkonen/palvelinten-hallinta/assets/165004946/dffa54b9-6ec6-4302-9891-dfe356edc75e)
+
 
 ## Lähteet
 
