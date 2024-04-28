@@ -88,7 +88,7 @@ Hain viimeisimmäksi muokatut tiedostot /etc/-hakemistosta ja kotihakemistosta /
 
 - ```\n``` = uuden rivin lisäys merkkijonon loppuun
 
-- ```| sort``` = 
+- ```| sort``` = lajittelee tiedostot aikajärjestykseen
 
 **/etc/-hakemiston viimeisimmäksi muokatut tiedostot:**
 
@@ -102,6 +102,8 @@ Hain viimeisimmäksi muokatut tiedostot /etc/-hakemistosta ja kotihakemistosta /
 ## Lähteet
 
 Karvinen 2023: Run Salt Command Locally. Luettavissa: https://terokarvinen.com/2021/salt-run-command-locally/. Luettu: 27.4.2024.
+
+Linux 2021: Find-komennon manuaalisivu.
 
 Microsoft 2024: Get-Process. Luettavissa: https://learn.microsoft.com/en-us/powershell/module/microsoft.powershell.management/get-process?view=powershell-7.4. Luettu: 27.4.2024.
 
