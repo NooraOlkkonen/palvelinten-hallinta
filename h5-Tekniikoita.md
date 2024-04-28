@@ -74,7 +74,7 @@ Lopuksi varmistin vielä abc-tiedoston olemassaolon siirtymällä C:/Windows/Tem
 
 ## d) CSI Kerava
 
-Tein tämän tehtävän aiemmassa kotitehtävässä h2 luomallani Linux-virtuaalikoneella t001.
+Tein tämän tehtävän aiemmassa h2-kotitehtävässä luomallani Linux-virtuaalikoneella t001.
 
 Hain viimeisimmäksi muokatut tiedostot /etc/-hakemistosta ja kotihakemistosta /home/vagrant/ komennolla ```find -printf '%T+%p\n' | sort```.
 
