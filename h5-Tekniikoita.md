@@ -122,7 +122,7 @@ Karvinen 2023: Run Salt Command Locally. Luettavissa: https://terokarvinen.com/2
 
 Linux 2021: Find-komennon manuaalisivu. Luettu: 28.4.2024.
 
-Lunkka-Salonen 2023: Linux-palvelimet -opintojakson (toteutus ICI003AS2A-3005, syksy 2023) luentodiat ja harjoitustehtävä Shell scripts-osioon liittyen.
+Lunkka-Salonen 2023: Linux-palvelimet -opintojakson (toteutus ICI003AS2A-3005, syksy 2023) luentodiat ja harjoitustehtävä Shell scripts-osioon liittyen. Luettu: 28.4.2024.
 
 Microsoft 2024: Get-Process. Luettavissa: https://learn.microsoft.com/en-us/powershell/module/microsoft.powershell.management/get-process?view=powershell-7.4. Luettu: 27.4.2024.
 
