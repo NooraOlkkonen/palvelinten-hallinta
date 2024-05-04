@@ -124,7 +124,29 @@ Tutustuminen keskitetyn hallinnan projekteihin.
 
 - Muut huomiot: Projektista laadittu raportti olisi voinut olla tarkempi ja kuvata yksityiskohtaisemmin tehtyjä toimenpiteitä. Itselleni lukijana jäi epäselväksi esim. mikä oli moduulissa esiintynyt kirjoitusvirhe, joka esti aluksi moduulin toiminnan.
 
+[Irene Kunnari 2019 - Salt mini-project](https://irenekunnari.wordpress.com/salt-mini-project/)
+
+- Palvelinten hallinta -opintojakson moduuliprojekti vuonna 2019.
+
+- Projektin tarkoituksena oli hallita mahdollisimman monta tietokonetta, joilla kaikilla on eri käyttöjärjestelmä. Saltin avulla kerättiin tietoja orjakoneista sekä niihin asennettiin ohjelmistopaketteja ja tiedostoja. Lopputuloksena onnistuttiin hallitsemaan yhteensä seitsemää eri käyttöjärjestelmää. 
+
+- Raportissa ei ole tietoja linsenssistä.
+
+- Projektissa käytettiin Saltin herra-orja-arkkitehtuuria. Käytössä oli useita Saltin versioita: Salt 2018.3.4, Salt-minion 2018.3.4, Salt-minion 2017.7.4 ja Salt-minion 2019.2.0. Projektissa hallitut käyttöjärjestelmät: Ubuntu 18.04.2 LTS, CentOS, Fedora (32-bit), ElementaryOS, MacOS, Windows 10 Home ja Windows 7 Ultimate (32-bit). Virtuaalikoneet pyörivät VirtualBox-virtualisointialustalla ja Azure-pilvipalvelussa. Käytössä ollut fyysinen tietokone oli ilmeisesti Macbook Air, jossa MacOS Mojave versio 10.14.3.
   
+- Projektin idea tarpeellinen käytännön työelämää varten, jossa varmastikin tulee kyetä hallitsemaan eri käyttöjärjestelmiä sisältäviä tietokoneita. Lopputulos oli toimiva.
+  
+- Muut huomiot: Tässäkin raportissa olisin toivonut yksityiskohtaisempaa selitystä tehdyistä toimenpiteistä. Esimerkiksi komennon ```lsb_release -a``` tarkoitusta ei selitetty lainkaan. Videot olivat kuitenkin hyvä ja havainnollistava lisä. Opin, että Salt-herran ja -orjan ohjelmistoversiot tulisivat olla samat.
+
+## Lähteet
+
+Kunnari 2019: Salt mini-project. Luettavissa: https://irenekunnari.wordpress.com/salt-mini-project/. Luettu: 4.5.2024.
+
+Käyhkö 2019: Moduuliprojekti. Luettavissa: https://pakollinenlinuxblogi.wordpress.com/2019/05/15/moduuliprojekti/. Luettu: 4.5.2024.
+
+Salt Project 2024: Windows Package Manager. Luettavissa: https://docs.saltproject.io/en/latest/topics/windows/windows-package-manager.html. Luettu: 4.5.2024.
+
+
 
 
 
