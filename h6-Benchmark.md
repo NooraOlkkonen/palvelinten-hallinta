@@ -106,6 +106,28 @@ Tein tämän tehtävän jo tiistain 30.4.2024 opetuskerralla ja otin kuvakaappau
 
   ![kuva](https://github.com/NooraOlkkonen/palvelinten-hallinta/assets/165004946/6a015a54-35d7-46e3-a67c-34338fdbd587)
 
+## b) Benchmark
+
+Tutustuminen keskitetyn hallinnan projekteihin.
+
+[Dan Käyhkö 2019 - Moduuliprojekti](https://pakollinenlinuxblogi.wordpress.com/2019/05/15/moduuliprojekti/)
+
+- Palvelinten hallinta -opintojakson moduuliprojekti vuonna 2019.
+
+- Projektin tarkoituksena oli Saltin herra-orja-arkkitehtuuria käyttämällä asentaa orjakoneille GIMP-ohjelmisto, luoda niihin myös uusi tekeleet-niminen hakemisto ja kopioida siihen herralta GIMP:illä tehty tiedosto.
+
+- Raportissa ei ole tietoja linsenssistä.
+
+- Projektissa käytettiin Saltin herra-orja-arkkitehtuuria. Virtuaalikoneiden luontiin käytettiin VirtualBox-virtualisointialustaa. Raportin kuvien perusteella virtuaalikoneiden käyttöjärjestelmänä oli Xubuntu 18.04.1 LTS. Projektissa käytetyn fyysisen tietokoneen ominaisuuksia ei kerrottu. 
+
+- Projektin idea oli hyödyllinen ja käyttökelpoinen myös "oikeassa" elämässä. Tekijä sai aikaan toimivan lopputuloksen.
+
+- Muut huomiot: Projektista laadittu raportti olisi voinut olla tarkempi ja kuvata yksityiskohtaisemmin tehtyjä toimenpiteitä. Itselleni lukijana jäi epäselväksi esim. mikä oli moduulissa esiintynyt kirjoitusvirhe, joka esti aluksi moduulin toiminnan.
+
+  
+
+
+
 
 
 
