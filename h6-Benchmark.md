@@ -22,7 +22,7 @@ Käyttöjärjestelmän versio: 22H2
 
 [Salt Project - Windows Package Manager ](https://docs.saltproject.io/en/latest/topics/windows/windows-package-manager.html)
 
-- Introduction
+- **Introduction**
 
     - Salt mahdollistaa Linuxin kaltaisen paketinhallintatyökalun (ohjelmistopakettien asentamisen, päivittämisen, poistamisen ja hallinnan) myös Windows-käyttöjärjestelmälle
  
@@ -36,11 +36,11 @@ Käyttöjärjestelmän versio: 22H2
  
     - **pkg.installed**-funktiota käyttämällä voi tarkistaa onko tietty ohjelmistopaketti asennettu järjestelmään
 
-- Install libraries
+- **Install libraries**
 
    - GitPython- tai pygit2-kirjaston asentaminen, jos Saltin Windows-paketinmääritystiedostoja isännöidään Saltin Git-varastossa (vapaaehtoinen)
    
-- Populate the local Git repository
+- **Populate the local Git repository**
 
   - Oletusvaraston **salt-winrepo-ng** kloonaaminen Windows-käyttöjärjestelmään:
 
@@ -48,7 +48,7 @@ Käyttöjärjestelmän versio: 22H2
  
       - herrattomassa Salt-minionissa komennolla: ```salt-call --local winrepo.update_git_repos```
 
-- Update minion database
+- **Update minion database**
 
   - Paketinmääritystiedostoista luodaan tietokanta **pkg.refresh_db**-funktiolla:
 
@@ -56,7 +56,7 @@ Käyttöjärjestelmän versio: 22H2
  
       - herrattomassa Salt-minionissa komennolla: ```salt-call --local pkg.refresh_db```
 
-- Install software package
+- **Install software package**
 
     - Ohjelmistopakettien asentaminen tapahtuu **pkg.install**-funktion avulla:
  
@@ -64,7 +64,7 @@ Käyttöjärjestelmän versio: 22H2
  
       - herrattomassa Salt-minionissa komennolla: ```salt-call --local pkg.install``` + "ohjelmistopaketin nimi"
 
-- Usage
+- **Usage**
 
     - Yleisimpiä funktioita Windows-paketinhallintajärjestelmän käytössä:
  
