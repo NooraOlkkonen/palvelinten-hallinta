@@ -138,6 +138,53 @@ Tutustuminen keskitetyn hallinnan projekteihin.
   
 - Muut huomiot: Tässäkin raportissa olisin toivonut yksityiskohtaisempaa selitystä tehdyistä toimenpiteistä. Esimerkiksi komennon ```lsb_release -a``` tarkoitusta ei selitetty lainkaan. Videot olivat kuitenkin hyvä ja havainnollistava lisä. Opin, että Salt-herran ja -orjan ohjelmistoversiot tulisivat olla samat.
 
+## c) Testbench
+
+Tässä tehtävässä tuli ajaa jokin kohdan b) moduuleista. Valitsin testaukseen Dan Käyhkön Salt-moduuliprojektin. Halusin testata käyttökelpoista moduulia ja nähdä konkreettisesti miten Saltin avulla herralta orjalle asennettu ohjelma tulee käyttöön virtuaalikoneessa, jossa on graafinen käyttöliittymä.
+
+Aloitin luomalla Saltin herra-orja-arkkitehtuurin virtuaalikoneille.
+
+- Loin Vagrantia apuna käyttäen n001-virtuaalikoneen, jossa Debian 11-käyttöjärjestelmä. Asensin siihen Salt-masterin, eli koneesta toimi herrana.
+
+  ![kuva](https://github.com/NooraOlkkonen/palvelinten-hallinta/assets/165004946/b3fc27df-1e84-4094-a520-1ff344c22bb4)
+
+- Loin VirtualBoxissa uuden Debian 12-käyttöjärjestelmän sisältävän virtuaalikoneen. Tässä koneessa oli graafinen käyttöliittymä. Asensin koneeseen Salt-minionin, eli se toimi orjana.
+
+  ![kuva](https://github.com/NooraOlkkonen/palvelinten-hallinta/assets/165004946/42641c75-149e-40e6-8786-a4d9ce22935c)
+
+- Muokkasin orjan konfiguraatiotiedostoa lisäämällä sinne n001-herran IP-osoitteen sekä orjan ID:n. Käynnistin myös Salt-minionin uudelleen komennolla ```sudo systemctl restart salt-minion```.
+  
+  ![kuva](https://github.com/NooraOlkkonen/palvelinten-hallinta/assets/165004946/eff4ba28-3d6d-4bd0-aa75-95c2713eab48)
+
+- Hyväksyin herrassa orjan avaimen käyttämällä komentoa ```sudo salt-key -A```.
+
+  ![kuva](https://github.com/NooraOlkkonen/palvelinten-hallinta/assets/165004946/45396391-f705-4b3e-afb9-744208ec7329)
+
+- Halusin testata Saltin toimivuuden ennen varsinaisen moduulin toteuttamista. Kokeilin ajaa orjalle simppelin cmd.run-funktion, mikä ei kuitenkaan onnistunut. Yritin googlettamalla etsiä tähän ratkaisua, mutta ajan puutteen vuoksi en löytänyt ongelmaan ratkaisua.
+
+  ![kuva](https://github.com/NooraOlkkonen/palvelinten-hallinta/assets/165004946/93e0d161-7e70-4af4-88be-64c6f9b1eddc)
+
+  ![kuva](https://github.com/NooraOlkkonen/palvelinten-hallinta/assets/165004946/48139329-1d65-4649-af27-2a4dcb29cf4b)
+
+- Paikallisesti herrassa ajettuna cmd.run-funktio toimi kuten pitää.
+
+  ![kuva](https://github.com/NooraOlkkonen/palvelinten-hallinta/assets/165004946/005ce671-2e04-443b-b118-68f0aac882f5)
+
+- Päätin tehdä testin ja luoda Vagrantia apuna käyttäen n002-virtuaalikoneen toiseksi orjakoneeksi. Tässä koneessa oli sama käyttöjärjestelmä ja sama Salt-versio kuin n001-herrassa. 
+
+  ![kuva](https://github.com/NooraOlkkonen/palvelinten-hallinta/assets/165004946/eee6fbde-594a-40a4-b7ba-fc1295fd6fc7)
+
+  ![kuva](https://github.com/NooraOlkkonen/palvelinten-hallinta/assets/165004946/eca3e804-d1b5-4778-84bc-668736a16ed4)
+
+- Nyt Salt toimi kuten pitää, eli sain cmd.run-funktioon vastauksen n002-orjakoneelta.
+
+  ![kuva](https://github.com/NooraOlkkonen/palvelinten-hallinta/assets/165004946/9d1f264d-da5a-449e-bdb3-31dc3efec6fa)
+
+**Huomioita tehtävästä**: Pohdin, olisiko syynä Saltin toimimattomuuteen voinut olla koneiden eri versiot Saltista. Olisin voinut kokeilla asentaa orjakoneeksi virtuaalikoneen, jossa on myös käyttöjärjestelmänä Debian 11, josko se olisi ratkaissut ongelman. Toisaalta, Saltilla tulisi kyetä hallitsemaan koneita, joissa on eri käyttöjärjestelmät, kuten Irene Kunnarin Salt mini-projektissa todettu.
+
+Tämä tehtävä jumiutui Saltin herra-orja-arkkitehtuurin ongelmaan, enkä varsinaisesti päässyt kokeilemaan valitsemani projektin moduulin toteuttamista.
+
+
 ## Lähteet
 
 Kunnari 2019: Salt mini-project. Luettavissa: https://irenekunnari.wordpress.com/salt-mini-project/. Luettu: 4.5.2024.
