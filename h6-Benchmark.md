@@ -184,6 +184,15 @@ Aloitin luomalla Saltin herra-orja-arkkitehtuurin virtuaalikoneille.
 
 Tämä tehtävä jumiutui Saltin herra-orja-arkkitehtuurin ongelmaan, enkä varsinaisesti päässyt kokeilemaan valitsemani projektin moduulin toteuttamista.
 
+## d) Viisi ideaa
+
+Ideoita kurssin lopputehtävää, eli oman moduulin luontia varten:
+
+- Oman fyysisen Windows-koneen käyttäminen herrana ja sen avulla erilaisten ohjelmistopakettien asentaminen virtuaalisiin orjakoneisiin
+
+- Oman fyysisen Windows-koneen käyttäminen orjana ja testata, millaisia ohjelmistopaketteja siihen voidaan asentaa virtuaalisesta herrakoneesta
+
+- Palomuurin asentaminen ja sen asetukset virtuaalisiin Linux-orjakoneisiin keskitetysti virtuaalisesta herrakoneesta
 
 ## Lähteet
 
