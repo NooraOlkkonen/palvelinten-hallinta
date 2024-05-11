@@ -64,37 +64,37 @@ Kahdelle virtuaalikoneelle asennetaan eri ohjelmistopaketit, joten tämän toteu
 
 ### 1. Salt-moduuli n002-orjakoneelle
 
-- Loin n001-herrakoneen /srv/salt/-hakemistoon packages002-hakemiston
+- Loin n001-herrakoneen /srv/salt/-hakemistoon packages002-hakemiston.
 
-- Loin packages002-hakemistoon init.sls-tiedoston, johon tein määritykset asennettavista Tree- ja Micro-ohjelmistopaketeista
+- Loin packages002-hakemistoon init.sls-tiedoston, johon tein määritykset asennettavista Tree- ja Micro-ohjelmistopaketeista.
 
-![image](https://github.com/NooraOlkkonen/palvelinten-hallinta/assets/165004946/72fb717d-489e-4f6c-830b-fa989249325f)
+  ![image](https://github.com/NooraOlkkonen/palvelinten-hallinta/assets/165004946/72fb717d-489e-4f6c-830b-fa989249325f)
 
 ### 2. Salt-moduuli n003-orjakoneelle
 
-- Loin n001-herrakoneen /srv/salt/-hakemistoon packages003-hakemiston
+- Loin n001-herrakoneen /srv/salt/-hakemistoon packages003-hakemiston.
 
-- Loin packages003-hakemistoon init.sls-tiedoston, johon tein määritykset asennettavista Firefox- ja Gimp-ohjelmistopaketeista
+- Loin packages003-hakemistoon init.sls-tiedoston, johon tein määritykset asennettavista Firefox- ja Gimp-ohjelmistopaketeista.
 
-![image](https://github.com/NooraOlkkonen/palvelinten-hallinta/assets/165004946/e3361462-a5d0-4da7-a49d-98bcd724c669)
+  ![image](https://github.com/NooraOlkkonen/palvelinten-hallinta/assets/165004946/e3361462-a5d0-4da7-a49d-98bcd724c669)
 
 ### 3. Salt-moduulien määrittäminen
 
-- Loin n001-herrakoneen /srv/salt/-hakemistoon top.sls-tiedoston, jossa määritin mitkä moduulit suoritetaan milläkin orjakoneella: n002-koneella packages002-moduuli ja n003-koneella packages003-moduuli
+- Loin n001-herrakoneen /srv/salt/-hakemistoon top.sls-tiedoston, jossa määritin mitkä moduulit suoritetaan milläkin orjakoneella: n002-koneella packages002-moduuli ja n003-koneella packages003-moduuli.
 
-![image](https://github.com/NooraOlkkonen/palvelinten-hallinta/assets/165004946/a8fa7060-fa91-4453-bb7a-571240452803)
+  ![image](https://github.com/NooraOlkkonen/palvelinten-hallinta/assets/165004946/a8fa7060-fa91-4453-bb7a-571240452803)
 
 ## Salt-moduulien suorittaminen ohjelmistopakettien asentamiseksi
 
 Suoritin n001-herrakoneella komennon ```sudo salt '*' state.apply```, jolloin top.sls-tiedostossa määritetyt moduulit suoritettiin orjakoneille.
 
-- Firefoxin asentaminen epäonnistui n002-orjakoneeseen, eikä Gimpin asennuksesta tullut tietoja
+- Firefoxin asentaminen epäonnistui n002-orjakoneeseen, eikä Gimpin asennuksesta tullut tietoja.
 
-![image](https://github.com/NooraOlkkonen/palvelinten-hallinta/assets/165004946/b8e585f6-06f7-41a7-b799-2a08497387a7)
+  ![image](https://github.com/NooraOlkkonen/palvelinten-hallinta/assets/165004946/b8e585f6-06f7-41a7-b799-2a08497387a7)
 
-- Micro asentui onnistuneesti n003-orjakoneeseen ja Tree olikin jo valmiiksi asennettuna
+- Micro asentui onnistuneesti n003-orjakoneeseen ja Tree olikin jo valmiiksi asennettuna.
 
-![image](https://github.com/NooraOlkkonen/palvelinten-hallinta/assets/165004946/1670c18c-3524-4176-8ff6-898533af5737)
+  ![image](https://github.com/NooraOlkkonen/palvelinten-hallinta/assets/165004946/1670c18c-3524-4176-8ff6-898533af5737)
 
 Pohdin Firefoxin asennuksen ohjelmaa ja etsin neuvoja googlettamalla. Päädyin tarkistamaan apt-paketinhallinnasta saatavilla olevat Firefox-ohjelmistopaketit komennolla ```apt-cache pkgnames | grep firefox```. Huomasin, että saatavilla on firefox-esr-ohjelmistopaketti, jonka poistin aiemmin n003-koneesta. Muokkasin uudelleen n001-herrakoneen top.sls-tiedostoa, johon muutin asennettavaksi Firefox-paketiksi **firefox-esr**.
 
@@ -102,13 +102,13 @@ Pohdin Firefoxin asennuksen ohjelmaa ja etsin neuvoja googlettamalla. Päädyin 
 
 Suoritin uudelleen n001-herrakoneella komennon ```sudo salt '*' state.apply```, jolloin:
 
-- Micro- ja Tree-ohjelmistopaketit olivat jo asentuneet n003-orjakoneelle
+- Micro- ja Tree-ohjelmistopaketit olivat jo asentuneet n003-orjakoneelle.
 
-![image](https://github.com/NooraOlkkonen/palvelinten-hallinta/assets/165004946/325369e2-00e7-4331-ad1b-d72cf3a66286)
+  ![image](https://github.com/NooraOlkkonen/palvelinten-hallinta/assets/165004946/325369e2-00e7-4331-ad1b-d72cf3a66286)
 
-- Firefox-esr- ja Gimp-ohjelmistot asentuivat onnistuneesti n003-orjakoneelle
+- Firefox-esr- ja Gimp-ohjelmistot asentuivat onnistuneesti n003-orjakoneelle.
 
-![image](https://github.com/NooraOlkkonen/palvelinten-hallinta/assets/165004946/c3957268-0147-4d0d-a83c-c10baa8baad3)
+  ![image](https://github.com/NooraOlkkonen/palvelinten-hallinta/assets/165004946/c3957268-0147-4d0d-a83c-c10baa8baad3)
 
 Varmistin idempotenssin suorittamalla vielä kerran komennon ```sudo salt '*' state.apply```. Tuloksena kaikki määrittämäni ohjelmistopaketit oli jo asennettu orjakoneille, eikä muutoksia tehty.
 
@@ -118,23 +118,53 @@ Varmistin idempotenssin suorittamalla vielä kerran komennon ```sudo salt '*' st
 
 - n002-orjakoneen Micro- ja Tree-ohjelmistot:
 
-![image](https://github.com/NooraOlkkonen/palvelinten-hallinta/assets/165004946/2c513db8-473b-4ca5-a322-346c93e6f5b8)
+  ![image](https://github.com/NooraOlkkonen/palvelinten-hallinta/assets/165004946/2c513db8-473b-4ca5-a322-346c93e6f5b8)
 
-![image](https://github.com/NooraOlkkonen/palvelinten-hallinta/assets/165004946/a9833436-a87d-492d-85d7-dad3cfdbbba1)
+  ![image](https://github.com/NooraOlkkonen/palvelinten-hallinta/assets/165004946/a9833436-a87d-492d-85d7-dad3cfdbbba1)
 
-![image](https://github.com/NooraOlkkonen/palvelinten-hallinta/assets/165004946/51292c42-5ef3-4a65-8f12-39e2d4907b1f)
+  ![image](https://github.com/NooraOlkkonen/palvelinten-hallinta/assets/165004946/51292c42-5ef3-4a65-8f12-39e2d4907b1f)
 
-![image](https://github.com/NooraOlkkonen/palvelinten-hallinta/assets/165004946/fa0de499-86db-445e-9312-b97a75a5a47c)
-
+  ![image](https://github.com/NooraOlkkonen/palvelinten-hallinta/assets/165004946/fa0de499-86db-445e-9312-b97a75a5a47c)
 
 - n003-orjakoneen Forefox- ja Gimp-ohjelmistot, jotka avasin graafisella käyttäjäliittymällä:
 
-![image](https://github.com/NooraOlkkonen/palvelinten-hallinta/assets/165004946/f1e123ae-7879-43b3-b99b-0213aefe6d1c)
+  ![image](https://github.com/NooraOlkkonen/palvelinten-hallinta/assets/165004946/f1e123ae-7879-43b3-b99b-0213aefe6d1c)
 
-![image](https://github.com/NooraOlkkonen/palvelinten-hallinta/assets/165004946/005ef839-b808-4402-b592-cfee315d784e)
+  ![kuva](https://github.com/NooraOlkkonen/palvelinten-hallinta/assets/165004946/be03fcb4-dcfa-4289-b65b-2139cb12727e)
 
-![image](https://github.com/NooraOlkkonen/palvelinten-hallinta/assets/165004946/c6f515e2-a3c2-4b80-93b5-c071174625d5)
+  ![image](https://github.com/NooraOlkkonen/palvelinten-hallinta/assets/165004946/c6f515e2-a3c2-4b80-93b5-c071174625d5)
 
-![image](https://github.com/NooraOlkkonen/palvelinten-hallinta/assets/165004946/4825add4-ffb4-46c8-aad2-212f8f7271cb)
+  ![image](https://github.com/NooraOlkkonen/palvelinten-hallinta/assets/165004946/4825add4-ffb4-46c8-aad2-212f8f7271cb)
 
 ## Firefox-selaimen aloitussivun muuttaminen n003-orjakoneelle
+
+- Muutin ensin n003-orjakoneella itse Firefox-selaimen kautta selaimen aloitussivuksi Haaga-Helia ammattikorkeakoulun internetsivun.
+
+  ![kuva](https://github.com/NooraOlkkonen/palvelinten-hallinta/assets/165004946/de3cb076-94a7-4f14-8b35-be9d956f4ff1)
+
+- Etsin n003-koneen kotihakemistosta viimeisimmäksi muokatut tiedostot komennolla ```find -printf "%T+ %p\n"|sort```, eli siten pääsin käsiksi Firefoxin konfiguraatiotiedostoon **./.mozilla/firefox/mtzkiqmp.default-esr/prefs.js**
+
+  ![kuva](https://github.com/NooraOlkkonen/palvelinten-hallinta/assets/165004946/f3a08f57-4d5f-4d77-a620-4bcd587e2de5)
+
+- Löysin konfiguraatiotiedostosta tekemäni muutoksen aloitussivua koskien.
+
+  ![kuva](https://github.com/NooraOlkkonen/palvelinten-hallinta/assets/165004946/2a19bd9b-3fb4-4ee8-9638-eb6dad90d1dd)
+
+- Loin n001-koneelle /srv/salt/packages003-hakemistoon prefs.js-tiedoston, johon kopioin n003-koneen Firefox-konfiguraatiotiedoston sisällön. Sitten muokkasin packages003-moduulin init.sls-tiedoston sisältöä niin, että määritin n001-herrakoneen prefs.js-tiedoston siirtymään n003-orjakoneen Firefox-konfiguraatiotiedostoksi.
+
+  ![kuva](https://github.com/NooraOlkkonen/palvelinten-hallinta/assets/165004946/b72f42bd-b3a7-488f-af22-c8a39787df82)
+
+- Poistin Firefox-ohjelmiston uudelleen n003-orjakoneelta ja myös suoritin n001-herrakoneella uudelleen ohjelmistopakettien asennusta varten laaditut moduulit komennolla ```sudo salt '*' state.apply```. Firefox-esr-ohjelmistopaketti asentui uudelleen ja konfiguraatiotiedosto päivittyi.
+
+  ![kuva](https://github.com/NooraOlkkonen/palvelinten-hallinta/assets/165004946/4b20ff53-8c57-445c-b6a6-12e8a36d68db)
+
+  ![kuva](https://github.com/NooraOlkkonen/palvelinten-hallinta/assets/165004946/b3fc8fa1-1aca-49cd-82b2-c16e460b68a0)
+
+- Idempotenssin toteamiseksi suoritin uudelleen komennon ```sudo salt '*' state.apply```, eikä muutoksia tehty.
+
+  ![kuva](https://github.com/NooraOlkkonen/palvelinten-hallinta/assets/165004946/f0f2db7d-7e94-442f-8269-402ce2ac9e09)
+
+- Avasin Firefox-selaimen n003-orjakoneella graafisen käyttöliittymän kautta, jolloin aloitussivuna avautui onnistuneesti Haaga-Helian internetsivu.
+
+  ![kuva](https://github.com/NooraOlkkonen/palvelinten-hallinta/assets/165004946/de1b9318-c397-47d9-a433-4bde6461b47d)
+
