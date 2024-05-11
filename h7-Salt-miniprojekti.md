@@ -126,7 +126,7 @@ Varmistin idempotenssin suorittamalla vielä kerran komennon ```sudo salt '*' st
 
   ![image](https://github.com/NooraOlkkonen/palvelinten-hallinta/assets/165004946/fa0de499-86db-445e-9312-b97a75a5a47c)
 
-- n003-orjakoneen Forefox- ja Gimp-ohjelmistot, jotka avasin graafisella käyttäjäliittymällä:
+- n003-orjakoneen Firefox- ja Gimp-ohjelmistot, jotka avasin graafisen käyttäjäliittymän kautta:
 
   ![image](https://github.com/NooraOlkkonen/palvelinten-hallinta/assets/165004946/f1e123ae-7879-43b3-b99b-0213aefe6d1c)
 
@@ -136,13 +136,15 @@ Varmistin idempotenssin suorittamalla vielä kerran komennon ```sudo salt '*' st
 
   ![image](https://github.com/NooraOlkkonen/palvelinten-hallinta/assets/165004946/4825add4-ffb4-46c8-aad2-212f8f7271cb)
 
-## Firefox-selaimen aloitussivun muuttaminen n003-orjakoneelle
+## Firefox-selaimen aloitussivun määritys n003-orjakoneelle
 
-- Muutin ensin n003-orjakoneella itse Firefox-selaimen kautta selaimen aloitussivuksi Haaga-Helia ammattikorkeakoulun internetsivun.
+Haaga-Helia ammattikorkeakoulun internetsivun (www.haaga-helia.fi) määrittäminen Firefox-selaimen aloitussivuksi n001-herrakoneelta n003-orjakoneelle. 
+
+- Muutin ensin n003-orjakoneella selaimen aloitussivuksi Haaga-Helia ammattikorkeakoulun internetsivun itse Firefox-selaimen kautta.
 
   ![kuva](https://github.com/NooraOlkkonen/palvelinten-hallinta/assets/165004946/de3cb076-94a7-4f14-8b35-be9d956f4ff1)
 
-- Etsin n003-koneen kotihakemistosta viimeisimmäksi muokatut tiedostot komennolla ```find -printf "%T+ %p\n"|sort```, eli siten pääsin käsiksi Firefoxin konfiguraatiotiedostoon **./.mozilla/firefox/mtzkiqmp.default-esr/prefs.js**
+- Etsin n003-orjakoneen kotihakemistosta viimeisimmäksi muokatut tiedostot komennolla ```find -printf "%T+ %p\n"|sort```. Näin pääsin käsiksi Firefoxin konfiguraatiotiedostoon **./.mozilla/firefox/mtzkiqmp.default-esr/prefs.js**:
 
   ![kuva](https://github.com/NooraOlkkonen/palvelinten-hallinta/assets/165004946/f3a08f57-4d5f-4d77-a620-4bcd587e2de5)
 
@@ -150,11 +152,11 @@ Varmistin idempotenssin suorittamalla vielä kerran komennon ```sudo salt '*' st
 
   ![kuva](https://github.com/NooraOlkkonen/palvelinten-hallinta/assets/165004946/2a19bd9b-3fb4-4ee8-9638-eb6dad90d1dd)
 
-- Loin n001-koneelle /srv/salt/packages003-hakemistoon prefs.js-tiedoston, johon kopioin n003-koneen Firefox-konfiguraatiotiedoston sisällön. Sitten muokkasin packages003-moduulin init.sls-tiedoston sisältöä niin, että määritin n001-herrakoneen prefs.js-tiedoston siirtymään n003-orjakoneen Firefox-konfiguraatiotiedostoksi.
+- Loin n001-herrakoneelle /srv/salt/packages003/-hakemistoon prefs.js-tiedoston, johon kopioin n003-koneen Firefox-konfiguraatiotiedoston sisällön. Sitten muokkasin packages003-moduulin init.sls-tiedostoa, niin että määritin n001-herrakoneen prefs.js-tiedoston siirtymään n003-orjakoneen Firefox-konfiguraatiotiedostoksi (file.managed-funktio).
 
   ![kuva](https://github.com/NooraOlkkonen/palvelinten-hallinta/assets/165004946/b72f42bd-b3a7-488f-af22-c8a39787df82)
 
-- Poistin Firefox-ohjelmiston uudelleen n003-orjakoneelta ja myös suoritin n001-herrakoneella uudelleen ohjelmistopakettien asennusta varten laaditut moduulit komennolla ```sudo salt '*' state.apply```. Firefox-esr-ohjelmistopaketti asentui uudelleen ja konfiguraatiotiedosto päivittyi.
+- Poistin Firefox-ohjelmiston uudelleen n003-orjakoneelta ja suoritin n001-herrakoneella uudelleen ohjelmistopakettien asennusta varten laaditut moduulit komennolla ```sudo salt '*' state.apply```. Firefox-esr-ohjelmistopaketti asentui uudelleen ja konfiguraatiotiedosto päivittyi.
 
   ![kuva](https://github.com/NooraOlkkonen/palvelinten-hallinta/assets/165004946/4b20ff53-8c57-445c-b6a6-12e8a36d68db)
 
@@ -168,3 +170,20 @@ Varmistin idempotenssin suorittamalla vielä kerran komennon ```sudo salt '*' st
 
   ![kuva](https://github.com/NooraOlkkonen/palvelinten-hallinta/assets/165004946/de1b9318-c397-47d9-a433-4bde6461b47d)
 
+## Lähteet: 
+
+HashiCorp 2021: Virtualbox – Configuration. Luettavissa: https://developer.hashicorp.com/vagrant/docs/providers/virtualbox/configuration. Luettu: 7.5.2024. 
+
+Hackreveal 2023: How to Uninstall and Reinstall Firefox in Ubuntu. Luettavissa: https://hackreveals.medium.com/how-to-uninstall-and-reinstall-firefox-in-ubuntu-3a27ed2fa968. Luettu: 8.5.2024. 
+
+Karvinen 2018: Salt Quickstart – Salt Stack Master and Slave on Ubuntu Linux. Luettavissa: https://terokarvinen.com/2018/salt-quickstart-salt-stack-master-and-slave-on-ubuntu-linux/?fromSearch=salt%20quickstart%20salt%20stack%20master%20and%20slave%20on%20ubuntu%20linux. Luettu: 8.5.2024. 
+
+Karvinen 2018: Two Machine Virtual Network with Debian 11 Bullseye and Vagrant. Luettavissa: https://terokarvinen.com/2021/two-machine-virtual-network-with-debian-11-bullseye-and-vagrant/?fromSearch=vagrant. Luettu: 7.5.2024. 
+
+Kunnari 2019: Salt mini-project. Luettavissa: https://irenekunnari.wordpress.com/salt-mini-project/. Luettu: 8.5.2024. 
+
+Käyhkö 2019: Moduuliprojekti. Luettavissa: https://pakollinenlinuxblogi.wordpress.com/2019/05/15/moduuliprojekti/. Luettu: 8.5.2024. 
+
+Shane 2018: Adding a GUI to a Debian Vagrant box. Luettavissa: https://shanemcd.org/2018/12/16/adding-a-gui-to-a-debian-vagrant-box/. Luettu: 7.5.2024. 
+
+Tossavainen 2021: Oma moduli. Luettavissa: https://simotossavainen.wordpress.com/2021/05/19/h7-oma-moduli/. Luettu: 8.5.2024. 
