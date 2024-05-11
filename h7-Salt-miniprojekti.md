@@ -34,7 +34,7 @@ Käyttöjärjestelmän versio: 22H2
 
 Loin tarvitsemani virtuaalikoneet Vagrant-ohjelmiston avulla ja hallitsin niitä Vagrantin kautta ssh-yhteydellä. Olin asentanut Vagrant-ohjelmiston fyysiseen tietokoneeseeni jo aiemmin opintojakson aikana.
 
-Loin kolme virtuaalikonetta (n001, n002, n003). Käytin virtuaalikoneiden luonnissa pohjana opettaja Tero Karvisen [Vagrant-konfiguraatiotiedostoa](https://terokarvinen.com/2021/two-machine-virtual-network-with-debian-11-bullseye-and-vagrant/?fromSearch=vagrant). Muokkasin konfiguraatiotiedostoa haluamaksi opettajan ja kurssikaveri [Saku Laitisen](https://github.com/KebabGarva) avustuksella niin, että n003-virtuaalikoneeseen asentuu myös graafinen käyttöliittymä.
+Loin kolme virtuaalikonetta (n001, n002, n003). Käytin virtuaalikoneiden luonnissa pohjana opettaja Tero Karvisen [Vagrant-konfiguraatiotiedostoa](https://terokarvinen.com/2021/two-machine-virtual-network-with-debian-11-bullseye-and-vagrant/?fromSearch=vagrant). Muokkasin konfiguraatiotiedostoa haluamakseni opettajan ja kurssikaveri [Saku Laitisen](https://github.com/KebabGarva) avustuksella niin, että n003-virtuaalikoneeseen asentuu myös graafinen käyttöliittymä.
 
 Käyttämäni Vagrant-konfiguraatiotiedosto:
 
