@@ -84,7 +84,7 @@ Kahdelle virtuaalikoneelle asennetaan eri ohjelmistopaketit, joten tämän toteu
 
 ![image](https://github.com/NooraOlkkonen/palvelinten-hallinta/assets/165004946/a8fa7060-fa91-4453-bb7a-571240452803)
 
-## Ohjelmistopakettien asennus Salt-moduulien avulla
+## Salt-moduulien suorittaminen ohjelmistopakettien asentamiseksi
 
 Suoritin n001-herrakoneella komennon ```sudo salt '*' state.apply```, jolloin top.sls-tiedostossa määritetyt moduulit suoritettiin orjakoneille.
 
