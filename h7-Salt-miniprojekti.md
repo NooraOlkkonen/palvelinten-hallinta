@@ -80,7 +80,11 @@ Kahdelle virtuaalikoneelle asennetaan eri ohjelmistopaketit, joten tämän toteu
 
 ### 3. Salt-moduulien määrittäminen
 
-- Loin n001-herrakoneen /srv/salt/-hakemistoon top.sls-tiedoston, jossa määritin mitkä moduulit suoritetaan milläkin orjakoneella: n002-koneella packages002-moduuli ja n003-koneella packages003-moduuli.
+- Loin n001-herrakoneen /srv/salt/-hakemistoon top.sls-tiedoston, jossa määritin mitkä moduulit suoritetaan milläkin orjakoneella:
+
+  - n002-koneella packages002-moduuli
+  
+  - n003-koneella packages003-moduuli
 
   ![image](https://github.com/NooraOlkkonen/palvelinten-hallinta/assets/165004946/a8fa7060-fa91-4453-bb7a-571240452803)
 
