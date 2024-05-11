@@ -58,7 +58,7 @@ Testasin herra-orja-arkkitehtuurin toimivuuden suorittamalla yksinkertaisen echo
 
 ![kuva](https://github.com/NooraOlkkonen/palvelinten-hallinta/assets/165004946/63f7918f-44c6-4cd4-98a5-79c0d9d26669)
 
-## Salt-moduulien luonti
+## Salt-moduulien luonti ohjelmistopakettien asentamista varten
 
 Kahdelle virtuaalikoneelle asennetaan eri ohjelmistopaketit, joten tämän toteuttamiseksi tarvitsi luoda kaksi erilaista Salt-moduulia. Loin moduuleja varten n001-herrakoneelle /srv/salt/-hakemiston.
 
