@@ -40,7 +40,7 @@ Käyttämäni Vagrant-konfiguraatiotiedosto:
 
 ![kuva](https://github.com/NooraOlkkonen/palvelinten-hallinta/assets/165004946/4df36cdb-54f9-408b-8622-81fd9ecaeb31)
 
-Vagrant-konfiguraatiotiedoston määritykset eivät riittäneet graafisen käyttöliittymän saamiseksi n003-koneelle, vaan se tuli vielä erikseen asentaa komennolla ```sudo tasksel install xfce-desktop```. Jouduin myös vaihtamaan  vagrant-käyttäjän salasanan haluamakseni ssh-yhteyden kautta, jotta pääsin kirjautumaan koneelle graafisen käyttöliittymän kautta.
+Vagrant-konfiguraatiotiedoston määritykset eivät riittäneet graafisen käyttöliittymän saamiseksi n003-koneelle, vaan se tuli vielä erikseen asentaa komennolla ```sudo tasksel install xfce-desktop```. Jouduin myös vaihtamaan vagrant-käyttäjän salasanan haluamakseni ssh-yhteydellä, jotta pääsin kirjautumaan koneelle graafisen käyttöliittymän kautta.
 
 Poistin tässä vaiheessa n003-orjakoneelta Firefox-ohjelmiston, koska se oli asennettuna siihen valmiiksi. Ennen poistoa tarkistin komennolla ```dpkg -l | grep firefox``` mitä Firefox-paketteja koneessa oli. Varmistin ohjelmiston onnistuneen poiston suorittamalla saman komennon uudelleen poiston jälkeen. 
 
