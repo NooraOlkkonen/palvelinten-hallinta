@@ -8,6 +8,8 @@ Usean virtuaalikoneen hallitseminen, hyödyllisten ohjelmistojen asentaminen hal
 
 ![image](https://github.com/NooraOlkkonen/palvelinten-hallinta/assets/165004946/150f3bb9-7f33-4df6-b099-0ce6150b7b54)
 
+Projektissani loin edellä olevan kuvan mukaisen asetelman, jonka avulla tarkoituksenani oli havainnollistaa miten Saltin herra-orja-arkkitehtuuria käyttämällä voidaan hallita erityyppisiä tietokoneita. Käytin n002-konetta havainnollistamaan palvelintietokonetta ja n003-konetta puolestaan tavallista käyttäjätietokonetta, jossa on graafinen käyttöliittymä.
+
 ## Miniprojektissa käytetyt teknologiat
 
 Fyysinen tietokone: VirtualBox versio 7.0.14, Vagrant versio 2.4.1
@@ -82,7 +84,7 @@ Kahdelle virtuaalikoneelle asennetaan eri ohjelmistopaketit, joten tämän toteu
 
 ![image](https://github.com/NooraOlkkonen/palvelinten-hallinta/assets/165004946/a8fa7060-fa91-4453-bb7a-571240452803)
 
-## Salt-moduulien suorittaminen
+## Ohjelmistopakettien asennus Salt-moduulien avulla
 
 Suoritin n001-herrakoneella komennon ```sudo salt '*' state.apply```, jolloin top.sls-tiedostossa määritetyt moduulit suoritettiin orjakoneille.
 
@@ -135,5 +137,4 @@ Varmistin idempotenssin suorittamalla vielä kerran komennon ```sudo salt '*' st
 
 ![image](https://github.com/NooraOlkkonen/palvelinten-hallinta/assets/165004946/4825add4-ffb4-46c8-aad2-212f8f7271cb)
 
-
-
+## Firefox-selaimen aloitussivun muuttaminen n003-orjakoneelle
