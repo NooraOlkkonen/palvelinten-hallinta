@@ -174,7 +174,7 @@ Haaga-Helia ammattikorkeakoulun internetsivun (www.haaga-helia.fi) määrittämi
 
   ![kuva](https://github.com/NooraOlkkonen/palvelinten-hallinta/assets/165004946/de1b9318-c397-47d9-a433-4bde6461b47d)
 
-## Lähteet: 
+## Lähteet
 
 HashiCorp 2021: Virtualbox – Configuration. Luettavissa: https://developer.hashicorp.com/vagrant/docs/providers/virtualbox/configuration. Luettu: 7.5.2024. 
 
