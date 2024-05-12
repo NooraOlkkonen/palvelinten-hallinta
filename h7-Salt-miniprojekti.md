@@ -34,7 +34,7 @@ Käyttöjärjestelmän versio: 22H2
 
 Loin tarvitsemani virtuaalikoneet Vagrant-ohjelmiston avulla ja hallitsin niitä Vagrantin kautta ssh-yhteydellä. Olin asentanut Vagrant-ohjelmiston fyysiseen tietokoneeseeni jo aiemmin opintojakson aikana.
 
-Loin kolme virtuaalikonetta (n001, n002, n003). Käytin virtuaalikoneiden luonnissa pohjana opettaja Tero Karvisen [Vagrant-konfiguraatiotiedostoa](https://terokarvinen.com/2021/two-machine-virtual-network-with-debian-11-bullseye-and-vagrant/?fromSearch=vagrant). Muokkasin konfiguraatiotiedostoa haluamakseni opettajan ja kurssikaveri [Saku Laitisen](https://github.com/KebabGarva) avustuksella niin, että n003-virtuaalikoneeseen asentuu myös graafinen käyttöliittymä.
+Loin kolme virtuaalikonetta (n001, n002, n003). Käytin virtuaalikoneiden luonnissa pohjana opettaja Tero Karvisen [Vagrant-konfiguraatiotiedostoa](https://terokarvinen.com/2021/two-machine-virtual-network-with-debian-11-bullseye-and-vagrant/?fromSearch=vagrant). Muokkasin konfiguraatiotiedostoa haluamakseni opettajan ja kurssikaveri [Saku Laitisen](https://github.com/KebabGarva) avustuksella niin, että n003-virtuaalikoneeseen asentui myös graafinen käyttöliittymä.
 
 Käyttämäni Vagrant-konfiguraatiotiedosto:
 
@@ -46,9 +46,9 @@ Poistin tässä vaiheessa n003-orjakoneelta Firefox-ohjelmiston, koska se oli as
 
 ![image](https://github.com/NooraOlkkonen/palvelinten-hallinta/assets/165004946/c9eb350d-2481-4d3f-a1e9-fe9ff527677f)
 
-## Saltin herra-orja-arkkitehtuurin luonti
+## Herra-orja-arkkitehtuurin luonti Saltilla
 
-Loin Saltilla [herra-orja-arkkitehtuurin](https://terokarvinen.com/2021/two-machine-virtual-network-with-debian-11-bullseye-and-vagrant/?fromSearch=vagrant):
+Loin Saltilla [herra-orja-arkkitehtuurin](https://terokarvinen.com/2018/salt-quickstart-salt-stack-master-and-slave-on-ubuntu-linux/?fromSearch=salt%20quickstart%20salt%20stack%20master%20and%20slave%20on%20ubuntu%20linux):
 
 - herrakone (Salt-master): n001
 
@@ -78,7 +78,7 @@ Kahdelle virtuaalikoneelle asennetaan eri ohjelmistopaketit, joten tämän toteu
 
   ![image](https://github.com/NooraOlkkonen/palvelinten-hallinta/assets/165004946/e3361462-a5d0-4da7-a49d-98bcd724c669)
 
-### 3. Salt-moduulien määrittäminen
+### 3. Salt-moduulien määrittäminen orjakoneille
 
 - Loin n001-herrakoneen /srv/salt/-hakemistoon top.sls-tiedoston, jossa määritin mitkä moduulit suoritetaan milläkin orjakoneella:
 
@@ -106,7 +106,7 @@ Pohdin Firefoxin asennuksen ohjelmaa ja etsin neuvoja googlettamalla. Päädyin 
 
 Suoritin uudelleen n001-herrakoneella komennon ```sudo salt '*' state.apply```, jolloin:
 
-- Micro- ja Tree-ohjelmistopaketit olivat jo asentuneet n003-orjakoneelle.
+- Micro- ja Tree-ohjelmistopaketit olivat jo asentuneet n002-orjakoneelle.
 
   ![image](https://github.com/NooraOlkkonen/palvelinten-hallinta/assets/165004946/325369e2-00e7-4331-ad1b-d72cf3a66286)
 
@@ -156,11 +156,11 @@ Haaga-Helia ammattikorkeakoulun internetsivun (www.haaga-helia.fi) määrittämi
 
   ![kuva](https://github.com/NooraOlkkonen/palvelinten-hallinta/assets/165004946/2a19bd9b-3fb4-4ee8-9638-eb6dad90d1dd)
 
-- Loin n001-herrakoneelle /srv/salt/packages003/-hakemistoon prefs.js-tiedoston, johon kopioin n003-koneen Firefox-konfiguraatiotiedoston sisällön. Sitten muokkasin packages003-moduulin init.sls-tiedostoa, niin että määritin n001-herrakoneen prefs.js-tiedoston siirtymään n003-orjakoneen Firefox-konfiguraatiotiedostoksi (file.managed-funktio).
+- Loin n001-herrakoneelle /srv/salt/packages003/-hakemistoon prefs.js-tiedoston, johon kopioin n003-koneelta Firefox-konfiguraatiotiedoston sisällön. Sitten muokkasin packages003-moduulin init.sls-tiedostoa, niin että määritin n001-herrakoneen prefs.js-tiedoston siirtymään n003-orjakoneen Firefox-konfiguraatiotiedostoksi (file.managed-funktio).
 
   ![kuva](https://github.com/NooraOlkkonen/palvelinten-hallinta/assets/165004946/b72f42bd-b3a7-488f-af22-c8a39787df82)
 
-- Poistin Firefox-ohjelmiston uudelleen n003-orjakoneelta ja suoritin n001-herrakoneella uudelleen ohjelmistopakettien asennusta varten laaditut moduulit komennolla ```sudo salt '*' state.apply```. Firefox-esr-ohjelmistopaketti asentui uudelleen ja konfiguraatiotiedosto päivittyi.
+- Poistin Firefox-ohjelmiston n003-orjakoneelta ja suoritin n001-herrakoneella uudelleen ohjelmistopakettien asennusta varten laaditut moduulit komennolla ```sudo salt '*' state.apply```. Firefox-esr-ohjelmistopaketti asentui uudelleen ja konfiguraatiotiedosto päivittyi.
 
   ![kuva](https://github.com/NooraOlkkonen/palvelinten-hallinta/assets/165004946/4b20ff53-8c57-445c-b6a6-12e8a36d68db)
 
@@ -187,6 +187,8 @@ Karvinen 2018: Two Machine Virtual Network with Debian 11 Bullseye and Vagrant. 
 Kunnari 2019: Salt mini-project. Luettavissa: https://irenekunnari.wordpress.com/salt-mini-project/. Luettu: 8.5.2024. 
 
 Käyhkö 2019: Moduuliprojekti. Luettavissa: https://pakollinenlinuxblogi.wordpress.com/2019/05/15/moduuliprojekti/. Luettu: 8.5.2024. 
+
+Packagecloud 2023: APT Cheat Sheet. Luettavissa: https://blog.packagecloud.io/apt-cheat-sheet/. Luettu: 8.5.2024.
 
 Shane 2018: Adding a GUI to a Debian Vagrant box. Luettavissa: https://shanemcd.org/2018/12/16/adding-a-gui-to-a-debian-vagrant-box/. Luettu: 7.5.2024. 
 
