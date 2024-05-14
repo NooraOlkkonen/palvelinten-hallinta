@@ -1,5 +1,9 @@
 # h7 Salt-miniprojekti
 
+Tekijä: Noora Olkkonen
+
+Lisenssi: GNU General Public License v3.0
+
 [Palvelinten hallinta -opintojakson](https://terokarvinen.com/2024/configuration-management-2024-spring/) lopuksi toteutettu miniprojekti, jossa käytin opintojaksolla oppimiani tekniikoita.
 
 ## Miniprojektin tarkoitus
